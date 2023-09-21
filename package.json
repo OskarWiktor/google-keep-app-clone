@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "sass": "^1.68.0",
+    "typescript": "^5.2.2"
+  }
+}
