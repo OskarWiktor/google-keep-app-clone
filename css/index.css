@@ -36,11 +36,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .navbar .navbar--menu .navbar--menu__icon {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  padding: 16px;
+  opacity: 0.55;
+  transition: ease-in 0.2s;
+}
+.navbar .navbar--menu .navbar--menu__icon:hover {
+  opacity: 1;
+  transition: ease-in 0.15s;
+}
+.navbar .navbar--menu:hover {
+  background-color: rgb(242, 243, 245);
+  border-radius: 24px;
 }
 .navbar .navbar--logo {
   display: flex;
@@ -76,10 +87,28 @@
   justify-content: center;
   align-items: center;
 }
-.navbar .navbar--search .navbar--search__wrapper .navbar--search__icon-search {
-  width: 16px;
-  height: 16px;
-  margin: 0px 10px 0px 20px;
+.navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+.navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper .search__icon-search {
+  width: 48px;
+  height: 48px;
+  padding: 16px;
+  opacity: 0.55;
+  transition: ease-in 0.2s;
+}
+.navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper .search__icon-search:hover {
+  opacity: 1;
+  transition: ease-in 0.15s;
+}
+.navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper {
+  background-color: rgb(242, 243, 245);
+  border-radius: 24px;
 }
 .navbar .navbar--search .navbar--search__wrapper .navbar--search__input {
   width: 30dvw;
@@ -91,10 +120,28 @@
 .navbar .navbar--search .navbar--search__wrapper .navbar--search__input:focus {
   outline: none;
 }
-.navbar .navbar--search .navbar--search__icon-cross {
-  width: 20px;
-  height: 20px;
-  margin: 0px 20px 0px 10px;
+.navbar .navbar--search .search--icon__cross-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+}
+.navbar .navbar--search .search--icon__cross-wrapper .search--icon-cross {
+  width: 48px;
+  height: 48px;
+  padding: 14px;
+  opacity: 0.55;
+  transition: ease-in 0.2s;
+  cursor: pointer;
+}
+.navbar .navbar--search .search--icon__cross-wrapper .search--icon-cross:hover {
+  opacity: 1;
+  transition: ease-in 0.15s;
+}
+.navbar .navbar--search .search--icon__cross-wrapper:hover {
+  background-color: rgb(242, 243, 245);
+  border-radius: 24px;
 }
 .navbar .navbar--icon-list {
   display: flex;
@@ -133,18 +180,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 .navbar .navbar--account .account--icon__wrapper .account--bg {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   background-color: rgb(124, 37, 255);
-  border-radius: 17px;
+  border-radius: 16px;
 }
 .navbar .navbar--account .account--icon__wrapper .account--letter {
   color: white;
@@ -152,7 +199,7 @@
 }
 .navbar .navbar--account .account--icon__wrapper:hover {
   background-color: rgb(242, 243, 245);
-  border-radius: 21px;
+  border-radius: 20px;
 }
 
 /*# sourceMappingURL=index.css.map */
