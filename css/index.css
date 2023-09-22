@@ -41,7 +41,7 @@
 .navbar .navbar--menu .navbar--menu__icon {
   width: 48px;
   height: 48px;
-  padding: 16px;
+  padding: 15px;
   opacity: 0.55;
   transition: ease-in 0.2s;
 }
@@ -88,17 +88,17 @@
   align-items: center;
 }
 .navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 48px;
   height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 .navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper .search__icon-search {
   width: 48px;
   height: 48px;
-  padding: 16px;
+  padding: 15px;
   opacity: 0.55;
   transition: ease-in 0.2s;
 }
@@ -106,7 +106,7 @@
   opacity: 1;
   transition: ease-in 0.15s;
 }
-.navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper {
+.navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper:hover {
   background-color: rgb(242, 243, 245);
   border-radius: 24px;
 }
@@ -121,19 +121,19 @@
   outline: none;
 }
 .navbar .navbar--search .search--icon__cross-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 48px;
   height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 .navbar .navbar--search .search--icon__cross-wrapper .search--icon-cross {
   width: 48px;
   height: 48px;
-  padding: 14px;
+  padding: 15px;
   opacity: 0.55;
   transition: ease-in 0.2s;
-  cursor: pointer;
 }
 .navbar .navbar--search .search--icon__cross-wrapper .search--icon-cross:hover {
   opacity: 1;
@@ -149,19 +149,19 @@
   align-items: center;
 }
 .navbar .navbar--icon-list .icon-list--icon__wrapper {
+  width: 48px;
+  height: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
-  height: 48px;
+  cursor: pointer;
 }
 .navbar .navbar--icon-list .icon-list--icon__wrapper .icon-list--icon {
   width: 48px;
   height: 48px;
-  padding: 14px;
+  padding: 15px;
   opacity: 0.55;
   transition: ease-in 0.2s;
-  cursor: pointer;
 }
 .navbar .navbar--icon-list .icon-list--icon__wrapper .icon-list--icon:hover {
   opacity: 1;
