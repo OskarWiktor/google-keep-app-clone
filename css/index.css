@@ -22,4 +22,137 @@
   text-decoration: none;
 }
 
+.navbar {
+  display: flex;
+  align-items: center;
+  width: 100dvw;
+  height: 64px;
+  border-bottom: 2px solid rgb(242, 243, 245);
+  padding: 6px;
+}
+.navbar .navbar--menu {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .navbar--menu .navbar--menu__icon {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+.navbar .navbar--logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 38px;
+}
+.navbar .navbar--logo .navbar--logo__img {
+  width: 40px;
+  height: auto;
+  cursor: pointer;
+}
+.navbar .navbar--logo .navbar--logo__title {
+  font: 400 22px "Product Sans", Arial, sans-serif;
+  color: rgb(97, 97, 97);
+  padding-left: 10px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.navbar .navbar--search {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 55dvw;
+  height: 48px;
+  background-color: rgb(242, 243, 245);
+  border-radius: 8px;
+  margin: 0px 38px;
+}
+.navbar .navbar--search .navbar--search__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .navbar--search .navbar--search__wrapper .navbar--search__icon-search {
+  width: 16px;
+  height: 16px;
+  margin: 0px 10px 0px 20px;
+}
+.navbar .navbar--search .navbar--search__wrapper .navbar--search__input {
+  width: 30dvw;
+  padding: 14px;
+  border: none;
+  background-color: rgb(242, 243, 245);
+  font-size: 16px;
+}
+.navbar .navbar--search .navbar--search__wrapper .navbar--search__input:focus {
+  outline: none;
+}
+.navbar .navbar--search .navbar--search__icon-cross {
+  width: 20px;
+  height: 20px;
+  margin: 0px 20px 0px 10px;
+}
+.navbar .navbar--icon-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .navbar--icon-list .icon-list--icon__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+}
+.navbar .navbar--icon-list .icon-list--icon__wrapper .icon-list--icon {
+  width: 48px;
+  height: 48px;
+  padding: 14px;
+  opacity: 0.55;
+  transition: ease-in 0.2s;
+  cursor: pointer;
+}
+.navbar .navbar--icon-list .icon-list--icon__wrapper .icon-list--icon:hover {
+  opacity: 1;
+  transition: ease-in 0.15s;
+}
+.navbar .navbar--icon-list .icon-list--icon__wrapper:hover {
+  background-color: rgb(242, 243, 245);
+  border-radius: 24px;
+}
+.navbar .navbar--account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar .navbar--account .account--icon__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+.navbar .navbar--account .account--icon__wrapper .account--bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  background-color: rgb(124, 37, 255);
+  border-radius: 17px;
+}
+.navbar .navbar--account .account--icon__wrapper .account--letter {
+  color: white;
+  font: 400 16px "Product Sans", Arial, sans-serif;
+}
+.navbar .navbar--account .account--icon__wrapper:hover {
+  background-color: rgb(242, 243, 245);
+  border-radius: 21px;
+}
+
 /*# sourceMappingURL=index.css.map */
