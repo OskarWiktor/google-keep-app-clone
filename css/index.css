@@ -42,7 +42,7 @@
   width: 48px;
   height: 48px;
   padding: 15px;
-  opacity: 0.55;
+  opacity: 0.65;
   transition: ease-in 0.2s;
 }
 .navbar .navbar--menu .navbar--menu__icon:hover {
@@ -68,6 +68,11 @@
   color: rgb(97, 97, 97);
   padding-left: 10px;
   cursor: pointer;
+}
+@media (max-width: 790px) {
+  .navbar .navbar--logo {
+    margin: 0px;
+  }
 }
 .navbar .navbar--search {
   display: flex;
@@ -97,12 +102,17 @@
   width: 48px;
   height: 48px;
   padding: 15px;
-  opacity: 0.55;
+  opacity: 0.65;
   transition: ease-in 0.2s;
 }
 .navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper .search__icon-search:hover {
   opacity: 1;
   transition: ease-in 0.15s;
+}
+@media (max-width: 790px) {
+  .navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper .search__icon-search {
+    justify-content: flex-end;
+  }
 }
 .navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper:hover {
   background-color: rgb(242, 243, 245);
@@ -119,6 +129,17 @@
 .navbar .navbar--search .navbar--search__wrapper .navbar--search__input:focus {
   outline: none;
 }
+@media (max-width: 790px) {
+  .navbar .navbar--search .navbar--search__wrapper .navbar--search__input {
+    display: none;
+  }
+}
+@media (max-width: 790px) {
+  .navbar .navbar--search .navbar--search__wrapper {
+    background-color: transparent;
+    justify-content: end;
+  }
+}
 .navbar .navbar--search .search--icon__cross-wrapper {
   width: 48px;
   height: 48px;
@@ -132,7 +153,7 @@
   width: 48px;
   height: 48px;
   padding: 15px;
-  opacity: 0.55;
+  opacity: 0.65;
   transition: ease-in 0.2s;
   display: none;
 }
@@ -146,6 +167,7 @@
 }
 .navbar .navbar--search .navbar--icon-list {
   display: flex;
+  margin-left: 12px;
 }
 .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper {
   width: 48px;
@@ -159,7 +181,7 @@
   width: 48px;
   height: 48px;
   padding: 15px;
-  opacity: 0.55;
+  opacity: 0.65;
   transition: ease-in 0.2s;
 }
 .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper .icon-list--icon:hover {
@@ -169,6 +191,16 @@
 .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper:hover {
   background-color: rgb(242, 243, 245);
   border-radius: 24px;
+}
+@media (max-width: 580px) {
+  .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper:nth-child(even) {
+    display: none;
+  }
+}
+@media (max-width: 790px) {
+  .navbar .navbar--search .navbar--icon-list {
+    margin-left: 0px;
+  }
 }
 .navbar .navbar--account {
   display: flex;
@@ -198,6 +230,11 @@
 .navbar .navbar--account .account--icon__wrapper:hover {
   background-color: rgb(242, 243, 245);
   border-radius: 20px;
+}
+@media (max-width: 1020px) {
+  .navbar .navbar--account {
+    margin-left: 0px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -33,6 +33,11 @@
       cursor: pointer;
     }
   }
+  @media (max-width: 790px) {
+    .navbar--logo {
+      margin: 0px;
+    }
+  }
   .navbar--search {
     display: flex;
     justify-content: space-between;
@@ -56,6 +61,11 @@
         .search__icon-search:hover {
           @include icons--hover;
         }
+        @media (max-width: 790px) {
+          .search__icon-search {
+            justify-content: flex-end;
+          }
+        }
       }
       .search--icon__wrapper:hover {
         @include icons-wrapper--hover;
@@ -71,7 +81,18 @@
       .navbar--search__input:focus {
         outline: none;
       }
+      @media (max-width: 790px) {
+        .navbar--search__input {
+          display: none;
+        }
+      }
     }
+    @media (max-width: 790px) {
+        .navbar--search__wrapper {
+          background-color: transparent;
+          justify-content: end
+        }
+      }
     .search--icon__cross-wrapper {
       @include icons-wrapper;
       display: none;
@@ -87,18 +108,29 @@
       @include icons-wrapper--hover;
     }
     .navbar--icon-list {
-        display: flex;
-        .icon-list--icon__wrapper {
-          @include icons-wrapper;
-          .icon-list--icon {
-            @include icons;
-          }
-          .icon-list--icon:hover {
-            @include icons--hover;
-          }
+      display: flex;
+      margin-left: 12px;
+      .icon-list--icon__wrapper {
+        @include icons-wrapper;
+        .icon-list--icon {
+          @include icons;
         }
-        .icon-list--icon__wrapper:hover {
-          @include icons-wrapper--hover;
+        .icon-list--icon:hover {
+          @include icons--hover;
+        }
+      }
+      .icon-list--icon__wrapper:hover {
+        @include icons-wrapper--hover;
+      }
+      @media (max-width: 580px) {
+        .icon-list--icon__wrapper:nth-child(even) {
+          display: none;
+        }
+      }
+    }
+    @media (max-width: 790px) {
+        .navbar--icon-list {
+          margin-left: 0px;
         }
       }
   }
@@ -130,6 +162,9 @@
     .account--icon__wrapper:hover {
       background-color: $light-blue-grey;
       border-radius: 20px;
+    }
+    @media (max-width: 1020px) {
+      margin-left: 0px;
     }
   }
 }
