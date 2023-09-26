@@ -1,135 +1,135 @@
 .navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 64px;
+  border-bottom: 2px solid $light-blue-grey;
+  padding: 6px;
+  .navbar--menu {
+    @include icons-wrapper;
+    .navbar--menu__icon {
+      @include icons;
+    }
+    .navbar--menu__icon:hover {
+      @include icons--hover;
+    }
+  }
+  .navbar--menu:hover {
+    @include icons-wrapper--hover;
+  }
+  .navbar--logo {
     display: flex;
     align-items: center;
-    width: 100dvw;
-    height: 64px;
-    border-bottom: 2px solid $light-blue-grey;
-    padding: 6px;
-    .navbar--menu {
+    margin: 0px 90px 0px 8px;
+    .navbar--logo__img {
+      width: 40px;
+      height: auto;
+      cursor: pointer;
+    }
+    .navbar--logo__title {
+      font: 400 22px "Product Sans", Arial, sans-serif;
+      color: rgb(97, 97, 97);
+      padding-left: 10px;
+      cursor: pointer;
+    }
+  }
+  .navbar--search {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    flex: 1 1 auto;
+
+    .navbar--search__wrapper {
+      display: flex;
+      align-items: center;
+      max-width: 720px;
+      height: 48px;
+      padding: 6px;
+      background-color: $light-blue-grey;
+      border-radius: 8px;
+      width: 100%;
+      .search--icon__wrapper {
         @include icons-wrapper;
-        .navbar--menu__icon {
-            @include icons;
+        .search__icon-search {
+          @include icons;
         }
-        .navbar--menu__icon:hover {
-            @include icons--hover;
+        .search__icon-search:hover {
+          @include icons--hover;
         }
-    }
-    .navbar--menu:hover {
-        @include icons-wrapper--hover
-    }
-    .navbar--logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-right: 38px;
-        .navbar--logo__img {
-            width: 40px;
-            height: auto;
-            cursor: pointer;
-        }
-        .navbar--logo__title {
-            font: 400 22px "Product Sans",Arial,sans-serif ;
-            color: rgb(97, 97, 97);
-            padding-left: 10px;
-            vertical-align: middle;
-            cursor: pointer;
-        }
-    }
-    .navbar--search {
-        display: flex;
-        justify-items: center;
-        align-items: center;
-        justify-content: space-between;
-        width: 55dvw;
-        height: 48px;
+      }
+      .search--icon__wrapper:hover {
+        @include icons-wrapper--hover;
+      }
+      .navbar--search__input {
+        width: 100%;
+        padding: 6px;
+        border: none;
         background-color: $light-blue-grey;
-        border-radius: 8px;
-        margin: 0px 38px;
-        .navbar--search__wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .search--icon__wrapper {
-                @include icons-wrapper;
-                .search__icon-search {
-                    @include icons;
-                }
-                .search__icon-search:hover {
-                    @include icons--hover;
-                }
-            }
-            .search--icon__wrapper:hover {
-                @include icons-wrapper--hover;
-            }
-            .navbar--search__input {
-                width: 30dvw;
-                padding: 14px;
-                border: none;
-                background-color: $light-blue-grey;
-                font-size: 16px;
-            }
-            .navbar--search__input:focus {
-                outline: none;
-            }
-        }
-        .search--icon__cross-wrapper {
-            @include icons-wrapper;
-            .search--icon-cross {
-                @include icons
-            }
-            .search--icon-cross:hover {
-                @include icons--hover;
-            }
-        }
-        .search--icon__cross-wrapper:hover {
-            @include icons-wrapper--hover;
-        }
+        font-size: 16px;
+        color: rgb(119, 119, 119);
+      }
+      .navbar--search__input:focus {
+        outline: none;
+      }
+    }
+    .search--icon__cross-wrapper {
+      @include icons-wrapper;
+      display: none;
+      .search--icon-cross {
+        @include icons;
+        display: none;
+      }
+      .search--icon-cross:hover {
+        @include icons--hover;
+      }
+    }
+    .search--icon__cross-wrapper:hover {
+      @include icons-wrapper--hover;
     }
     .navbar--icon-list {
         display: flex;
-        justify-content: center;
-        align-items: center;
         .icon-list--icon__wrapper {
-            @include icons-wrapper;
-            .icon-list--icon {
-                @include icons;
-            }
-            .icon-list--icon:hover {
-                @include icons--hover
-            }
+          @include icons-wrapper;
+          .icon-list--icon {
+            @include icons;
+          }
+          .icon-list--icon:hover {
+            @include icons--hover;
+          }
         }
         .icon-list--icon__wrapper:hover {
-            @include icons-wrapper--hover;
+          @include icons-wrapper--hover;
         }
-    }
-    .navbar--account {
+      }
+  }
+
+  .navbar--account {
+    display: flex;
+    margin-left: 20px;
+    .account--icon__wrapper {
+      display: flex;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      margin: 6px;
+      .account--bg {
         display: flex;
-        align-items: center;
         justify-content: center;
-        .account--icon__wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            .account--bg {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 32px;
-                height: 32px;
-                background-color: rgb(124, 37, 255);
-                border-radius: 16px;
-            }
-            .account--letter {
-                color: white;
-                font: 400 16px "Product Sans", Arial, sans-serif;
-            }
-        }
-        .account--icon__wrapper:hover {
-            background-color: $light-blue-grey;
-            border-radius: 20px;
-        }
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        background-color: rgb(124, 37, 255);
+        border-radius: 16px;
+      }
+      .account--letter {
+        color: white;
+        font: 400 16px "Product Sans", Arial, sans-serif;
+      }
     }
+    .account--icon__wrapper:hover {
+      background-color: $light-blue-grey;
+      border-radius: 20px;
+    }
+  }
 }
