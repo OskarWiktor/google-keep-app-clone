@@ -1,9 +1,13 @@
 .aside {
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
   padding: 6px;
   width: 60px;
-  transition: ease-in 0.2s;
+  height: 100vh;
+  z-index: 999;
+  transition: ease-in 0.1s;
+
   .aside--item__wrapper {
     display: flex;
     align-items: center;
@@ -26,26 +30,33 @@
     color: rgb(69, 69, 69);
     display: none;
     transition: ease-in 0.2s;
+    transition-delay: 0.5s;
   }
 }
 .aside:hover {
   width: 280px;
-  height: 100vh;
-  box-shadow: 5px 5px 10px #808080c4;
-  transition: ease-in 0.2s;
-
+  box-shadow: 5px 5px 10px #80808077;
+  transition: ease-in 0.1s;
+  transition-delay: 0.5s;
   .aside--item__wrapper {
     width: 100%;
+    cursor: pointer;
+
     .aside--icon__wrapper {
+      border-radius: 24px;
+
       .aside--icon {
       }
     }
   }
   .aside--item__wrapper:hover {
     background-color: $light-blue-grey;
-    border-radius: 24px;
+    border-radius: 0px 24px 24px 0px;
   }
   .aside--item__text {
+    overflow: hidden;
+    transition: ease-in 0.3s;
+    transition-delay: 0.5s;
     display: flex;
   }
 }
