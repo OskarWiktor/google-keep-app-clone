@@ -7,6 +7,7 @@
   padding: 6px;
   .navbar--menu {
     @include icons-wrapper;
+    margin-left: 6px;
     .navbar--menu__icon {
       @include icons;
     }
