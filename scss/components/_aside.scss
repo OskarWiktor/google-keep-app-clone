@@ -1,12 +1,12 @@
 .aside {
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
-  width: 60px;
+  width: 80px;
   height: 100vh;
   z-index: 999;
   transition: ease-in 0.1s;
-  padding-top: 6px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
   .aside--item__wrapper {
     display: flex;
     align-items: center;
@@ -28,6 +28,9 @@
       border-radius: 24px;
     }
   }
+  .aside--item__wrapper:first-of-type {
+    margin-top: 6px;
+  }
   .aside--item__text {
     font: bold 13px "Product Sans", Arial, sans-serif;
     padding-left: 24px;
@@ -45,10 +48,10 @@
   .aside--item__wrapper {
     width: 100%;
     cursor: pointer;
-
     .aside--icon__wrapper {
-
+      @include icons-wrapper;
       .aside--icon {
+        @include icons;
       }
     }
   }

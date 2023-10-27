@@ -21,7 +21,7 @@
   .navbar--logo {
     display: flex;
     align-items: center;
-    margin: 0px 90px 0px 8px;
+    margin: 0px 90px 0px 4px;
     .navbar--logo__img {
       width: 40px;
       height: auto;
@@ -30,7 +30,7 @@
     .navbar--logo__title {
       font: 400 22px "Product Sans", Arial, sans-serif;
       color: rgb(97, 97, 97);
-      padding-left: 10px;
+      padding-left: 8px;
       cursor: pointer;
     }
   }
@@ -50,8 +50,7 @@
       align-items: center;
       max-width: 720px;
       height: 48px;
-      padding: 6px;
-      background-color: $light-blue-grey;
+      background-color: rgb(242, 243, 245);
       border-radius: 8px;
       width: 100%;
       .search--icon__wrapper {
@@ -75,7 +74,7 @@
         width: 100%;
         padding: 6px;
         border: none;
-        background-color: $light-blue-grey;
+        background-color: rgb(242, 243, 245);
         font-size: 16px;
         color: rgb(119, 119, 119);
       }
@@ -110,6 +109,7 @@
     }
     .navbar--icon-list {
       display: flex;
+      align-items: center;
       margin-left: 12px;
       .icon-list--icon__wrapper {
         @include icons-wrapper;
@@ -142,6 +142,7 @@
     .account--icon__wrapper {
       display: flex;
       align-items: center;
+      justify-content: center;
       width: 40px;
       height: 40px;
       cursor: pointer;
