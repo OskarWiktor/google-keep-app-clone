@@ -266,21 +266,46 @@
     </aside>
 
 
-    <div class="notes--container">
-
+    <div class="add-new--container">
 
       <div class="add-new__wrapper">
-        <input class="add-new--input" type="text" placeholder="Utwórz notatkę...">
-        <div class="add-new--icon__wrapper">
-          <img class="add-new--icon" src="./assets/check_box_FILL0_wght400_GRAD0_opsz24.svg" width="48px" height="48px"></img>
+        <div class="add-new--title__wrapper">
+          <input id="title--input" class="title--input" type="text" placeholder="Tytuł">
         </div>
-        <div class="add-new--icon__wrapper">
-          <img class="add-new--icon" src="./assets/image_FILL0_wght400_GRAD0_opsz24.svg" width="48px" height="48px"></img>
+        <div class="add-new--text__wrapper">
+          <input id="text--input" class="text--input" type="text" placeholder="Utwórz notatkę...">
+
+          <div class="text--icon__wrapper">
+            <img class="text--icon" src="./assets/check_box_FILL0_wght400_GRAD0_opsz24.svg" width="48px" height="48px"></img>
+          </div>
+
+          <div class="text--icon__wrapper">
+            <img class="text--icon" src="./assets/image_FILL0_wght400_GRAD0_opsz24.svg" width="48px" height="48px"></img>
+          </div>
         </div>
+        <div class="add-new--edit__wrapper">
+          <div class="edit--icons__wrapper">
+            <img class="icons--icon" src="./assets/image_FILL0_wght400_GRAD0_opsz24.svg" width="48px" height="48px"></img>
+            <img class="icons--icon" src="./assets/image_FILL0_wght400_GRAD0_opsz24.svg" width="48px" height="48px"></img>
+            <img class="icons--icon" src="./assets/image_FILL0_wght400_GRAD0_opsz24.svg" width="48px" height="48px"></img>
+            <img class="icons--icon" src="./assets/image_FILL0_wght400_GRAD0_opsz24.svg" width="48px" height="48px"></img>
+            <img class="icons--icon" src="./assets/image_FILL0_wght400_GRAD0_opsz24.svg" width="48px" height="48px"></img>
+            <img class="icons--icon" src="./assets/image_FILL0_wght400_GRAD0_opsz24.svg" width="48px" height="48px"></img>
+            <img class="icons--icon" src="./assets/image_FILL0_wght400_GRAD0_opsz24.svg" width="48px" height="48px"></img>
+            <img class="icons--icon" src="./assets/image_FILL0_wght400_GRAD0_opsz24.svg" width="48px" height="48px"></img>
+          </div>
+          <button class="edit--button">Zamknij</button>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="notes__wrapper">
+      <div id="notes--list" class="notes--list">
       </div>
     </div>
 
     </main>
-
+    <script src="./js/script.js"></script>
   </body>
 </html>
