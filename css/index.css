@@ -464,15 +464,47 @@
 .notes__wrapper {
   display: flex;
   position: absolute;
+  width: calc(100% - 92px);
   margin-left: 92px;
   margin-top: 52px;
 }
 .notes__wrapper .notes--list {
-  width: 100%;
-  height: 300px;
-  display: flex;
-  flex-direction: row;
-  padding: 0px 48px;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 240px 240px 240px 240px 240px 240px 240px;
+}
+@media (max-width: 1820px) {
+  .notes__wrapper .notes--list {
+    grid-template-columns: 240px 240px 240px 240px 240px 240px;
+  }
+}
+@media (max-width: 1570px) {
+  .notes__wrapper .notes--list {
+    grid-template-columns: 240px 240px 240px 240px 240px;
+  }
+}
+@media (max-width: 1320px) {
+  .notes__wrapper .notes--list {
+    grid-template-columns: 240px 240px 240px 240px;
+  }
+}
+@media (max-width: 1080px) {
+  .notes__wrapper .notes--list {
+    grid-template-columns: 240px 240px 240px;
+  }
+}
+@media (max-width: 830px) {
+  .notes__wrapper .notes--list {
+    grid-template-columns: 240px 240px;
+  }
+}
+@media (max-width: 580px) {
+  .notes__wrapper .notes--list {
+    grid-template-columns: 100%;
+  }
 }
 .notes__wrapper .notes--list .note {
   display: flex;
