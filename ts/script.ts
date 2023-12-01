@@ -1,3 +1,5 @@
+type NoteType = string | number | null;
+
 class OpenNote {
   protected textInput: HTMLInputElement;
   protected titleInput: HTMLInputElement;
@@ -5,8 +7,8 @@ class OpenNote {
   protected wrapper: HTMLElement;
   protected closeButton: HTMLButtonElement;
 
-  protected noteText: string | number | null = "";
-  protected noteTitle: string | number | null = "";
+  protected noteText: NoteType = "";
+  protected noteTitle: NoteType = "";
 
   protected notesList: HTMLElement;
   protected notesWrapper: HTMLElement;

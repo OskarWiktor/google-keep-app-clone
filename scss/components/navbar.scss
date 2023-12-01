@@ -6,10 +6,10 @@
   border-bottom: 1px solid $light-blue-grey;
   padding: 6px;
   .navbar--menu {
-    @include icons-wrapper;
+    @include big-icons-wrapper;
     margin-left: 6px;
     .navbar--menu__icon {
-      @include icons;
+      @include big-icons;
     }
     .navbar--menu__icon:hover {
       @include icons--hover;
@@ -28,7 +28,7 @@
       cursor: pointer;
     }
     .navbar--logo__title {
-      font: 400 22px "Product Sans", Arial, sans-serif;
+      font: 400 $font-size--big "Product Sans", Arial, sans-serif;
       color: rgb(97, 97, 97);
       padding-left: 7px;
       cursor: pointer;
@@ -51,12 +51,12 @@
       max-width: 720px;
       height: 48px;
       background-color: rgb(242, 243, 245);
-      border-radius: 8px;
+      border-radius: $border-radius--big;
       width: 100%;
       .search--icon__wrapper {
-        @include icons-wrapper;
+        @include big-icons-wrapper;
         .search__icon-search {
-          @include icons;
+          @include big-icons;
         }
         .search__icon-search:hover {
           @include icons--hover;
@@ -94,10 +94,10 @@
         }
       }
     .search--icon__cross-wrapper {
-      @include icons-wrapper;
+      @include big-icons-wrapper;
       display: none;
       .search--icon-cross {
-        @include icons;
+        @include big-icons;
         display: none;
       }
       .search--icon-cross:hover {
@@ -112,9 +112,9 @@
       align-items: center;
       margin-left: 12px;
       .icon-list--icon__wrapper {
-        @include icons-wrapper;
+        @include big-icons-wrapper;
         .icon-list--icon {
-          @include icons;
+          @include big-icons;
         }
         .icon-list--icon:hover {
           @include icons--hover;
@@ -154,7 +154,7 @@
         width: 32px;
         height: 32px;
         background-color: rgb(124, 37, 255);
-        border-radius: 16px;
+        border-radius: $border-radius--circle;
       }
       .account--letter {
         color: white;
@@ -163,7 +163,7 @@
     }
     .account--icon__wrapper:hover {
       background-color: $light-blue-grey;
-      border-radius: 20px;
+      border-radius: $border-radius--circle;
     }
     @media (max-width: 1020px) {
       margin-left: 0px;

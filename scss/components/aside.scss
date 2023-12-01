@@ -12,9 +12,9 @@
     align-items: center;
     .aside--icon__wrapper {
       margin-left: 12px;
-      @include icons-wrapper;
+      @include big-icons-wrapper;
       .aside--icon {
-        @include icons;
+        @include big-icons;
       }
       .aside--icon:hover {
         @include icons--hover;
@@ -32,7 +32,7 @@
     margin-top: 7px;
   }
   .aside--item__text {
-    font: bold 13px "Product Sans", Arial, sans-serif;
+    font: bold $font-size--small "Product Sans", Arial, sans-serif;
     padding-left: 24px;
     color: rgb(69, 69, 69);
     display: none;
@@ -49,9 +49,9 @@
     width: 100%;
     cursor: pointer;
     .aside--icon__wrapper {
-      @include icons-wrapper;
+      @include big-icons-wrapper;
       .aside--icon {
-        @include icons;
+        @include big-icons;
       }
     }
   }

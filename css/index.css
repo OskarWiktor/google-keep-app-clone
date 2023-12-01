@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 * body {
   margin: 0;
@@ -65,7 +66,7 @@
   cursor: pointer;
 }
 .navbar .navbar--logo .navbar--logo__title {
-  font: 400 22px "Product Sans", Arial, sans-serif;
+  font: 400 21px "Product Sans", Arial, sans-serif;
   color: rgb(97, 97, 97);
   padding-left: 7px;
   cursor: pointer;
@@ -223,7 +224,7 @@
   width: 32px;
   height: 32px;
   background-color: rgb(124, 37, 255);
-  border-radius: 16px;
+  border-radius: 24px;
 }
 .navbar .navbar--account .account--icon__wrapper .account--letter {
   color: white;
@@ -231,7 +232,7 @@
 }
 .navbar .navbar--account .account--icon__wrapper:hover {
   background-color: rgb(230, 230, 230);
-  border-radius: 20px;
+  border-radius: 24px;
 }
 @media (max-width: 1020px) {
   .navbar .navbar--account {
@@ -285,7 +286,7 @@
   margin-top: 7px;
 }
 .aside .aside--item__text {
-  font: bold 13px "Product Sans", Arial, sans-serif;
+  font: bold 14px "Product Sans", Arial, sans-serif;
   padding-left: 24px;
   color: rgb(69, 69, 69);
   display: none;
@@ -341,14 +342,14 @@
   position: absolute;
   margin-left: 80px;
   width: calc(100% - 80px);
-  height: 170px;
+  height: 180px;
 }
 .add-new--container .add-new__wrapper {
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: clamp(240px, 90%, 600px);
-  height: 44px;
+  height: 48px;
   margin: 32px 0px;
   padding: 2px 10px;
   border-radius: 8px;
@@ -361,7 +362,7 @@
 }
 .add-new--container .add-new__wrapper .add-new--title__wrapper {
   align-items: center;
-  height: 44px;
+  height: 48px;
   display: none;
 }
 .add-new--container .add-new__wrapper .add-new--title__wrapper .title--input {
@@ -379,7 +380,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 44px;
+  height: 48px;
 }
 .add-new--container .add-new__wrapper .add-new--text__wrapper .text--input {
   width: 100%;
@@ -387,7 +388,7 @@
   border: none;
   margin: 8px;
   font-size: 18px;
-  color: rgb(0, 0, 0);
+  color: black;
 }
 .add-new--container .add-new__wrapper .add-new--text__wrapper .text--input:focus {
   outline: none;
@@ -408,29 +409,55 @@
   transition: ease-in 0.2s;
   padding: 11px;
 }
+.add-new--container .add-new__wrapper .add-new--text__wrapper .text--icon__wrapper .text--icon:hover {
+  opacity: 1;
+  transition: ease-in 0.15s;
+}
+.add-new--container .add-new__wrapper .add-new--text__wrapper .text--icon__wrapper:hover {
+  background-color: rgb(230, 230, 230);
+  border-radius: 24px;
+}
 .add-new--container .add-new__wrapper .add-new--edit__wrapper {
   align-items: center;
-  height: 44px;
+  height: 48px;
   justify-content: space-between;
   display: none;
 }
-.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__wrapper {
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container {
   display: flex;
+  gap: 14px;
 }
-.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__wrapper .icons--icon {
-  width: 48px;
-  height: 48px;
-  padding: 15px;
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .edit--icons__wrapper {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .edit--icons__wrapper .icons--icon {
+  width: 36px;
+  height: 36px;
+  padding: 8px;
   opacity: 0.65;
   transition: ease-in 0.2s;
-  padding: 14px;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .edit--icons__wrapper .icons--icon:hover {
+  opacity: 1;
+  transition: ease-in 0.15s;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .edit--icons__wrapper:hover {
+  background-color: rgb(230, 230, 230);
+  border-radius: 24px;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--button {
   padding: 8px 24px;
   font-size: 14px;
+  font-weight: bolder;
   background-color: transparent;
   border-radius: 4px;
   border: none;
+  color: rgb(66, 66, 66);
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--button:hover {
   background-color: rgba(225, 225, 225, 0.347);
@@ -438,7 +465,7 @@
 
 .add-new__wrapper.active {
   height: 132px;
-  box-shadow: 2px 2px 6px 0px rgba(45, 45, 45, 0.563);
+  box-shadow: 1px 1px 8px 0px rgba(24, 24, 24, 0.563);
 }
 .add-new__wrapper.active .add-new--title__wrapper {
   display: flex;
@@ -511,21 +538,21 @@
   flex-direction: column;
   width: 240px;
   height: fit-content;
-  padding: 16px 0px 0px 0px;
+  padding-top: 16px;
   border: 1px solid rgb(230, 230, 230);
   border-radius: 8px;
   margin: 4px;
   transition: 0.2s ease;
 }
 .notes__wrapper .notes--list .note .note--title {
-  padding: 0px 16px 0px 16px;
-  font-size: 19px;
+  padding: 0px 16px;
+  font-size: 18px;
   color: black;
 }
 .notes__wrapper .notes--list .note .note--text {
   padding: 12px 16px 61px 16px;
-  font-size: 20px;
-  color: rgb(30, 30, 30);
+  font-size: 19px;
+  color: rgb(59, 59, 59);
 }
 .notes__wrapper .notes--list .note:hover {
   box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.398);

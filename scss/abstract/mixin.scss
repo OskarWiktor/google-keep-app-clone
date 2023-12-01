@@ -1,4 +1,12 @@
-@mixin icons {
+@mixin small-icons {
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    opacity: 0.65;
+    transition: ease-in 0.2s;
+}
+
+@mixin big-icons {
     width: 48px;
     height: 48px;
     padding: 15px;
@@ -11,7 +19,16 @@
     transition: ease-in 0.15s;
 }
 
-@mixin icons-wrapper {
+@mixin small-icons-wrapper {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+@mixin big-icons-wrapper {
     width: 48px;
     height: 48px;
     display: flex;
@@ -22,5 +39,5 @@
 
 @mixin icons-wrapper--hover {
     background-color: $light-blue-grey;
-    border-radius: 24px;
+    border-radius: $border-radius--circle;
 }
