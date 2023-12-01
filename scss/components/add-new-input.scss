@@ -2,9 +2,9 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  margin-left: 80px;
-  width: calc(100% - 80px);
+  width: calc(100% - 64px);
   height: 180px;
+  margin-left: 64px;
 
   .add-new__wrapper {
     display: flex;
@@ -12,11 +12,11 @@
     flex-direction: column;
     width: clamp(240px, 90%, 600px);
     height: 48px;
-    margin: 32px 0px;
+    margin: 32px 0px 32px 24px;
     padding: 2px 10px;
     border-radius: $border-radius--big;
     box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.563);
-
+    
     @media (max-width: 580px) {
       margin: 18px 0px;
     }
@@ -83,10 +83,11 @@
         gap: 14px;
         .edit--icons__wrapper {
           @include small-icons-wrapper;
-          .icons--icon {
+          .material-symbols-outlined {
             @include small-icons;
+            font-size: 18px;
           }
-          .icons--icon:hover {
+          .material-symbols-outlined:hover {
             @include icons--hover;
           }
         }
