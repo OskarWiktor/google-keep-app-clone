@@ -4,7 +4,7 @@
   position: absolute;
   width: calc(100% - 64px);
   height: 180px;
-  margin-left: 64px;
+  margin-left: 54px;
 
   .add-new__wrapper {
     display: flex;
@@ -53,19 +53,16 @@
         font-size: $font-size--medium;
         color: black;
       }
-
       .text--input:focus {
         outline: none;
       }
-
       .text--icon__wrapper {
         @include big-icons-wrapper;
 
-        .text--icon {
+        .material-symbols-outlined {
           @include big-icons;
-          padding: 11px;
         }
-        .text--icon:hover {
+        .material-symbols-outlined:hover {
           @include icons--hover;
         }
       }
@@ -80,7 +77,7 @@
       display: none;
       .edit--icons__container {
         display: flex;
-        gap: 14px;
+        gap: 18px;
         .edit--icons__wrapper {
           @include small-icons-wrapper;
           .material-symbols-outlined {

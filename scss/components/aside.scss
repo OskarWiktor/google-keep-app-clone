@@ -13,10 +13,10 @@
     .aside--icon__wrapper {
       margin-left: 12px;
       @include big-icons-wrapper;
-      .aside--icon {
+      .material-symbols-outlined {
         @include big-icons;
       }
-      .aside--icon:hover {
+      .material-symbols-outlined:hover {
         @include icons--hover;
       }
     }

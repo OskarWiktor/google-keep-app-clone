@@ -8,10 +8,10 @@
   .navbar--menu {
     @include big-icons-wrapper;
     margin-left: 6px;
-    .navbar--menu__icon {
+    .material-symbols-outlined {
       @include big-icons;
     }
-    .navbar--menu__icon:hover {
+    .material-symbols-outlined:hover {
       @include icons--hover;
     }
   }
@@ -54,15 +54,16 @@
       border-radius: $border-radius--big;
       width: 100%;
       .search--icon__wrapper {
-        @include big-icons-wrapper;
-        .search__icon-search {
-          @include big-icons;
+        @include medium-icons-wrapper;
+        margin-left: 8px;
+        .material-symbols-outlined {
+          @include medium-icons;
         }
-        .search__icon-search:hover {
+        .material-symbols-outlined:hover {
           @include icons--hover;
         }
         @media (max-width: 790px) {
-          .search__icon-search {
+          .material-symbols-outlined {
             justify-content: flex-end;
           }
         }
@@ -113,10 +114,10 @@
       margin-left: 12px;
       .icon-list--icon__wrapper {
         @include big-icons-wrapper;
-        .icon-list--icon {
+        .material-symbols-outlined {
           @include big-icons;
         }
-        .icon-list--icon:hover {
+        .material-symbols-outlined:hover {
           @include icons--hover;
         }
       }
@@ -140,25 +141,22 @@
     display: flex;
     margin-left: 20px;
     .account--icon__wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
+      @include medium-icons-wrapper;
       margin: 6px;
-      .account--bg {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 32px;
-        height: 32px;
-        background-color: rgb(124, 37, 255);
-        border-radius: $border-radius--circle;
+      .material-symbols-outlined {
+        @include medium-icons;
       }
-      .account--letter {
-        color: white;
-        font: 400 16px "Product Sans", Arial, sans-serif;
+      .material-symbols-outlined:hover {
+        @include icons--hover;
+      }
+      .account--bg {
+        @include small-icons;
+        background-color: rgb(101, 0, 253);
+        border-radius: $border-radius--circle;
+        .account--letter {
+          color: white;
+          font: 400 16px "Product Sans", Arial, sans-serif;
+        }
       }
     }
     .account--icon__wrapper:hover {
