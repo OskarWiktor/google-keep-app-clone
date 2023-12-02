@@ -97,6 +97,12 @@
   border-radius: 8px;
   width: 100%;
 }
+@media (max-width: 790px) {
+  .navbar .navbar--search .navbar--search__wrapper {
+    background-color: transparent;
+    justify-content: end;
+  }
+}
 .navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper {
   display: flex;
   justify-content: center;
@@ -148,42 +154,46 @@
     display: none;
   }
 }
-@media (max-width: 790px) {
-  .navbar .navbar--search .navbar--search__wrapper {
-    background-color: transparent;
-    justify-content: end;
-  }
-}
-.navbar .navbar--search .search--icon-cross__wrapper {
+.navbar .navbar--search .navbar--search__wrapper .search--icon-cross__wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   display: none;
+  margin-right: 8px;
 }
-.navbar .navbar--search .search--icon-cross__wrapper .search--icon-cross {
+.navbar .navbar--search .navbar--search__wrapper .search--icon-cross__wrapper .material-symbols-outlined {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
-  height: 48px;
-  padding: 15px;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
   opacity: 0.65;
   transition: ease-in 0.2s;
-  display: none;
 }
-.navbar .navbar--search .search--icon-cross__wrapper .search--icon-cross:hover {
+.navbar .navbar--search .navbar--search__wrapper .search--icon-cross__wrapper .material-symbols-outlined:hover {
   opacity: 1;
   transition: ease-in 0.15s;
 }
-.navbar .navbar--search .search--icon-cross__wrapper:hover {
+.navbar .navbar--search .navbar--search__wrapper .search--icon-cross__wrapper:hover {
   background-color: rgb(230, 230, 230);
   border-radius: 24px;
+}
+.navbar .navbar--search .navbar--search__wrapper.active {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.398);
+}
+.navbar .navbar--search .navbar--search__wrapper.active .navbar--search__input {
+  background-color: rgb(255, 255, 255);
+}
+.navbar .navbar--search .navbar--search__wrapper.active .search--icon-cross__wrapper {
+  display: flex;
 }
 .navbar .navbar--search .navbar--icon-list {
   display: flex;

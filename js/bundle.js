@@ -9,10 +9,8 @@ class OpenNote {
         this.noteTitle = "";
         this.notesList = document.getElementById("notes--list");
         this.notesWrapper = document.getElementById("notes__wrapper");
-        if (this.textInput && this.wrapper && this.closeButton) {
-            this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
-            this.closeButton.addEventListener("click", this.handleClose.bind(this));
-        }
+        this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
+        this.closeButton.addEventListener("click", this.handleClose.bind(this));
     }
     handleInputFocus() {
         this.wrapper.classList.add("active");
@@ -50,12 +48,21 @@ class Note {
         this.title = title;
     }
 }
-const app = new OpenNote();
+const openNote = new OpenNote();
 class Search {
     constructor() {
         this.searchInput = document.getElementById("search--input");
         this.searchWrapper = document.querySelector(".navbar--search__wrapper");
         this.searchIconWrapper = document.getElementById("search--icon__wrapper");
         this.searchCrossIconWrapper = document.getElementById("search--icon-cross__wrapper");
+        this.searchInput.addEventListener("focus", this.handleSearchInputFocus.bind(this));
+        this.searchCrossIconWrapper.addEventListener("click", this.handleSearchCrossIcon.bind(this));
+    }
+    handleSearchInputFocus() {
+        this.searchWrapper.classList.add("active");
+    }
+    handleSearchCrossIcon() {
+        this.searchWrapper.classList.remove("active");
     }
 }
+const search = new Search();

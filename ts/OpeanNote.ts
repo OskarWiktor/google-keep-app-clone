@@ -26,13 +26,8 @@ class OpenNote {
   ) as HTMLElement;
 
   constructor() {
-    if (this.textInput && this.wrapper && this.closeButton) {
-      this.textInput.addEventListener(
-        "focus",
-        this.handleInputFocus.bind(this)
-      );
-      this.closeButton.addEventListener("click", this.handleClose.bind(this));
-    }
+    this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
+    this.closeButton.addEventListener("click", this.handleClose.bind(this));
   }
 
   handleInputFocus() {
@@ -76,4 +71,4 @@ class Note {
   constructor(public text: string, public title: string) {}
 }
 
-const app = new OpenNote();
+const openNote = new OpenNote();
