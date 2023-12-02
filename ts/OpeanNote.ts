@@ -1,32 +1,31 @@
 type NoteType = string | number | null;
 
 class OpenNote {
-  protected textInput: HTMLInputElement;
-  protected titleInput: HTMLInputElement;
+  protected textInput: HTMLInputElement = document.getElementById(
+    "text--input"
+  ) as HTMLInputElement;
+  protected titleInput: HTMLInputElement = document.getElementById(
+    "title--input"
+  ) as HTMLInputElement;
 
-  protected wrapper: HTMLElement;
-  protected closeButton: HTMLButtonElement;
+  protected wrapper: HTMLElement = document.querySelector(
+    ".add-new__wrapper"
+  ) as HTMLElement;
+  protected closeButton: HTMLButtonElement = document.querySelector(
+    ".edit--button"
+  ) as HTMLButtonElement;
 
   protected noteText: NoteType = "";
   protected noteTitle: NoteType = "";
 
-  protected notesList: HTMLElement;
-  protected notesWrapper: HTMLElement;
+  protected notesList: HTMLElement = document.getElementById(
+    "notes--list"
+  ) as HTMLElement;
+  protected notesWrapper: HTMLElement = document.getElementById(
+    "notes__wrapper"
+  ) as HTMLElement;
 
   constructor() {
-    this.textInput = document.getElementById("text--input") as HTMLInputElement;
-    this.titleInput = document.getElementById(
-      "title--input"
-    ) as HTMLInputElement;
-    this.wrapper = document.querySelector(".add-new__wrapper") as HTMLElement;
-    this.closeButton = document.querySelector(
-      ".edit--button"
-    ) as HTMLButtonElement;
-    this.notesList = document.getElementById("notes--list") as HTMLElement;
-    this.notesWrapper = document.getElementById(
-      "notes__wrapper"
-    ) as HTMLElement;
-
     if (this.textInput && this.wrapper && this.closeButton) {
       this.textInput.addEventListener(
         "focus",
@@ -47,7 +46,7 @@ class OpenNote {
     this.wrapper.classList.remove("active");
     this.notesWrapper.style.marginTop = "106px";
 
-    if ( this.noteText || this.noteTitle ) {
+    if (this.noteText || this.noteTitle) {
       const newNote = new Note(this.noteText, this.noteTitle);
       this.addNoteToList(newNote);
     }
@@ -62,15 +61,14 @@ class OpenNote {
     this.notesList.appendChild(noteItem);
 
     const noteTitle = document.createElement("h3");
-    noteTitle.classList.add("note--title")
+    noteTitle.classList.add("note--title");
     noteTitle.textContent = note.title;
-    noteItem.appendChild(noteTitle)
+    noteItem.appendChild(noteTitle);
 
     const noteText = document.createElement("p");
-    noteText.classList.add("note--text")
+    noteText.classList.add("note--text");
     noteText.textContent = note.text;
     noteItem.appendChild(noteText);
-
   }
 }
 

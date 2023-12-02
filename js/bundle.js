@@ -1,12 +1,12 @@
 "use strict";
 class OpenNote {
     constructor() {
-        this.noteText = "";
-        this.noteTitle = "";
         this.textInput = document.getElementById("text--input");
         this.titleInput = document.getElementById("title--input");
         this.wrapper = document.querySelector(".add-new__wrapper");
         this.closeButton = document.querySelector(".edit--button");
+        this.noteText = "";
+        this.noteTitle = "";
         this.notesList = document.getElementById("notes--list");
         this.notesWrapper = document.getElementById("notes__wrapper");
         if (this.textInput && this.wrapper && this.closeButton) {
@@ -51,3 +51,11 @@ class Note {
     }
 }
 const app = new OpenNote();
+class Search {
+    constructor() {
+        this.searchInput = document.getElementById("search--input");
+        this.searchWrapper = document.querySelector(".navbar--search__wrapper");
+        this.searchIconWrapper = document.getElementById("search--icon__wrapper");
+        this.searchCrossIconWrapper = document.getElementById("search--icon-cross__wrapper");
+    }
+}

@@ -94,7 +94,7 @@
           justify-content: end
         }
       }
-    .search--icon__cross-wrapper {
+    .search--icon-cross__wrapper {
       @include big-icons-wrapper;
       display: none;
       .search--icon-cross {
@@ -105,7 +105,7 @@
         @include icons--hover;
       }
     }
-    .search--icon__cross-wrapper:hover {
+    .search--icon-cross__wrapper:hover {
       @include icons-wrapper--hover;
     }
     .navbar--icon-list {
