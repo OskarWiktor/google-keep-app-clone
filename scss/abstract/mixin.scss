@@ -37,6 +37,7 @@
 }
 
 @mixin small-icons-wrapper {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,6 +50,7 @@
 }
 
 @mixin medium-icons-wrapper {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,6 +63,7 @@
 }
 
 @mixin big-icons-wrapper {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,4 +78,27 @@
 @mixin icons-wrapper--hover {
     background-color: $light-blue-grey;
     border-radius: $border-radius--circle;
+}
+
+@mixin small-tooltip {
+    position: absolute;
+    z-index: 1;
+    visibility: hidden;
+    width: max-content;
+    background-color: rgba(0, 0, 0, 0.628);
+    color: #fff;
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    top: 34px;
+}
+
+@mixin medium-tooltip {
+    @include small-tooltip;
+    top: 40px;
+}
+@mixin big-tooltip {
+    @include small-tooltip;
+    top: 48px;
 }

@@ -38,6 +38,24 @@
       .title--input:focus {
         outline: none;
       }
+      .title--icon__wrapper {
+        @include small-icons-wrapper;
+        .material-symbols-outlined {
+          @include medium-icons;
+        }
+        .tooltip--text {
+          @include small-tooltip;
+        }
+      }
+      .title--icon__wrapper:hover {
+        @include icons-wrapper--hover;
+        .material-symbols-outlined {
+          @include icons--hover;
+        }
+        .tooltip--text {
+          visibility: visible;
+        }
+      }
     }
     .add-new--text__wrapper {
       display: flex;
@@ -62,12 +80,19 @@
         .material-symbols-outlined {
           @include big-icons;
         }
-        .material-symbols-outlined:hover {
-          @include icons--hover;
+        .tooltip--text {
+          @include big-tooltip;
         }
       }
       .text--icon__wrapper:hover {
         @include icons-wrapper--hover;
+        .material-symbols-outlined:hover {
+          @include icons--hover;
+        }
+        .tooltip--text {
+          visibility: visible;
+        }
+  
       }
     }
     .add-new--edit__wrapper {
@@ -84,12 +109,18 @@
             @include small-icons;
             font-size: 18px;
           }
-          .material-symbols-outlined:hover {
-            @include icons--hover;
+          .tooltip--text {
+            @include small-tooltip;
           }
         }
         .edit--icons__wrapper:hover {
           @include icons-wrapper--hover;
+          .material-symbols-outlined {
+            @include icons--hover;
+          }
+          .tooltip--text {
+            visibility: visible;
+          }
         }
       }
 
@@ -130,8 +161,4 @@
   .add-new--edit__wrapper {
     display: flex;
   }
-}
-
-.add-new__wrapper.active ~ .notes__wrapper {
-  margin-top: 200px;
 }

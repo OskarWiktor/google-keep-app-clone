@@ -11,12 +11,12 @@
     .material-symbols-outlined {
       @include big-icons;
     }
-    .material-symbols-outlined:hover {
-      @include icons--hover;
-    }
   }
   .navbar--menu:hover {
     @include icons-wrapper--hover;
+    .material-symbols-outlined {
+      @include icons--hover;
+    }
   }
   .navbar--logo {
     display: flex;
@@ -65,8 +65,9 @@
         .material-symbols-outlined {
           @include medium-icons;
         }
-        .material-symbols-outlined:hover {
-          @include icons--hover;
+        .tooltip--text {
+          @include big-tooltip;
+          font-weight: bolder;
         }
         @media (max-width: 790px) {
           .material-symbols-outlined {
@@ -76,6 +77,12 @@
       }
       .search--icon__wrapper:hover {
         @include icons-wrapper--hover;
+        .material-symbols-outlined {
+          @include icons--hover;
+        }
+        .tooltip--text {
+          visibility: visible;
+        }
       }
       .navbar--search__input {
         width: 100%;
@@ -94,19 +101,9 @@
         }
       }
       .search--icon-cross__wrapper {
-        @include medium-icons-wrapper;
         display: none;
         margin-right: 8px;
-        .material-symbols-outlined {
-          @include medium-icons;
-        }
-        .material-symbols-outlined:hover {
-          @include icons--hover;
-        }
-      }
-      .search--icon-cross__wrapper:hover {
-        @include icons-wrapper--hover;
-      }
+      }  
     }
     .navbar--search__wrapper.active {
       background-color: rgb(255, 255, 255);
@@ -115,7 +112,24 @@
         background-color: rgb(255, 255, 255);
       }
       .search--icon-cross__wrapper {
+        @include medium-icons-wrapper;
         display: flex;
+        .material-symbols-outlined {
+          @include medium-icons
+        }
+        .tooltip--text {
+          @include big-tooltip;
+          font-weight: bolder;
+        }
+      }
+      .search--icon-cross__wrapper:hover {
+        @include icons-wrapper--hover;
+        .material-symbols-outlined {
+          @include icons--hover
+        }
+        .tooltip--text {
+          visibility: visible;
+        }
       }
     }
 
@@ -128,12 +142,18 @@
         .material-symbols-outlined {
           @include big-icons;
         }
-        .material-symbols-outlined:hover {
-          @include icons--hover;
+        .tooltip--text {
+          @include big-tooltip;
         }
       }
       .icon-list--icon__wrapper:hover {
         @include icons-wrapper--hover;
+        .material-symbols-outlined {
+          @include icons--hover;
+        }
+        .tooltip--text {
+          visibility: visible;
+        }
       }
       @media (max-width: 580px) {
         .icon-list--icon__wrapper:nth-child(even) {
@@ -157,8 +177,9 @@
       .material-symbols-outlined {
         @include medium-icons;
       }
-      .material-symbols-outlined:hover {
-        @include icons--hover;
+      .tooltip--text {
+        @include medium-tooltip;
+        font-weight: bolder;
       }
       .account--bg {
         @include small-icons;
@@ -173,6 +194,12 @@
     .account--icon__wrapper:hover {
       background-color: $light-blue-grey;
       border-radius: $border-radius--circle;
+      .material-symbols-outlined {
+        @include icons--hover;
+      }
+      .tooltip--text {
+        visibility: visible;
+      }
     }
     @media (max-width: 1020px) {
       margin-left: 0px;
