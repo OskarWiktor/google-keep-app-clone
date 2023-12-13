@@ -28,6 +28,7 @@ class OpenNote {
   constructor() {
     this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
     this.closeButton.addEventListener("click", this.handleClose.bind(this));
+    document.addEventListener("click", this.handleDocumentClick.bind(this));
   }
 
   handleInputFocus() {
@@ -48,6 +49,22 @@ class OpenNote {
 
     this.noteText = this.textInput.value = "";
     this.noteTitle = this.titleInput.value = "";
+  }
+  handleDocumentClick(event: Event) {
+    if (!this.wrapper.contains(event.target as Node)) {
+      this.wrapper.classList.remove("active");
+      this.notesWrapper.style.marginTop = "106px";
+
+      this.noteText = this.textInput.value;
+      this.noteTitle = this.titleInput.value;
+
+      if (this.noteText || this.noteTitle) {
+        const newNote = new Note(this.noteText, this.noteTitle);
+        this.addNoteToList(newNote);
+      }
+      this.noteText = this.textInput.value = "";
+      this.noteTitle = this.titleInput.value = "";
+    }
   }
 
   addNoteToList(note: Note) {
