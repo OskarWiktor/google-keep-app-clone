@@ -55,14 +55,21 @@ class Search {
         this.searchWrapper = document.querySelector(".navbar--search__wrapper");
         this.searchIconWrapper = document.getElementById("search--icon__wrapper");
         this.searchCrossIconWrapper = document.getElementById("search--icon-cross__wrapper");
+        this.navbarMenu = document.getElementById("navbar--menu");
+        this.navbarLogo = document.getElementById("navbar--logo");
         this.searchInput.addEventListener("focus", this.handleSearchInputFocus.bind(this));
         this.searchCrossIconWrapper.addEventListener("click", this.handleSearchCrossIcon.bind(this));
+        this.searchIconWrapper.addEventListener("click", this.handleSearchInputFocus.bind(this));
     }
     handleSearchInputFocus() {
         this.searchWrapper.classList.add("active");
+        this.navbarMenu.classList.add("search-active");
+        this.navbarLogo.classList.add("search-active");
     }
     handleSearchCrossIcon() {
         this.searchWrapper.classList.remove("active");
+        this.navbarMenu.classList.remove("search-active");
+        this.navbarLogo.classList.remove("search-active");
     }
 }
 const search = new Search();

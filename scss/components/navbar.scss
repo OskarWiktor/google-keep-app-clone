@@ -5,6 +5,8 @@
   height: 64px;
   border-bottom: 1px solid $light-blue-grey;
   padding: 6px;
+  position: relative;
+  z-index: 2;
   .navbar--menu {
     @include big-icons-wrapper;
     margin-left: 6px;
@@ -12,6 +14,12 @@
       @include big-icons;
     }
   }
+  @media (max-width: 790px) {
+    .navbar--menu.search-active {
+      display: none;
+    }
+  }
+
   .navbar--menu:hover {
     @include icons-wrapper--hover;
     .material-symbols-outlined {
@@ -22,6 +30,7 @@
     display: flex;
     align-items: center;
     margin: 0px 90px 0px 4px;
+
     .navbar--logo__img {
       width: 40px;
       height: auto;
@@ -34,11 +43,16 @@
       cursor: pointer;
     }
   }
+
   @media (max-width: 790px) {
     .navbar--logo {
       margin: 0px;
     }
+    .navbar--logo.search-active {
+      display: none;
+    }
   }
+
   .navbar--search {
     display: flex;
     justify-content: space-between;
@@ -69,11 +83,6 @@
           @include big-tooltip;
           font-weight: bolder;
         }
-        @media (max-width: 790px) {
-          .material-symbols-outlined {
-            justify-content: flex-end;
-          }
-        }
       }
       .search--icon__wrapper:hover {
         @include icons-wrapper--hover;
@@ -91,15 +100,15 @@
         background-color: rgb(242, 243, 245);
         font-size: 16px;
         color: rgb(119, 119, 119);
+
+        @media (max-width: 790px) {
+          display: none;
+        }
       }
       .navbar--search__input:focus {
         outline: none;
       }
-      @media (max-width: 790px) {
-        .navbar--search__input {
-          display: none;
-        }
-      }
+
       .search--icon-cross__wrapper {
         display: none;
         margin-right: 8px;
@@ -108,8 +117,17 @@
     .navbar--search__wrapper.active {
       background-color: rgb(255, 255, 255);
       box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.398);
+
+      @media (max-width: 790px) {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.398);
+      }
       .navbar--search__input {
         background-color: rgb(255, 255, 255);
+
+        @media (max-width: 790px) {
+          display: flex;
+        }
       }
       .search--icon-cross__wrapper {
         @include medium-icons-wrapper;
