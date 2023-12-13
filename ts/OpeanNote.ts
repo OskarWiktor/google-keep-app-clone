@@ -81,6 +81,116 @@ class OpenNote {
     noteText.classList.add("note--text");
     noteText.textContent = note.text;
     noteItem.appendChild(noteText);
+
+
+    const noteCheckIconWrapper = document.createElement("div");
+    noteCheckIconWrapper.classList.add("note--check-icon__wrapper");
+    noteItem.appendChild(noteCheckIconWrapper);
+
+    const noteCheckIcon = document.createElement("span");
+    noteCheckIcon.classList.add("material-symbols-outlined");
+    noteCheckIcon.textContent = " check_circle ";
+    noteCheckIconWrapper.appendChild(noteCheckIcon);
+
+    const noteCheckIconTooltip = document.createElement("span");
+    noteCheckIconTooltip.classList.add("tooltip--text");
+    noteCheckIconTooltip.textContent = "Zaznacz notatkę";
+    noteCheckIconWrapper.appendChild(noteCheckIconTooltip)
+
+
+    const noteIconList = document.createElement("div");
+    noteIconList.classList.add("note--icons-list__wrapper");
+    noteItem.appendChild(noteIconList);
+
+
+    const noteIconReminderWrapper = document.createElement("div");
+    noteIconReminderWrapper.classList.add("note--icons__wrapper");
+    noteIconList.appendChild(noteIconReminderWrapper);
+
+    const noteIconReminder = document.createElement("span");
+    noteIconReminder.classList.add("material-symbols-outlined");
+    noteIconReminder.textContent = " add_alert ";
+    noteIconReminderWrapper.appendChild(noteIconReminder)
+
+    const noteIconReminderTooltip = document.createElement("span");
+    noteIconReminderTooltip.classList.add("tooltip--text");
+    noteIconReminderTooltip.textContent = "Przypomnij mi";
+    noteIconReminderWrapper.appendChild(noteIconReminderTooltip)
+
+
+    const noteIconAddPersonWrapper = document.createElement("div");
+    noteIconAddPersonWrapper.classList.add("note--icons__wrapper");
+    noteIconList.appendChild(noteIconAddPersonWrapper);
+
+    const noteIconAddPerson = document.createElement("span");
+    noteIconAddPerson.classList.add("material-symbols-outlined");
+    noteIconAddPerson.textContent = " person_add ";
+    noteIconAddPersonWrapper.appendChild(noteIconAddPerson)
+
+    const noteIconAddPersonTooltip = document.createElement("span");
+    noteIconAddPersonTooltip.classList.add("tooltip--text");
+    noteIconAddPersonTooltip.textContent = "Współpracownik";
+    noteIconAddPersonWrapper.appendChild(noteIconAddPersonTooltip)
+
+
+    const noteIconAddPaletteWrapper = document.createElement("div");
+    noteIconAddPaletteWrapper.classList.add("note--icons__wrapper");
+    noteIconList.appendChild(noteIconAddPaletteWrapper);
+
+    const noteIconAddPalette = document.createElement("span");
+    noteIconAddPalette.classList.add("material-symbols-outlined");
+    noteIconAddPalette.textContent = " palette ";
+    noteIconAddPaletteWrapper.appendChild(noteIconAddPalette)
+
+    const noteIconAddPaletteTooltip = document.createElement("span");
+    noteIconAddPaletteTooltip .classList.add("tooltip--text");
+    noteIconAddPaletteTooltip .textContent = "Opcje tła";
+    noteIconAddPaletteWrapper.appendChild(noteIconAddPaletteTooltip)
+
+
+    const noteIconImageWrapper = document.createElement("div");
+    noteIconImageWrapper.classList.add("note--icons__wrapper");
+    noteIconList.appendChild(noteIconImageWrapper);
+
+    const noteIconImage = document.createElement("span");
+    noteIconImage.classList.add("material-symbols-outlined");
+    noteIconImage.textContent = " image ";
+    noteIconImageWrapper.appendChild(noteIconImage)
+
+    const noteIconImageTooltip = document.createElement("span");
+    noteIconImageTooltip.classList.add("tooltip--text");
+    noteIconImageTooltip.textContent = "Dodaj obraz"
+    noteIconImageWrapper.appendChild(noteIconImageTooltip)
+
+
+    const noteIconArchiveWrapper = document.createElement("div");
+    noteIconArchiveWrapper.classList.add("note--icons__wrapper");
+    noteIconList.appendChild(noteIconArchiveWrapper);
+
+    const noteIconArchive = document.createElement("span");
+    noteIconArchive.classList.add("material-symbols-outlined");
+    noteIconArchive.textContent = " archive ";
+    noteIconArchiveWrapper.appendChild(noteIconArchive)
+
+    const noteIconArchiveTooltip = document.createElement("span");
+    noteIconArchiveTooltip.classList.add("tooltip--text");
+    noteIconArchiveTooltip.textContent = "Archiwizuj"
+    noteIconArchiveWrapper.appendChild(noteIconArchiveTooltip)
+
+
+    const noteIconMoreWrapper = document.createElement("div");
+    noteIconMoreWrapper.classList.add("note--icons__wrapper");
+    noteIconList.appendChild(noteIconMoreWrapper);
+
+    const noteIconMore = document.createElement("span");
+    noteIconMore.classList.add("material-symbols-outlined");
+    noteIconMore.textContent = " more_vert ";
+    noteIconMoreWrapper.appendChild(noteIconMore)
+
+    const noteIconMoreTooltip = document.createElement("span");
+    noteIconMoreTooltip.classList.add("tooltip--text");
+    noteIconMoreTooltip.textContent = "Więcej"
+    noteIconMoreWrapper.appendChild(noteIconMoreTooltip)
   }
 }
 

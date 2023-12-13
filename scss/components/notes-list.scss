@@ -1,9 +1,9 @@
 .notes__wrapper {
-    display: flex;
-    position: absolute;
-    width: calc(100% - 32px);
-    margin-left: 32px;
-    margin-top: 52px;
+  display: flex;
+  position: absolute;
+  width: calc(100% - 32px);
+  margin-left: 32px;
+  margin-top: 52px;
   .notes--list {
     width: fit-content;
     height: fit-content;
@@ -13,22 +13,22 @@
     grid-template-columns: 240px 240px 240px 240px 240px 240px 240px;
 
     @media (max-width: 1820px) {
-        grid-template-columns: 240px 240px 240px 240px 240px 240px;
+      grid-template-columns: 240px 240px 240px 240px 240px 240px;
     }
     @media (max-width: 1570px) {
-        grid-template-columns: 240px 240px 240px 240px 240px;
+      grid-template-columns: 240px 240px 240px 240px 240px;
     }
     @media (max-width: 1320px) {
-        grid-template-columns: 240px 240px 240px 240px;
+      grid-template-columns: 240px 240px 240px 240px;
     }
     @media (max-width: 1080px) {
-        grid-template-columns: 240px 240px 240px;
+      grid-template-columns: 240px 240px 240px;
     }
     @media (max-width: 830px) {
-        grid-template-columns: 240px 240px;
+      grid-template-columns: 240px 240px;
     }
     @media (max-width: 580px) {
-        grid-template-columns: 100%;
+      grid-template-columns: 100%;
     }
 
     .note {
@@ -41,19 +41,79 @@
       border-radius: $border-radius--big;
       margin: 4px;
       transition: 0.2s ease;
+      position: relative;
       .note--title {
         padding: 0px 16px;
         font-size: $font-size--medium;
         color: black;
       }
       .note--text {
-        padding: 12px 16px 61px 16px;
+        padding: 12px 16px 16px 16px;
         font-size: 19px;
         color: rgb(59, 59, 59);
       }
+      .note--check-icon__wrapper {
+        .material-symbols-outlined {
+          position: absolute;
+          top: -12px;
+          left: -12px;
+          opacity: 0;
+          cursor: pointer;
+        }
+        .tooltip--text {
+          @include small-tooltip;
+          position: absolute;
+          top: 10px;
+          left: -50px;
+        }
+      }
+      .note--check-icon__wrapper:hover {
+        .tooltip--text {
+          visibility: visible;
+        }
+      }
+
+      .note--icons-list__wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: fit-content;
+        padding: 16px 4px 8px 4px;
+        .note--icons__wrapper {
+          @include small-icons-wrapper;
+          opacity: 0;
+          .material-symbols-outlined {
+            @include small-icons;
+          }
+          .tooltip--text {
+            @include small-tooltip;
+          }
+        }
+        .note--icons__wrapper:hover {
+          @include icons-wrapper--hover;
+          .material-symbols-outlined {
+            @include icons--hover;
+          }
+          .tooltip--text {
+            visibility: visible;
+          }
+        }
+      }
     }
     .note:hover {
-        box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.398);
+      box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.398);
+
+      .note--check-icon__wrapper {
+        .material-symbols-outlined {
+          opacity: 1;
+        }
+      }
+
+      .note--icons-list__wrapper {
+        .note--icons__wrapper {
+          opacity: 1;
+        }
+      }
     }
   }
 }
