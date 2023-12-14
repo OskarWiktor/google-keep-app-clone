@@ -9,9 +9,13 @@ class OpenNote {
         this.noteTitle = "";
         this.notesList = document.getElementById("notes--list");
         this.notesWrapper = document.getElementById("notes__wrapper");
+        this.note = document.querySelectorAll(".note");
+        this.changeBackgroundIcon = document.getElementById("add--background");
+        this.changeBackgroundEditWrapper = document.querySelector(".add--background__wrapper");
         this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
         this.closeButton.addEventListener("click", this.handleClose.bind(this));
         document.addEventListener("click", this.handleDocumentClick.bind(this));
+        this.changeBackgroundIcon.addEventListener("click", this.handleAddBackground.bind(this));
     }
     handleInputFocus() {
         this.wrapper.classList.add("active");
@@ -28,6 +32,9 @@ class OpenNote {
         }
         this.noteText = this.textInput.value = "";
         this.noteTitle = this.titleInput.value = "";
+        this.textInput.style.backgroundColor = "white";
+        this.titleInput.style.backgroundColor = "white";
+        this.wrapper.style.backgroundColor = "white";
     }
     handleDocumentClick(event) {
         if (!this.wrapper.contains(event.target)) {
@@ -41,7 +48,22 @@ class OpenNote {
             }
             this.noteText = this.textInput.value = "";
             this.noteTitle = this.titleInput.value = "";
+            this.textInput.style.backgroundColor = "white";
+            this.titleInput.style.backgroundColor = "white";
+            this.wrapper.style.backgroundColor = "white";
         }
+    }
+    handleAddBackground() {
+        this.changeBackgroundEditWrapper.classList.toggle("active");
+        const colorEditDiv = document.querySelectorAll(".background--color");
+        colorEditDiv.forEach((colorEditDiv) => {
+            colorEditDiv.addEventListener("click", () => {
+                const backgroundColor = window.getComputedStyle(colorEditDiv).backgroundColor;
+                this.textInput.style.backgroundColor = backgroundColor;
+                this.titleInput.style.backgroundColor = backgroundColor;
+                this.wrapper.style.backgroundColor = backgroundColor;
+            });
+        });
     }
     addNoteToList(note) {
         const noteItem = document.createElement("div");
@@ -66,6 +88,17 @@ class OpenNote {
         noteCheckIconTooltip.classList.add("tooltip--text");
         noteCheckIconTooltip.textContent = "Zaznacz notatkę";
         noteCheckIconWrapper.appendChild(noteCheckIconTooltip);
+        const notePushPinWrapper = document.createElement("div");
+        notePushPinWrapper.classList.add("note--pin-icon__wrapper");
+        noteItem.appendChild(notePushPinWrapper);
+        const notePushPin = document.createElement("span");
+        notePushPin.classList.add("material-symbols-outlined");
+        notePushPin.textContent = " push_pin ";
+        notePushPinWrapper.appendChild(notePushPin);
+        const notePushPinTooltip = document.createElement("span");
+        notePushPinTooltip.classList.add("tooltip--text");
+        notePushPinTooltip.textContent = "Przypnij notatkę";
+        notePushPinWrapper.appendChild(notePushPinTooltip);
         const noteIconList = document.createElement("div");
         noteIconList.classList.add("note--icons-list__wrapper");
         noteItem.appendChild(noteIconList);

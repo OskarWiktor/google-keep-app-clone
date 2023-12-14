@@ -58,6 +58,7 @@
   width: 48px;
   height: 48px;
   padding: 15px;
+  font-size: 24px;
 }
 @media (max-width: 790px) {
   .navbar .navbar--menu.search-active {
@@ -290,6 +291,7 @@
   width: 48px;
   height: 48px;
   padding: 15px;
+  font-size: 24px;
 }
 .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper .tooltip--text {
   position: absolute;
@@ -445,6 +447,7 @@
   width: 48px;
   height: 48px;
   padding: 15px;
+  font-size: 24px;
 }
 .aside .aside--item__wrapper .aside--icon__wrapper .material-symbols-outlined:hover {
   opacity: 1;
@@ -504,6 +507,7 @@
   width: 48px;
   height: 48px;
   padding: 15px;
+  font-size: 24px;
 }
 .aside:hover .aside--item__wrapper:hover {
   transition-delay: 0.3s;
@@ -540,6 +544,7 @@
   padding: 2px 10px;
   border-radius: 8px;
   box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.563);
+  background-color: white;
 }
 @media (max-width: 580px) {
   .add-new--container .add-new__wrapper {
@@ -651,6 +656,7 @@
   width: 48px;
   height: 48px;
   padding: 15px;
+  font-size: 24px;
 }
 .add-new--container .add-new__wrapper .add-new--text__wrapper .text--icon__wrapper .tooltip--text {
   position: absolute;
@@ -684,6 +690,7 @@
   display: none;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container {
+  position: relative;
   display: flex;
   gap: 18px;
 }
@@ -720,6 +727,77 @@
   border-radius: 4px;
   font-size: 12px;
   top: 34px;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 30px;
+  left: 68px;
+  width: 460px;
+  height: 100px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid rgb(230, 230, 230);
+  box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.171);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 50%;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  padding: 8px 14px 8px 14px;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color {
+  width: 32px;
+  height: 32px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--coral {
+  background-color: rgb(250, 180, 174);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--peach {
+  background-color: rgb(255, 175, 129);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--pale-pink {
+  background-color: rgb(254, 243, 186);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--pistachio {
+  background-color: rgb(210, 235, 196);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--mint {
+  background-color: rgb(172, 224, 202);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--light-grey {
+  background-color: rgb(214, 232, 240);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--storm {
+  background-color: rgb(179, 210, 224);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--dusk {
+  background-color: rgb(200, 183, 206);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--flower {
+  background-color: rgb(250, 223, 223);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--clay {
+  background-color: rgb(235, 227, 211);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--grey {
+  background-color: rgb(235, 235, 235);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color:hover {
+  border: 2px solid black;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper {
+  width: 100%;
+  height: 50%;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper.active {
+  display: flex;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .edit--icons__wrapper:hover {
   background-color: rgb(230, 230, 230);
@@ -859,6 +937,62 @@
 .notes__wrapper .notes--list .note .note--check-icon__wrapper:hover .tooltip--text {
   visibility: visible;
 }
+.notes__wrapper .notes--list .note .note--pin-icon__wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  top: 4px;
+  right: 12px;
+  opacity: 0;
+  cursor: pointer;
+}
+.notes__wrapper .notes--list .note .note--pin-icon__wrapper .material-symbols-outlined {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.65;
+  transition: ease-in 0.2s;
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  font-size: 24px;
+}
+.notes__wrapper .notes--list .note .note--pin-icon__wrapper .tooltip--text {
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+  width: max-content;
+  background-color: rgba(0, 0, 0, 0.628);
+  color: #fff;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  top: 34px;
+  position: absolute;
+  top: 34px;
+  right: -34px;
+}
+.notes__wrapper .notes--list .note .note--pin-icon__wrapper:hover {
+  background-color: rgb(230, 230, 230);
+  border-radius: 24px;
+}
+.notes__wrapper .notes--list .note .note--pin-icon__wrapper:hover .material-symbols-outlined {
+  opacity: 1;
+  transition: ease-in 0.15s;
+}
+.notes__wrapper .notes--list .note .note--pin-icon__wrapper:hover .tooltip--text {
+  visibility: visible;
+}
 .notes__wrapper .notes--list .note .note--icons-list__wrapper {
   display: flex;
   justify-content: space-between;
@@ -918,6 +1052,9 @@
   opacity: 1;
 }
 .notes__wrapper .notes--list .note:hover .note--icons-list__wrapper .note--icons__wrapper {
+  opacity: 1;
+}
+.notes__wrapper .notes--list .note:hover .note--pin-icon__wrapper {
   opacity: 1;
 }
 

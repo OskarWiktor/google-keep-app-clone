@@ -73,6 +73,33 @@
         }
       }
 
+      .note--pin-icon__wrapper {
+        @include small-icons-wrapper;
+        position: absolute;
+        top: 4px;
+        right: 12px;
+        opacity: 0;
+        cursor: pointer;
+        .material-symbols-outlined {
+          @include medium-icons
+        }
+        .tooltip--text {
+          @include small-tooltip;
+          position: absolute;
+          top: 34px;
+          right: -34px;
+        }
+      }
+      .note--pin-icon__wrapper:hover {
+        @include icons-wrapper--hover;
+        .material-symbols-outlined {
+          @include icons--hover;
+        }
+        .tooltip--text {
+          visibility: visible;
+        }
+      }
+
       .note--icons-list__wrapper {
         display: flex;
         justify-content: space-between;
@@ -113,6 +140,9 @@
         .note--icons__wrapper {
           opacity: 1;
         }
+      }
+      .note--pin-icon__wrapper {
+        opacity: 1;
       }
     }
   }
