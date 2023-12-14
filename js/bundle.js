@@ -12,6 +12,7 @@ class OpenNote {
         this.note = document.querySelectorAll(".note");
         this.changeBackgroundIcon = document.getElementById("add--background");
         this.changeBackgroundEditWrapper = document.querySelector(".add--background__wrapper");
+        this.activeColor = null;
         this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
         this.closeButton.addEventListener("click", this.handleClose.bind(this));
         document.addEventListener("click", this.handleDocumentClick.bind(this));
@@ -32,6 +33,7 @@ class OpenNote {
         }
         this.noteText = this.textInput.value = "";
         this.noteTitle = this.titleInput.value = "";
+        this.changeBackgroundEditWrapper.classList.remove("active");
         this.textInput.style.backgroundColor = "white";
         this.titleInput.style.backgroundColor = "white";
         this.wrapper.style.backgroundColor = "white";
@@ -48,6 +50,7 @@ class OpenNote {
             }
             this.noteText = this.textInput.value = "";
             this.noteTitle = this.titleInput.value = "";
+            this.changeBackgroundEditWrapper.classList.remove("active");
             this.textInput.style.backgroundColor = "white";
             this.titleInput.style.backgroundColor = "white";
             this.wrapper.style.backgroundColor = "white";
@@ -62,6 +65,11 @@ class OpenNote {
                 this.textInput.style.backgroundColor = backgroundColor;
                 this.titleInput.style.backgroundColor = backgroundColor;
                 this.wrapper.style.backgroundColor = backgroundColor;
+                if (this.activeColor instanceof HTMLElement) {
+                    this.activeColor.classList.remove("active");
+                }
+                colorEditDiv.classList.add("active");
+                this.activeColor = colorEditDiv;
             });
         });
     }

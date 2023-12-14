@@ -28,7 +28,7 @@
   align-items: center;
   width: 100%;
   height: 64px;
-  border-bottom: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgba(65, 65, 65, 0.086);
   padding: 6px;
   position: relative;
   z-index: 2;
@@ -66,7 +66,7 @@
   }
 }
 .navbar .navbar--menu:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
 .navbar .navbar--menu:hover .material-symbols-outlined {
@@ -161,7 +161,7 @@
   font-weight: bolder;
 }
 .navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
 .navbar .navbar--search .navbar--search__wrapper .search--icon__wrapper:hover .material-symbols-outlined {
@@ -252,7 +252,7 @@
   font-weight: bolder;
 }
 .navbar .navbar--search .navbar--search__wrapper.active .search--icon-cross__wrapper:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
 .navbar .navbar--search .navbar--search__wrapper.active .search--icon-cross__wrapper:hover .material-symbols-outlined {
@@ -308,7 +308,7 @@
   top: 48px;
 }
 .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
 .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper:hover .material-symbols-outlined {
@@ -392,7 +392,7 @@
   font: 400 16px "Product Sans", Arial, sans-serif;
 }
 .navbar .navbar--account .account--icon__wrapper:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
 .navbar .navbar--account .account--icon__wrapper:hover .material-symbols-outlined {
@@ -454,7 +454,7 @@
   transition: ease-in 0.15s;
 }
 .aside .aside--item__wrapper .aside--icon__wrapper:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
 .aside .aside--item__wrapper .aside--icon__wrapper.active {
@@ -511,7 +511,7 @@
 }
 .aside:hover .aside--item__wrapper:hover {
   transition-delay: 0.3s;
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(65, 65, 65, 0.086);
   border-radius: 0px 24px 24px 0px;
 }
 .aside:hover .aside--item__wrapper.active {
@@ -605,7 +605,7 @@
   top: 34px;
 }
 .add-new--container .add-new__wrapper .add-new--title__wrapper .title--icon__wrapper:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
 .add-new--container .add-new__wrapper .add-new--title__wrapper .title--icon__wrapper:hover .material-symbols-outlined {
@@ -673,7 +673,7 @@
   top: 48px;
 }
 .add-new--container .add-new__wrapper .add-new--text__wrapper .text--icon__wrapper:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
 .add-new--container .add-new__wrapper .add-new--text__wrapper .text--icon__wrapper:hover .material-symbols-outlined:hover {
@@ -727,6 +727,7 @@
   border-radius: 4px;
   font-size: 12px;
   top: 34px;
+  z-index: 2;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper {
   display: none;
@@ -738,8 +739,9 @@
   height: 100px;
   background-color: white;
   border-radius: 8px;
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px solid rgba(65, 65, 65, 0.086);
   box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.171);
+  z-index: 1;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper {
   display: flex;
@@ -747,14 +749,67 @@
   justify-content: space-between;
   width: 100%;
   height: 50%;
-  border-bottom: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgba(65, 65, 65, 0.086);
   padding: 8px 14px 8px 14px;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 32px;
   height: 32px;
   border-radius: 24px;
   cursor: pointer;
+  position: relative;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color .tooltip--text {
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+  width: max-content;
+  background-color: rgba(0, 0, 0, 0.628);
+  color: #fff;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  top: 34px;
+  top: 40px;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color .material-symbols-outlined {
+  display: none;
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  font-size: 20px;
+  background-color: rgb(159, 30, 220);
+  color: white;
+  border-radius: 24px;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--none {
+  background-color: white;
+  border: 2px solid rgba(65, 65, 65, 0.086);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--none .material-symbols-outlined {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  position: static;
+  color: black;
+  background-color: white;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--none .material-symbols-outlined:last-of-type {
+  display: none;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--none.active .material-symbols-outlined:last-of-type {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  font-size: 20px;
+  background-color: rgb(159, 30, 220);
+  color: white;
+  border-radius: 24px;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--coral {
   background-color: rgb(250, 180, 174);
@@ -792,6 +847,15 @@
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color:hover {
   border: 2px solid black;
 }
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color:hover .tooltip--text {
+  visibility: visible;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color.active {
+  border: 2px solid rgb(159, 30, 220);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color.active .material-symbols-outlined {
+  display: flex;
+}
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper {
   width: 100%;
   height: 50%;
@@ -800,7 +864,7 @@
   display: flex;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .edit--icons__wrapper:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .edit--icons__wrapper:hover .material-symbols-outlined {
@@ -820,7 +884,7 @@
   color: rgb(66, 66, 66);
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--button:hover {
-  background-color: rgba(225, 225, 225, 0.347);
+  background-color: rgba(77, 77, 77, 0.032);
 }
 
 .add-new__wrapper.active {
@@ -895,7 +959,7 @@
   width: 240px;
   height: fit-content;
   padding-top: 16px;
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px solid rgba(65, 65, 65, 0.086);
   border-radius: 8px;
   margin: 4px;
   transition: 0.2s ease;
@@ -983,7 +1047,7 @@
   right: -34px;
 }
 .notes__wrapper .notes--list .note .note--pin-icon__wrapper:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
 .notes__wrapper .notes--list .note .note--pin-icon__wrapper:hover .material-symbols-outlined {
@@ -1035,7 +1099,7 @@
   top: 34px;
 }
 .notes__wrapper .notes--list .note .note--icons-list__wrapper .note--icons__wrapper:hover {
-  background-color: rgb(230, 230, 230);
+  background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
 .notes__wrapper .notes--list .note .note--icons-list__wrapper .note--icons__wrapper:hover .material-symbols-outlined {

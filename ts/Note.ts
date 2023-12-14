@@ -32,6 +32,7 @@ class OpenNote {
   protected changeBackgroundEditWrapper: HTMLElement = document.querySelector(
     ".add--background__wrapper"
   ) as HTMLElement;
+  protected activeColor: Node | null = null;
 
   constructor() {
     this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
@@ -62,6 +63,7 @@ class OpenNote {
     }
     this.noteText = this.textInput.value = "";
     this.noteTitle = this.titleInput.value = "";
+    this.changeBackgroundEditWrapper.classList.remove("active");
 
     this.textInput.style.backgroundColor = "white";
     this.titleInput.style.backgroundColor = "white";
@@ -82,6 +84,7 @@ class OpenNote {
       }
       this.noteText = this.textInput.value = "";
       this.noteTitle = this.titleInput.value = "";
+      this.changeBackgroundEditWrapper.classList.remove("active");
 
       this.textInput.style.backgroundColor = "white";
       this.titleInput.style.backgroundColor = "white";
@@ -95,12 +98,18 @@ class OpenNote {
 
     colorEditDiv.forEach((colorEditDiv) => {
       colorEditDiv.addEventListener("click", () => {
-        const backgroundColor =
-          window.getComputedStyle(colorEditDiv).backgroundColor;
+        const backgroundColor = window.getComputedStyle(colorEditDiv).backgroundColor;
 
-        this.textInput.style.backgroundColor = backgroundColor;
-        this.titleInput.style.backgroundColor = backgroundColor;
-        this.wrapper.style.backgroundColor = backgroundColor;
+          this.textInput.style.backgroundColor = backgroundColor;
+          this.titleInput.style.backgroundColor = backgroundColor;
+          this.wrapper.style.backgroundColor = backgroundColor;
+          if (this.activeColor instanceof HTMLElement) {
+            this.activeColor.classList.remove("active");
+          }
+          
+          colorEditDiv.classList.add("active");
+          this.activeColor = colorEditDiv;
+  
       });
     });
   }

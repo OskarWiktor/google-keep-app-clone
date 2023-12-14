@@ -113,6 +113,7 @@
           }
           .tooltip--text {
             @include small-tooltip;
+            z-index: 2;
           }
           
         }
@@ -128,6 +129,7 @@
           border-radius: $border-radius--big;
           border: 1px solid $light-blue-grey;
           box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.171);
+          z-index: 1;
 
           .background--color__wrapper {
             display: flex;
@@ -138,13 +140,54 @@
             border-bottom: 1px solid $light-blue-grey;
             padding: 8px 14px 8px 14px;
             .background--color {
+              display: flex;
+              align-items: center;
+              justify-content: center;
               width: 32px;
               height: 32px;
               border-radius: $border-radius--circle;
               cursor: pointer;
-
+              position: relative;
+              .tooltip--text {
+                @include medium-tooltip;
+              }
+              .material-symbols-outlined {
+                display: none;
+                position: absolute;
+                top: -6px;
+                right: -6px;
+                font-size: 20px;
+                background-color: rgb(159, 30, 220);
+                color: white;
+                border-radius: $border-radius--circle;
+              }
             }
-
+            .color--none {
+              background-color: white;
+              border: 2px solid $light-blue-grey;
+              .material-symbols-outlined {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 17px;
+                position: static;
+                color: black;
+                background-color: white;
+              }
+              .material-symbols-outlined:last-of-type {
+                display: none;
+              }
+            }
+            .color--none.active {
+              .material-symbols-outlined:last-of-type {
+                position: absolute;
+                top: -6px;
+                right: -6px;
+                font-size: 20px;
+                background-color: rgb(159, 30, 220);
+                color: white;
+                border-radius: $border-radius--circle;              }
+            }
             .color--coral {
               background-color: rgb(250, 180, 174);
             }
@@ -180,6 +223,15 @@
             }
             .background--color:hover {
               border: 2px solid black;
+              .tooltip--text {
+                visibility: visible;;
+              }
+            }
+            .background--color.active {
+              border: 2px solid rgb(159, 30, 220);
+              .material-symbols-outlined {
+                display: flex;
+              }
             }
           }
           .background--pattern__wrapper {
@@ -211,7 +263,7 @@
         color: $dark-grey;
       }
       .edit--button:hover {
-        background-color: rgba(225, 225, 225, 0.347);
+        background-color: rgba(77, 77, 77, 0.032);
       }
     }
   }
