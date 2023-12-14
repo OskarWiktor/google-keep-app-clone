@@ -748,7 +748,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  height: 50%;
+  height: 48%;
   border-bottom: 1px solid rgba(65, 65, 65, 0.086);
   padding: 8px 14px 8px 14px;
 }
@@ -775,6 +775,7 @@
   font-size: 12px;
   top: 34px;
   top: 40px;
+  top: 30px;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color .material-symbols-outlined {
   display: none;
@@ -796,7 +797,7 @@
   align-items: center;
   font-size: 17px;
   position: static;
-  color: black;
+  color: rgba(0, 0, 0, 0.651);
   background-color: white;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--none .material-symbols-outlined:last-of-type {
@@ -857,8 +858,83 @@
   display: flex;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
-  height: 50%;
+  height: 52%;
+  padding: 6px 9px;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .background--pattern {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 24px;
+  position: relative;
+  cursor: pointer;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .background--pattern .tooltip--text {
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+  width: max-content;
+  background-color: rgba(0, 0, 0, 0.628);
+  color: #fff;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  top: 34px;
+  top: 40px;
+  top: 38px;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .background--pattern .material-symbols-outlined {
+  display: none;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .background--pattern:hover {
+  border: 2px solid black;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .background--pattern:hover .tooltip--text {
+  visibility: visible;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--none {
+  border: 2px solid rgba(65, 65, 65, 0.086);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--none .material-symbols-outlined {
+  color: rgba(0, 0, 0, 0.651);
+  display: flex;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--none .material-symbols-outlined:last-of-type {
+  display: none;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--food-products {
+  background-image: url(https://www.gstatic.com/keep/backgrounds/grocery_light_thumb_0615.svg);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--food {
+  background-image: url(https://www.gstatic.com/keep/backgrounds/food_light_thumb_0615.svg);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--music {
+  background-image: url(https://www.gstatic.com/keep/backgrounds/music_light_thumb_0615.svg);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--recipe {
+  background-image: url(https://www.gstatic.com/keep/backgrounds/recipe_light_thumb_0615.svg);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--notes {
+  background-image: url(https://www.gstatic.com/keep/backgrounds/notes_light_thumb_0615.svg);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--places {
+  background-image: url(https://www.gstatic.com/keep/backgrounds/places_light_thumb_0615.svg);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--travel {
+  background-image: url(https://www.gstatic.com/keep/backgrounds/travel_light_thumb_0615.svg);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--movie {
+  background-image: url(https://www.gstatic.com/keep/backgrounds/video_light_thumb_0615.svg);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--celebration {
+  background-image: url(https://www.gstatic.com/keep/backgrounds/celebration_light_thumb_0715.svg);
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper.active {
   display: flex;
