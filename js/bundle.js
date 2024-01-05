@@ -3,8 +3,8 @@ class OpenNote {
     constructor() {
         this.textInput = document.getElementById("text--input");
         this.titleInput = document.getElementById("title--input");
-        this.AddNewWrapper = document.querySelector(".add-new__wrapper");
-        this.AddNewPatternWrapper = document.querySelector(".add-new__pattern-wrapper");
+        this.addNewWrapper = document.querySelector(".add-new__wrapper");
+        this.addNewPatternWrapper = document.querySelector(".add-new__pattern-wrapper");
         this.closeButton = document.querySelector(".edit--button");
         this.noteText = "";
         this.noteTitle = "";
@@ -14,52 +14,52 @@ class OpenNote {
         this.changeBackgroundColorIcon = document.getElementById("add--background");
         this.changeBackgroundColorEditWrapper = document.querySelector(".add--background__wrapper");
         this.activeColor = null;
-        this.AddNewBackgroundColor = "white";
+        this.addNewBackgroundColor = "white";
         this.activePattern = null;
-        this.AddNewBackgroundPattern = "";
+        this.addNewBackgroundPattern = "";
         this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
         this.closeButton.addEventListener("click", this.handleClose.bind(this));
         document.addEventListener("click", this.handleDocumentClick.bind(this));
         this.changeBackgroundColorIcon.addEventListener("click", this.handleAddBackgroundColor.bind(this));
     }
     handleInputFocus() {
-        this.AddNewWrapper.classList.add("active");
+        this.addNewWrapper.classList.add("active");
         this.notesWrapper.style.marginTop = "196px";
     }
     handleClose() {
-        this.noteText = this.textInput.value;
-        this.noteTitle = this.titleInput.value;
-        this.AddNewWrapper.classList.remove("active");
+        this.noteText = this.textInput.textContent ? this.textInput.textContent : "";
+        this.noteTitle = this.titleInput.textContent ? this.titleInput.textContent : "";
+        this.addNewWrapper.classList.remove("active");
         this.notesWrapper.style.marginTop = "106px";
         if (this.noteText || this.noteTitle) {
             const newNote = new Note(this.noteText, this.noteTitle);
             this.addNoteToList(newNote);
         }
-        this.noteText = this.textInput.value = "";
-        this.noteTitle = this.titleInput.value = "";
+        this.noteText = this.textInput.textContent = "";
+        this.noteTitle = this.titleInput.textContent = "";
         this.changeBackgroundColorEditWrapper.classList.remove("active");
         this.textInput.style.backgroundColor = "transparent";
         this.titleInput.style.backgroundColor = "transparent";
-        this.AddNewWrapper.style.backgroundColor = "white";
-        this.AddNewPatternWrapper.style.backgroundImage = '';
+        this.addNewWrapper.style.backgroundColor = "white";
+        this.addNewPatternWrapper.style.backgroundImage = "";
     }
     handleDocumentClick(event) {
-        if (!this.AddNewWrapper.contains(event.target)) {
-            this.AddNewWrapper.classList.remove("active");
+        if (!this.addNewWrapper.contains(event.target)) {
+            this.addNewWrapper.classList.remove("active");
             this.notesWrapper.style.marginTop = "106px";
-            this.noteText = this.textInput.value;
-            this.noteTitle = this.titleInput.value;
+            this.noteText = this.textInput.textContent ? this.textInput.textContent : "";
+            this.noteTitle = this.titleInput.textContent ? this.titleInput.textContent : "";
             if (this.noteText || this.noteTitle) {
                 const newNote = new Note(this.noteText, this.noteTitle);
                 this.addNoteToList(newNote);
             }
-            this.noteText = this.textInput.value = "";
-            this.noteTitle = this.titleInput.value = "";
+            this.noteText = this.textInput.textContent = "";
+            this.noteTitle = this.titleInput.textContent = "";
             this.changeBackgroundColorEditWrapper.classList.remove("active");
             this.textInput.style.backgroundColor = "transparent";
             this.titleInput.style.backgroundColor = "transparent";
-            this.AddNewWrapper.style.backgroundColor = "white";
-            this.AddNewPatternWrapper.style.backgroundImage = '';
+            this.addNewWrapper.style.backgroundColor = "white";
+            this.addNewPatternWrapper.style.backgroundImage = "";
         }
     }
     handleAddBackgroundColor() {
@@ -68,9 +68,9 @@ class OpenNote {
         const patternEditDiv = document.querySelectorAll(".background--pattern");
         colorEditDiv.forEach((colorEditDiv) => {
             colorEditDiv.addEventListener("click", () => {
-                this.AddNewBackgroundColor =
+                this.addNewBackgroundColor =
                     window.getComputedStyle(colorEditDiv).backgroundColor;
-                this.AddNewWrapper.style.backgroundColor = this.AddNewBackgroundColor;
+                this.addNewWrapper.style.backgroundColor = this.addNewBackgroundColor;
                 if (this.activeColor instanceof HTMLElement) {
                     this.activeColor.classList.remove("active");
                 }
@@ -80,10 +80,10 @@ class OpenNote {
         });
         patternEditDiv.forEach((patternEditDiv) => {
             patternEditDiv.addEventListener("click", () => {
-                this.AddNewBackgroundPattern =
+                this.addNewBackgroundPattern =
                     window.getComputedStyle(patternEditDiv).backgroundImage;
-                this.AddNewPatternWrapper.style.backgroundImage =
-                    this.AddNewBackgroundPattern;
+                this.addNewPatternWrapper.style.backgroundImage =
+                    this.addNewBackgroundPattern;
                 this.textInput.style.backgroundColor = "transparent";
                 this.titleInput.style.backgroundColor = "transparent";
                 if (this.activePattern instanceof HTMLElement) {
@@ -97,7 +97,8 @@ class OpenNote {
     addNoteToList(note) {
         const noteItem = document.createElement("div");
         noteItem.classList.add("note");
-        noteItem.style.backgroundColor = window.getComputedStyle(this.AddNewWrapper).backgroundColor;
+        noteItem.style.backgroundColor = window.getComputedStyle(this.addNewWrapper).backgroundColor;
+        noteItem.style.backgroundImage = window.getComputedStyle(this.addNewPatternWrapper).backgroundImage;
         this.notesList.appendChild(noteItem);
         const noteTitle = document.createElement("h3");
         noteTitle.classList.add("note--title");

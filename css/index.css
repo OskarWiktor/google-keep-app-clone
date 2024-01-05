@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -561,8 +562,10 @@
   height: 48px;
   display: none;
   padding: 2px 10px;
+  height: fit-content;
 }
 .add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper .title--input {
+  height: fit-content;
   width: 100%;
   height: 24px;
   border: none;
@@ -570,6 +573,10 @@
   font-size: 18px;
   color: rgb(0, 0, 0);
   background-color: transparent;
+}
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper .title--input[contenteditable]:empty::before {
+  content: "Tytuł";
+  color: rgb(89, 89, 89);
 }
 .add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper .title--input:focus {
   outline: none;
@@ -637,6 +644,10 @@
   font-size: 18px;
   color: black;
   background-color: transparent;
+}
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--input[contenteditable]:empty::before {
+  content: "Utwórz notatkę...";
+  color: rgb(89, 89, 89);
 }
 .add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--input:focus {
   outline: none;
@@ -1008,8 +1019,14 @@
 .add-new--container .add-new__wrapper.active .add-new--title__wrapper {
   display: flex;
 }
+.add-new--container .add-new__wrapper.active .add-new--text__wrapper {
+  height: fit-content;
+}
 .add-new--container .add-new__wrapper.active .add-new--text__wrapper .text--input {
+  height: fit-content;
   font-size: 14px;
+}
+.add-new--container .add-new__wrapper.active .add-new--text__wrapper .text--input[contenteditable]:empty::before {
   font-weight: bolder;
 }
 .add-new--container .add-new__wrapper.active .add-new--text__wrapper .text--icon__wrapper {
@@ -1078,6 +1095,9 @@
   margin: 4px;
   transition: 0.2s ease;
   position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .notes__wrapper .notes--list .note .note--title {
   padding: 0px 16px;
