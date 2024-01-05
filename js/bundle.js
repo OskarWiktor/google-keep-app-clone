@@ -4,6 +4,7 @@ class OpenNote {
         this.textInput = document.getElementById("text--input");
         this.titleInput = document.getElementById("title--input");
         this.AddNewWrapper = document.querySelector(".add-new__wrapper");
+        this.AddNewPatternWrapper = document.querySelector(".add-new__pattern-wrapper");
         this.closeButton = document.querySelector(".edit--button");
         this.noteText = "";
         this.noteTitle = "";
@@ -12,9 +13,10 @@ class OpenNote {
         this.note = document.querySelectorAll(".note");
         this.changeBackgroundColorIcon = document.getElementById("add--background");
         this.changeBackgroundColorEditWrapper = document.querySelector(".add--background__wrapper");
-        this.AddNewBackgroundColor = "white";
         this.activeColor = null;
+        this.AddNewBackgroundColor = "white";
         this.activePattern = null;
+        this.AddNewBackgroundPattern = "";
         this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
         this.closeButton.addEventListener("click", this.handleClose.bind(this));
         document.addEventListener("click", this.handleDocumentClick.bind(this));
@@ -36,9 +38,10 @@ class OpenNote {
         this.noteText = this.textInput.value = "";
         this.noteTitle = this.titleInput.value = "";
         this.changeBackgroundColorEditWrapper.classList.remove("active");
-        this.textInput.style.backgroundColor = "white";
-        this.titleInput.style.backgroundColor = "white";
+        this.textInput.style.backgroundColor = "transparent";
+        this.titleInput.style.backgroundColor = "transparent";
         this.AddNewWrapper.style.backgroundColor = "white";
+        this.AddNewPatternWrapper.style.backgroundImage = '';
     }
     handleDocumentClick(event) {
         if (!this.AddNewWrapper.contains(event.target)) {
@@ -53,9 +56,10 @@ class OpenNote {
             this.noteText = this.textInput.value = "";
             this.noteTitle = this.titleInput.value = "";
             this.changeBackgroundColorEditWrapper.classList.remove("active");
-            this.textInput.style.backgroundColor = "white";
-            this.titleInput.style.backgroundColor = "white";
+            this.textInput.style.backgroundColor = "transparent";
+            this.titleInput.style.backgroundColor = "transparent";
             this.AddNewWrapper.style.backgroundColor = "white";
+            this.AddNewPatternWrapper.style.backgroundImage = '';
         }
     }
     handleAddBackgroundColor() {
@@ -67,8 +71,6 @@ class OpenNote {
                 this.AddNewBackgroundColor =
                     window.getComputedStyle(colorEditDiv).backgroundColor;
                 this.AddNewWrapper.style.backgroundColor = this.AddNewBackgroundColor;
-                this.textInput.style.backgroundColor = this.AddNewBackgroundColor;
-                this.titleInput.style.backgroundColor = this.AddNewBackgroundColor;
                 if (this.activeColor instanceof HTMLElement) {
                     this.activeColor.classList.remove("active");
                 }
@@ -78,6 +80,12 @@ class OpenNote {
         });
         patternEditDiv.forEach((patternEditDiv) => {
             patternEditDiv.addEventListener("click", () => {
+                this.AddNewBackgroundPattern =
+                    window.getComputedStyle(patternEditDiv).backgroundImage;
+                this.AddNewPatternWrapper.style.backgroundImage =
+                    this.AddNewBackgroundPattern;
+                this.textInput.style.backgroundColor = "transparent";
+                this.titleInput.style.backgroundColor = "transparent";
                 if (this.activePattern instanceof HTMLElement) {
                     this.activePattern.classList.remove("active");
                 }

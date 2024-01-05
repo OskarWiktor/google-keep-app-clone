@@ -3,7 +3,7 @@
   justify-content: center;
   position: absolute;
   width: calc(100% - 64px);
-  height: 180px;
+  height: fit-content;
   margin-left: 54px;
 
   .add-new__wrapper {
@@ -11,89 +11,95 @@
     justify-content: center;
     flex-direction: column;
     width: clamp(240px, 90%, 600px);
-    height: 48px;
+    height: fit-content;
     margin: 32px 0px 32px 24px;
-    padding: 2px 10px;
     border-radius: $border-radius--big;
     box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.563);
     background-color: white;
-    
+
     @media (max-width: 580px) {
       margin: 18px 0px;
     }
+    .add-new__pattern-wrapper {
+      border-radius: $border-radius--big $border-radius--big 0px 0px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      .add-new--title__wrapper {
+        align-items: center;
+        height: 48px;
+        display: none;
+        padding: 2px 10px;
+        .title--input {
+          width: 100%;
+          height: 24px;
+          border: none;
+          margin: 8px;
+          font-size: $font-size--medium;
+          color: rgb(0, 0, 0);
+          background-color: transparent;
+        }
 
-    .add-new--title__wrapper {
-      align-items: center;
-      height: 48px;
-      display: none;
+        .title--input:focus {
+          outline: none;
+        }
+        .title--icon__wrapper {
+          @include small-icons-wrapper;
+          .material-symbols-outlined {
+            @include medium-icons;
+          }
+          .tooltip--text {
+            @include small-tooltip;
+          }
+        }
+        .title--icon__wrapper:hover {
+          @include icons-wrapper--hover;
+          .material-symbols-outlined {
+            @include icons--hover;
+          }
+          .tooltip--text {
+            visibility: visible;
+          }
+        }
+      }
+      .add-new--text__wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 48px;
+        padding: 2px 10px;
 
-      .title--input {
-        width: 100%;
-        height: 24px;
-        border: none;
-        margin: 8px;
-        font-size: $font-size--medium;
-        color: rgb(0, 0, 0);
-      }
+        .text--input {
+          width: 100%;
+          height: 24px;
+          border: none;
+          margin: 8px;
+          font-size: $font-size--medium;
+          color: black;
+          background-color: transparent;
+        }
+        .text--input:focus {
+          outline: none;
+        }
+        .text--icon__wrapper {
+          @include big-icons-wrapper;
 
-      .title--input:focus {
-        outline: none;
-      }
-      .title--icon__wrapper {
-        @include small-icons-wrapper;
-        .material-symbols-outlined {
-          @include medium-icons;
+          .material-symbols-outlined {
+            @include big-icons;
+          }
+          .tooltip--text {
+            @include big-tooltip;
+          }
         }
-        .tooltip--text {
-          @include small-tooltip;
+        .text--icon__wrapper:hover {
+          @include icons-wrapper--hover;
+          .material-symbols-outlined:hover {
+            @include icons--hover;
+          }
+          .tooltip--text {
+            visibility: visible;
+          }
         }
-      }
-      .title--icon__wrapper:hover {
-        @include icons-wrapper--hover;
-        .material-symbols-outlined {
-          @include icons--hover;
-        }
-        .tooltip--text {
-          visibility: visible;
-        }
-      }
-    }
-    .add-new--text__wrapper {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      height: 48px;
-
-      .text--input {
-        width: 100%;
-        height: 24px;
-        border: none;
-        margin: 8px;
-        font-size: $font-size--medium;
-        color: black;
-      }
-      .text--input:focus {
-        outline: none;
-      }
-      .text--icon__wrapper {
-        @include big-icons-wrapper;
-
-        .material-symbols-outlined {
-          @include big-icons;
-        }
-        .tooltip--text {
-          @include big-tooltip;
-        }
-      }
-      .text--icon__wrapper:hover {
-        @include icons-wrapper--hover;
-        .material-symbols-outlined:hover {
-          @include icons--hover;
-        }
-        .tooltip--text {
-          visibility: visible;
-        }
-  
       }
     }
     .add-new--edit__wrapper {
@@ -101,6 +107,8 @@
       height: 48px;
       justify-content: space-between;
       display: none;
+      padding: 8px 10px;
+
       .edit--icons__container {
         position: relative;
         display: flex;
@@ -115,7 +123,6 @@
             @include small-tooltip;
             z-index: 2;
           }
-          
         }
         .add--background__wrapper {
           display: none;
@@ -187,7 +194,8 @@
                 font-size: 20px;
                 background-color: rgb(159, 30, 220);
                 color: white;
-                border-radius: $border-radius--circle;              }
+                border-radius: $border-radius--circle;
+              }
             }
             .color--coral {
               background-color: rgb(250, 180, 174);
@@ -225,7 +233,7 @@
             .background--color:hover {
               border: 2px solid black;
               .tooltip--text {
-                visibility: visible;;
+                visibility: visible;
               }
             }
             .background--color.active {
@@ -262,11 +270,11 @@
             .background--pattern:hover {
               border: 2px solid black;
               .tooltip--text {
-                visibility: visible;;
+                visibility: visible;
               }
             }
             .pattern--none {
-              border: 2px solid $light-blue-grey; 
+              border: 2px solid $light-blue-grey;
               .material-symbols-outlined {
                 color: rgba(0, 0, 0, 0.651);
                 display: flex;
@@ -332,27 +340,27 @@
       }
     }
   }
-}
-.add-new__wrapper.active {
-  height: 132px;
-  box-shadow: 1px 1px 8px 0px rgba(24, 24, 24, 0.563);
+  .add-new__wrapper.active {
+    height: fit-content;
+    box-shadow: 1px 1px 8px 0px rgba(24, 24, 24, 0.563);
 
-  .add-new--title__wrapper {
-    display: flex;
-  }
-  .add-new--text__wrapper {
-    .text--input {
-      font-size: $font-size--small;
-      font-weight: bolder;
+    .add-new--title__wrapper {
+      display: flex;
+    }
+    .add-new--text__wrapper {
+      .text--input {
+        font-size: $font-size--small;
+        font-weight: bolder;
+      }
+      .text--icon__wrapper {
+        display: none;
+      }
     }
     .text--icon__wrapper {
       display: none;
     }
-  }
-  .text--icon__wrapper {
-    display: none;
-  }
-  .add-new--edit__wrapper {
-    display: flex;
+    .add-new--edit__wrapper {
+      display: flex;
+    }
   }
 }

@@ -531,7 +531,7 @@
   justify-content: center;
   position: absolute;
   width: calc(100% - 64px);
-  height: 180px;
+  height: fit-content;
   margin-left: 54px;
 }
 .add-new--container .add-new__wrapper {
@@ -539,9 +539,8 @@
   justify-content: center;
   flex-direction: column;
   width: clamp(240px, 90%, 600px);
-  height: 48px;
+  height: fit-content;
   margin: 32px 0px 32px 24px;
-  padding: 2px 10px;
   border-radius: 8px;
   box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.563);
   background-color: white;
@@ -551,23 +550,31 @@
     margin: 18px 0px;
   }
 }
-.add-new--container .add-new__wrapper .add-new--title__wrapper {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper {
+  border-radius: 8px 8px 0px 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper {
   align-items: center;
   height: 48px;
   display: none;
+  padding: 2px 10px;
 }
-.add-new--container .add-new__wrapper .add-new--title__wrapper .title--input {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper .title--input {
   width: 100%;
   height: 24px;
   border: none;
   margin: 8px;
   font-size: 18px;
   color: rgb(0, 0, 0);
+  background-color: transparent;
 }
-.add-new--container .add-new__wrapper .add-new--title__wrapper .title--input:focus {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper .title--input:focus {
   outline: none;
 }
-.add-new--container .add-new__wrapper .add-new--title__wrapper .title--icon__wrapper {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper .title--icon__wrapper {
   position: relative;
   display: flex;
   justify-content: center;
@@ -576,7 +583,7 @@
   width: 34px;
   height: 34px;
 }
-.add-new--container .add-new__wrapper .add-new--title__wrapper .title--icon__wrapper .material-symbols-outlined {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper .title--icon__wrapper .material-symbols-outlined {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -591,7 +598,7 @@
   padding: 10px;
   font-size: 24px;
 }
-.add-new--container .add-new__wrapper .add-new--title__wrapper .title--icon__wrapper .tooltip--text {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper .title--icon__wrapper .tooltip--text {
   position: absolute;
   z-index: 1;
   visibility: hidden;
@@ -604,35 +611,37 @@
   font-size: 12px;
   top: 34px;
 }
-.add-new--container .add-new__wrapper .add-new--title__wrapper .title--icon__wrapper:hover {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper .title--icon__wrapper:hover {
   background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
-.add-new--container .add-new__wrapper .add-new--title__wrapper .title--icon__wrapper:hover .material-symbols-outlined {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper .title--icon__wrapper:hover .material-symbols-outlined {
   opacity: 1;
   transition: ease-in 0.15s;
 }
-.add-new--container .add-new__wrapper .add-new--title__wrapper .title--icon__wrapper:hover .tooltip--text {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper .title--icon__wrapper:hover .tooltip--text {
   visibility: visible;
 }
-.add-new--container .add-new__wrapper .add-new--text__wrapper {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 48px;
+  padding: 2px 10px;
 }
-.add-new--container .add-new__wrapper .add-new--text__wrapper .text--input {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--input {
   width: 100%;
   height: 24px;
   border: none;
   margin: 8px;
   font-size: 18px;
   color: black;
+  background-color: transparent;
 }
-.add-new--container .add-new__wrapper .add-new--text__wrapper .text--input:focus {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--input:focus {
   outline: none;
 }
-.add-new--container .add-new__wrapper .add-new--text__wrapper .text--icon__wrapper {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--icon__wrapper {
   position: relative;
   display: flex;
   justify-content: center;
@@ -643,7 +652,7 @@
   width: 48px;
   height: 48px;
 }
-.add-new--container .add-new__wrapper .add-new--text__wrapper .text--icon__wrapper .material-symbols-outlined {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--icon__wrapper .material-symbols-outlined {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -658,7 +667,7 @@
   padding: 15px;
   font-size: 24px;
 }
-.add-new--container .add-new__wrapper .add-new--text__wrapper .text--icon__wrapper .tooltip--text {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--icon__wrapper .tooltip--text {
   position: absolute;
   z-index: 1;
   visibility: hidden;
@@ -672,15 +681,15 @@
   top: 34px;
   top: 48px;
 }
-.add-new--container .add-new__wrapper .add-new--text__wrapper .text--icon__wrapper:hover {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--icon__wrapper:hover {
   background-color: rgba(65, 65, 65, 0.086);
   border-radius: 24px;
 }
-.add-new--container .add-new__wrapper .add-new--text__wrapper .text--icon__wrapper:hover .material-symbols-outlined:hover {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--icon__wrapper:hover .material-symbols-outlined:hover {
   opacity: 1;
   transition: ease-in 0.15s;
 }
-.add-new--container .add-new__wrapper .add-new--text__wrapper .text--icon__wrapper:hover .tooltip--text {
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--icon__wrapper:hover .tooltip--text {
   visibility: visible;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper {
@@ -688,6 +697,7 @@
   height: 48px;
   justify-content: space-between;
   display: none;
+  padding: 8px 10px;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container {
   position: relative;
@@ -962,25 +972,24 @@
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--button:hover {
   background-color: rgba(77, 77, 77, 0.032);
 }
-
-.add-new__wrapper.active {
-  height: 132px;
+.add-new--container .add-new__wrapper.active {
+  height: fit-content;
   box-shadow: 1px 1px 8px 0px rgba(24, 24, 24, 0.563);
 }
-.add-new__wrapper.active .add-new--title__wrapper {
+.add-new--container .add-new__wrapper.active .add-new--title__wrapper {
   display: flex;
 }
-.add-new__wrapper.active .add-new--text__wrapper .text--input {
+.add-new--container .add-new__wrapper.active .add-new--text__wrapper .text--input {
   font-size: 14px;
   font-weight: bolder;
 }
-.add-new__wrapper.active .add-new--text__wrapper .text--icon__wrapper {
+.add-new--container .add-new__wrapper.active .add-new--text__wrapper .text--icon__wrapper {
   display: none;
 }
-.add-new__wrapper.active .text--icon__wrapper {
+.add-new--container .add-new__wrapper.active .text--icon__wrapper {
   display: none;
 }
-.add-new__wrapper.active .add-new--edit__wrapper {
+.add-new--container .add-new__wrapper.active .add-new--edit__wrapper {
   display: flex;
 }
 
