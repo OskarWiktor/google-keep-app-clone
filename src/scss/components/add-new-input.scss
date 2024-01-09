@@ -17,8 +17,9 @@
     box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.563);
     background-color: white;
 
-    @media (max-width: 580px) {
-      margin: 18px 0px;
+    @media (max-width: 620px) {
+      margin: 18px 8px;
+      margin-left: 32px;
     }
     .add-new__pattern-wrapper {
       border-radius: $border-radius--big $border-radius--big 0px 0px;
@@ -117,11 +118,22 @@
       justify-content: space-between;
       display: none;
       padding: 8px 10px;
+      @media (max-width: 620px) {
+        height: 80px;
+        align-items: baseline;
+      }
 
       .edit--icons__container {
         position: relative;
         display: flex;
         gap: 18px;
+        @media (max-width: 620px) {
+          gap: 8px;
+          height: 84px;
+        }
+        @media (max-width: 480px) {
+          gap: 0px;
+        }
         .edit--icons__wrapper {
           @include small-icons-wrapper;
           .material-symbols-outlined {
@@ -146,7 +158,30 @@
           border: 1px solid $light-blue-grey;
           box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.171);
           z-index: 1;
-
+          @media (max-width: 640px) {
+            top: 30px;
+            left: 0px;
+            right: 0px;
+          }
+          @media (max-width: 640px) {
+            top: 58px;
+          }
+          @media (max-width: 580px) {
+            top: 66px;
+            left: -20px;
+          }
+          @media (max-width: 540px) {
+            top: 66px;
+            left: -40px;
+          }
+          @media (max-width: 520px) {
+            top: 66px;
+            left: -70px;
+          }
+          @media (max-width: 490px) {
+            top: 66px;
+            left: -100px;
+          }
           .background--color__wrapper {
             display: flex;
             flex-direction: row;
@@ -373,6 +408,11 @@
         border-radius: $border-radius--small;
         border: none;
         color: $dark-grey;
+        @media (max-width: 620px) {
+          position: absolute;
+          bottom: 28px;
+          right: 28px;
+        }
       }
       .edit--button:hover {
         background-color: rgba(77, 77, 77, 0.032);
