@@ -1,4 +1,26 @@
 "use strict";
+class Login {
+    constructor() {
+        this.loginOpen = document.getElementById("login-open");
+        this.loginCloseIcon = document.getElementById("login-close");
+        this.loginWrapper = document.getElementById("login-wrapper");
+        this.loginOpen.addEventListener("click", this.handleLoginOpen.bind(this));
+        this.loginCloseIcon.addEventListener("click", this.handleLoginClose.bind(this));
+        document.addEventListener("click", this.handleDocumentLoginClose.bind(this));
+    }
+    handleLoginOpen() {
+        this.loginWrapper.classList.toggle("active");
+    }
+    handleLoginClose() {
+        this.loginWrapper.classList.remove("active");
+    }
+    handleDocumentLoginClose(event) {
+        if (!this.loginWrapper.contains(event.target) && !this.loginOpen.contains(event.target)) {
+            this.handleLoginClose();
+        }
+    }
+}
+const login = new Login();
 class OpenNote {
     constructor() {
         this.textInput = document.getElementById("text--input");

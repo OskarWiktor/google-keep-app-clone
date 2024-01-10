@@ -115,15 +115,15 @@
             <span class="material-symbols-outlined"> apps </span>
             <span class="tooltip--text">Aplikacje Google</span>
           </div>
-          <div class="account--icon__wrapper">
+          <div id="login-open" class="account--icon__wrapper">
             <div class="account--bg">
               <p class="account--letter">O</p>
             </div>
           </div>
-          <div class="account--login__wrapper">
+          <div id="login-wrapper" class="account--login__wrapper">
             <div class="login--email__wrapper">
               <p class="email--email">e-mail address</p>
-              <div class="emial--icon__wrapper">
+              <div id="login-close" class="email--icon__wrapper">
                 <span class="material-symbols-outlined"> close </span>
               </div>
             </div>
@@ -146,7 +146,9 @@
             <div class="login--other-accounts__wrapper">
               <button class="other-accounts--button">
                 <p class="button--hide__text">Ukryj więcej kont</p>
-                <span class="material-symbols-outlined"> expand_less </span>
+                <div class="button--hide__icon">
+                  <span class="material-symbols-outlined"> expand_less </span>
+                </div>
               </button>
               <button class="other-accounts--button">
                 <div class="button--photo__wrapper">
@@ -176,8 +178,23 @@
                 <div class="button--log-out__icon">
                   <span class="material-symbols-outlined"> logout </span>
                 </div>
-                <p class="button--log-out__text">Wyloguj się ze wszystkich kont</p>
+                <p class="button--log-out__text">
+                  Wyloguj się ze wszystkich kont
+                </p>
               </button>
+            </div>
+            <div class="login--policies__wrapper">
+              <div class="policies--link__wrapper">
+                <a class="policies--link" href="https://policies.google.com/privacy?hl=pl"
+                >Polityka prywatności</a
+              >
+              </div>
+              <span class="policies--dot">&#8226;</span>
+              <div class="policies--link__wrapper">
+                <a class="policies--link" href="https://policies.google.com/terms?hl=pl"
+                >Warunki usługi</a
+              >
+              </div>
             </div>
           </div>
         </div>

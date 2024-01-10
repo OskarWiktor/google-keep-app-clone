@@ -1319,11 +1319,10 @@
 }
 
 .account--login__wrapper {
-  display: flex;
   align-items: center;
   flex-direction: column;
   width: 410px;
-  height: 640px;
+  height: fit-content;
   position: absolute;
   top: 60px;
   right: 12px;
@@ -1331,6 +1330,7 @@
   border-radius: 25px;
   box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.398);
   padding: 18px 12px;
+  display: none;
 }
 .account--login__wrapper .login--email__wrapper {
   display: flex;
@@ -1342,7 +1342,7 @@
   font-size: 14px;
   font-weight: bolder;
 }
-.account--login__wrapper .login--email__wrapper .emial--icon__wrapper {
+.account--login__wrapper .login--email__wrapper .email--icon__wrapper {
   position: relative;
   display: flex;
   justify-content: center;
@@ -1350,13 +1350,13 @@
   cursor: pointer;
   width: 34px;
   height: 34px;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   position: absolute;
-  top: -16px;
-  right: -10px;
+  top: -12px;
+  right: -4px;
 }
-.account--login__wrapper .login--email__wrapper .emial--icon__wrapper .material-symbols-outlined {
+.account--login__wrapper .login--email__wrapper .email--icon__wrapper .material-symbols-outlined {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1370,6 +1370,14 @@
   height: 48px;
   padding: 15px;
   font-size: 24px;
+}
+.account--login__wrapper .login--email__wrapper .email--icon__wrapper:hover {
+  background-color: rgba(65, 65, 65, 0.086);
+  border-radius: 24px;
+}
+.account--login__wrapper .login--email__wrapper .email--icon__wrapper:hover .material-symbols-outlined {
+  opacity: 1;
+  transition: ease-in 0.15s;
 }
 .account--login__wrapper .login--account-edit__wrapper {
   display: flex;
@@ -1436,6 +1444,9 @@
   margin: 12px 0px;
   cursor: pointer;
 }
+.account--login__wrapper .login--account-edit__wrapper .account-edit--button:hover {
+  background-color: rgba(109, 160, 255, 0.128);
+}
 .account--login__wrapper .login--other-accounts__wrapper {
   display: flex;
   flex-direction: column;
@@ -1444,17 +1455,17 @@
   width: 100%;
 }
 .account--login__wrapper .login--other-accounts__wrapper .other-accounts--button:first-of-type {
-  border-radius: 24px 24px 6px 6px;
+  border-radius: 32px 32px 6px 6px;
   justify-content: space-between;
 }
 .account--login__wrapper .login--other-accounts__wrapper .other-accounts--button:last-of-type {
-  border-radius: 6px 6px 24px 24px;
+  border-radius: 6px 6px 32px 32px;
 }
 .account--login__wrapper .login--other-accounts__wrapper .other-accounts--button {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 64px;
+  height: 60px;
   margin: 1px 0px;
   padding: 0px 24px;
   border: none;
@@ -1467,9 +1478,18 @@
   font-weight: bolder;
   padding: 4px 0px;
 }
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--hide__icon {
+  background-color: rgba(65, 65, 65, 0.086);
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+}
 .account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--photo__wrapper {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   border: 1px rgba(65, 65, 65, 0.086) solid;
   border-radius: 21px;
 }
@@ -1495,10 +1515,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   background-color: aliceblue;
-  border-radius: 16px;
+  border-radius: 12px;
 }
 .account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--add__icon .material-symbols-outlined {
   color: #5664ff;
@@ -1517,6 +1537,36 @@
   font-size: 14px;
   font-weight: bolder;
   padding: 4px 0px;
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button:hover {
+  background-color: rgba(153, 153, 153, 0.143);
+}
+.account--login__wrapper .login--policies__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  margin-top: 20px;
+}
+.account--login__wrapper .login--policies__wrapper .policies--link__wrapper {
+  width: fit-content;
+  padding: 4px;
+  border-radius: 4px;
+}
+.account--login__wrapper .login--policies__wrapper .policies--link__wrapper .policies--link {
+  font-size: 12px;
+  color: rgb(95, 95, 95);
+}
+.account--login__wrapper .login--policies__wrapper .policies--link__wrapper:hover {
+  background-color: rgba(0, 0, 0, 0.0666666667);
+}
+.account--login__wrapper .login--policies__wrapper .policies--dot {
+  margin: 0px 10px;
+}
+
+.account--login__wrapper.active {
+  display: flex;
 }
 
 body {
