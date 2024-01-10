@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Google Keep</title>
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/10.7.1/firebase-app-compat.js"></script>
     <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/10.7.1/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/10.7.1/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/10.7.1/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/10.7.1/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/10.7.1/firebase-messaging-compat.js"></script>
+    <script
+      defer
+      src="/__/firebase/10.7.1/firebase-database-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/10.7.1/firebase-firestore-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/10.7.1/firebase-functions-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/10.7.1/firebase-messaging-compat.js"
+    ></script>
     <script defer src="/__/firebase/10.7.1/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/10.7.1/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/10.7.1/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/10.7.1/firebase-performance-compat.js"></script>
+    <script
+      defer
+      src="/__/firebase/10.7.1/firebase-analytics-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/10.7.1/firebase-remote-config-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/10.7.1/firebase-performance-compat.js"
+    ></script>
     <!-- 
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
@@ -97,6 +118,66 @@
           <div class="account--icon__wrapper">
             <div class="account--bg">
               <p class="account--letter">O</p>
+            </div>
+          </div>
+          <div class="account--login__wrapper">
+            <div class="login--email__wrapper">
+              <p class="email--email">e-mail address</p>
+              <div class="emial--icon__wrapper">
+                <span class="material-symbols-outlined"> close </span>
+              </div>
+            </div>
+            <div class="login--account-edit__wrapper">
+              <div class="account-edit--photo__wrapper">
+                <img
+                  class="account-edit--photo"
+                  src="./assets/google-keep-logo.png"
+                  alt=""
+                />
+                <div class="account-edit--icon__wrapper">
+                  <span class="material-symbols-outlined"> edit </span>
+                </div>
+              </div>
+              <p class="account-edit--welcome">Witaj (użytkownik),</p>
+              <button class="account-edit--button">
+                Zarządzaj kontem Google
+              </button>
+            </div>
+            <div class="login--other-accounts__wrapper">
+              <button class="other-accounts--button">
+                <p class="button--hide__text">Ukryj więcej kont</p>
+                <span class="material-symbols-outlined"> expand_less </span>
+              </button>
+              <button class="other-accounts--button">
+                <div class="button--photo__wrapper">
+                  <img src="./assets/google-keep-logo.png" alt="" />
+                </div>
+                <div class="button--text__wrapper">
+                  <p class="button--text--title">Nazwa Konta</p>
+                  <p class="button--text--email">Email</p>
+                </div>
+              </button>
+              <button class="other-accounts--button">
+                <div class="button--photo__wrapper">
+                  <img src="./assets/google-keep-logo.png" alt="" />
+                </div>
+                <div class="button--text__wrapper">
+                  <p class="button--text--title">Nazwa Konta</p>
+                  <p class="button--text--email">Email</p>
+                </div>
+              </button>
+              <button class="other-accounts--button">
+                <div class="button--add__icon">
+                  <span class="material-symbols-outlined"> add </span>
+                </div>
+                <p class="button--add__text">Dodaj kolejne konto</p>
+              </button>
+              <button class="other-accounts--button">
+                <div class="button--log-out__icon">
+                  <span class="material-symbols-outlined"> logout </span>
+                </div>
+                <p class="button--log-out__text">Wyloguj się ze wszystkich kont</p>
+              </button>
             </div>
           </div>
         </div>
@@ -191,7 +272,10 @@
 
               <div class="add--background__wrapper">
                 <div class="background--color__wrapper">
-                  <div class="background--color color--none active" id="color--none">
+                  <div
+                    class="background--color color--none active"
+                    id="color--none"
+                  >
                     <span class="material-symbols-outlined">
                       format_color_reset
                     </span>
@@ -279,7 +363,10 @@
                   </div>
                 </div>
                 <div class="background--pattern__wrapper">
-                  <div class="background--pattern pattern--none active" id="pattern--none">
+                  <div
+                    class="background--pattern pattern--none active"
+                    id="pattern--none"
+                  >
                     <span class="material-symbols-outlined"> hide_image </span>
                     <span class="tooltip--text">Domyślne</span>
                     <span class="material-symbols-outlined">

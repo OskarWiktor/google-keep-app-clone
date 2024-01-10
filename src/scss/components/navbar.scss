@@ -189,6 +189,7 @@
   .navbar--account {
     display: flex;
     margin-left: 20px;
+    position: relative;
     .account--icon__wrapper {
       @include medium-icons-wrapper;
       margin: 6px;

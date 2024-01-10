@@ -332,6 +332,7 @@
 .navbar .navbar--account {
   display: flex;
   margin-left: 20px;
+  position: relative;
 }
 .navbar .navbar--account .account--icon__wrapper {
   position: relative;
@@ -1315,6 +1316,207 @@
 }
 .notes__wrapper .notes--list .note:hover .note--pin-icon__wrapper {
   opacity: 1;
+}
+
+.account--login__wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 410px;
+  height: 640px;
+  position: absolute;
+  top: 60px;
+  right: 12px;
+  background-color: rgb(238, 242, 245);
+  border-radius: 25px;
+  box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.398);
+  padding: 18px 12px;
+}
+.account--login__wrapper .login--email__wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+.account--login__wrapper .login--email__wrapper .email--email {
+  font-size: 14px;
+  font-weight: bolder;
+}
+.account--login__wrapper .login--email__wrapper .emial--icon__wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: -16px;
+  right: -10px;
+}
+.account--login__wrapper .login--email__wrapper .emial--icon__wrapper .material-symbols-outlined {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.65;
+  transition: ease-in 0.2s;
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  font-size: 18px;
+  width: 48px;
+  height: 48px;
+  padding: 15px;
+  font-size: 24px;
+}
+.account--login__wrapper .login--account-edit__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  padding-top: 24px;
+}
+.account--login__wrapper .login--account-edit__wrapper .account-edit--photo__wrapper {
+  width: 84px;
+  height: 84px;
+  border: 1px rgba(65, 65, 65, 0.086) solid;
+  border-radius: 42px;
+  position: relative;
+}
+.account--login__wrapper .login--account-edit__wrapper .account-edit--photo__wrapper .account-edit--photo {
+  object-fit: cover;
+  border-radius: 42px;
+}
+.account--login__wrapper .login--account-edit__wrapper .account-edit--photo__wrapper .account-edit--icon__wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  width: 24px;
+  height: 24px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  position: absolute;
+  bottom: -2px;
+  right: 0px;
+}
+.account--login__wrapper .login--account-edit__wrapper .account-edit--photo__wrapper .account-edit--icon__wrapper .material-symbols-outlined {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.65;
+  transition: ease-in 0.2s;
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  font-size: 18px;
+}
+.account--login__wrapper .login--account-edit__wrapper .account-edit--welcome {
+  width: 100%;
+  height: fit-content;
+  margin-top: 12px;
+  font-size: 20px;
+  text-align: center;
+}
+.account--login__wrapper .login--account-edit__wrapper .account-edit--button {
+  width: 55%;
+  padding: 10px 0px;
+  border: 1px rgb(56, 56, 56) solid;
+  background-color: transparent;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: bolder;
+  color: #5664ff;
+  margin: 12px 0px;
+  cursor: pointer;
+}
+.account--login__wrapper .login--other-accounts__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button:first-of-type {
+  border-radius: 24px 24px 6px 6px;
+  justify-content: space-between;
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button:last-of-type {
+  border-radius: 6px 6px 24px 24px;
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 64px;
+  margin: 1px 0px;
+  padding: 0px 24px;
+  border: none;
+  background-color: rgb(252, 252, 252);
+  cursor: pointer;
+  border-radius: 6px;
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--hide__text {
+  font-size: 14px;
+  font-weight: bolder;
+  padding: 4px 0px;
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--photo__wrapper {
+  width: 42px;
+  height: 42px;
+  border: 1px rgba(65, 65, 65, 0.086) solid;
+  border-radius: 21px;
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--text__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+  justify-content: start;
+  margin-left: 16px;
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--text__wrapper .button--text--title {
+  font-size: 14px;
+  font-weight: bolder;
+  padding: 4px 0px;
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--text__wrapper .button--text--email {
+  font-size: 12px;
+  padding: 4px 0px;
+  color: rgb(75, 75, 75);
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--add__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: aliceblue;
+  border-radius: 16px;
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--add__icon .material-symbols-outlined {
+  color: #5664ff;
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--add__text {
+  margin-left: 16px;
+  font-size: 14px;
+  font-weight: bolder;
+  padding: 4px 0px;
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--log-out__icon .material-symbols-outlined {
+  color: rgb(70, 70, 70);
+}
+.account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--log-out__text {
+  margin-left: 16px;
+  font-size: 14px;
+  font-weight: bolder;
+  padding: 4px 0px;
 }
 
 body {

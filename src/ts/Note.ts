@@ -91,7 +91,7 @@ class OpenNote {
     this.defaultPatter.classList.add("active");
     this.changeBackgroundColorEditWrapper.classList.remove("active");
   }
-  
+
   handleClose() {
     this.closeAddNewNote();
   }
