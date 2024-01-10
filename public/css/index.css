@@ -46,6 +46,12 @@
   height: 48px;
   margin-left: 6px;
 }
+@media (max-width: 430px) {
+  .navbar .navbar--menu {
+    width: 40px;
+    height: 40px;
+  }
+}
 .navbar .navbar--menu .material-symbols-outlined {
   display: flex;
   justify-content: center;
@@ -60,6 +66,14 @@
   height: 48px;
   padding: 15px;
   font-size: 24px;
+}
+@media (max-width: 430px) {
+  .navbar .navbar--menu .material-symbols-outlined {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    font-size: 24px;
+  }
 }
 @media (max-width: 790px) {
   .navbar .navbar--menu.search-active {
@@ -279,6 +293,12 @@
   width: 48px;
   height: 48px;
 }
+@media (max-width: 430px) {
+  .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper {
+    width: 40px;
+    height: 40px;
+  }
+}
 .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper .material-symbols-outlined {
   display: flex;
   justify-content: center;
@@ -293,6 +313,14 @@
   height: 48px;
   padding: 15px;
   font-size: 24px;
+}
+@media (max-width: 430px) {
+  .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper .material-symbols-outlined {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    font-size: 24px;
+  }
 }
 .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper .tooltip--text {
   position: absolute;
@@ -321,6 +349,11 @@
 }
 @media (max-width: 580px) {
   .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper:nth-child(even) {
+    display: none;
+  }
+}
+@media (max-width: 380px) {
+  .navbar .navbar--search .navbar--icon-list .icon-list--icon__wrapper:first-child {
     display: none;
   }
 }
@@ -436,6 +469,12 @@
   width: 48px;
   height: 48px;
 }
+@media (max-width: 430px) {
+  .aside .aside--item__wrapper .aside--icon__wrapper {
+    width: 40px;
+    height: 40px;
+  }
+}
 .aside .aside--item__wrapper .aside--icon__wrapper .material-symbols-outlined {
   display: flex;
   justify-content: center;
@@ -450,6 +489,14 @@
   height: 48px;
   padding: 15px;
   font-size: 24px;
+}
+@media (max-width: 430px) {
+  .aside .aside--item__wrapper .aside--icon__wrapper .material-symbols-outlined {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    font-size: 24px;
+  }
 }
 .aside .aside--item__wrapper .aside--icon__wrapper .material-symbols-outlined:hover {
   opacity: 1;
@@ -496,6 +543,12 @@
   width: 48px;
   height: 48px;
 }
+@media (max-width: 430px) {
+  .aside:hover .aside--item__wrapper .aside--icon__wrapper {
+    width: 40px;
+    height: 40px;
+  }
+}
 .aside:hover .aside--item__wrapper .aside--icon__wrapper .aside--icon {
   display: flex;
   justify-content: center;
@@ -510,6 +563,14 @@
   height: 48px;
   padding: 15px;
   font-size: 24px;
+}
+@media (max-width: 430px) {
+  .aside:hover .aside--item__wrapper .aside--icon__wrapper .aside--icon {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    font-size: 24px;
+  }
 }
 .aside:hover .aside--item__wrapper:hover {
   transition-delay: 0.3s;
@@ -665,6 +726,12 @@
   width: 48px;
   height: 48px;
 }
+@media (max-width: 430px) {
+  .add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--icon__wrapper {
+    width: 40px;
+    height: 40px;
+  }
+}
 .add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--icon__wrapper .material-symbols-outlined {
   display: flex;
   justify-content: center;
@@ -679,6 +746,14 @@
   height: 48px;
   padding: 15px;
   font-size: 24px;
+}
+@media (max-width: 430px) {
+  .add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--icon__wrapper .material-symbols-outlined {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    font-size: 24px;
+  }
 }
 .add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--icon__wrapper .tooltip--text {
   position: absolute;
@@ -1332,6 +1407,15 @@
   padding: 18px 12px;
   display: none;
 }
+@media (max-width: 430px) {
+  .account--login__wrapper {
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    right: 0px;
+    border-radius: 0px;
+  }
+}
 .account--login__wrapper .login--email__wrapper {
   display: flex;
   justify-content: center;
@@ -1370,6 +1454,14 @@
   height: 48px;
   padding: 15px;
   font-size: 24px;
+}
+@media (max-width: 430px) {
+  .account--login__wrapper .login--email__wrapper .email--icon__wrapper .material-symbols-outlined {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    font-size: 24px;
+  }
 }
 .account--login__wrapper .login--email__wrapper .email--icon__wrapper:hover {
   background-color: rgba(65, 65, 65, 0.086);

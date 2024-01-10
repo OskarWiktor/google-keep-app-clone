@@ -112,7 +112,7 @@
       .search--icon-cross__wrapper {
         display: none;
         margin-right: 8px;
-      }  
+      }
     }
     .navbar--search__wrapper.active {
       background-color: rgb(255, 255, 255);
@@ -133,7 +133,7 @@
         @include medium-icons-wrapper;
         display: flex;
         .material-symbols-outlined {
-          @include medium-icons
+          @include medium-icons;
         }
         .tooltip--text {
           @include big-tooltip;
@@ -143,7 +143,7 @@
       .search--icon-cross__wrapper:hover {
         @include icons-wrapper--hover;
         .material-symbols-outlined {
-          @include icons--hover
+          @include icons--hover;
         }
         .tooltip--text {
           visibility: visible;
@@ -175,6 +175,11 @@
       }
       @media (max-width: 580px) {
         .icon-list--icon__wrapper:nth-child(even) {
+          display: none;
+        }
+      }
+      @media (max-width: 380px) {
+        .icon-list--icon__wrapper:first-child {
           display: none;
         }
       }
