@@ -48,7 +48,9 @@ class OpenNote {
     }
     handleInputFocus() {
         this.addNewWrapper.classList.add("active");
-        this.notesWrapper.style.marginTop = "196px";
+        let addNewWrapperHeight = parseFloat(window.getComputedStyle(this.addNewWrapper).height);
+        this.notesWrapper.style.marginTop =
+            (106 + addNewWrapperHeight - 48) + "px";
     }
     closeAddNewNote() {
         this.noteText = this.textInput.textContent
@@ -63,6 +65,8 @@ class OpenNote {
             const newNote = new Note(this.noteText, this.noteTitle);
             this.addNoteToList(newNote);
         }
+        this.textInput.textContent = "";
+        this.titleInput.textContent = "";
         this.textInput.style.backgroundColor = "transparent";
         this.titleInput.style.backgroundColor = "transparent";
         this.addNewWrapper.style.backgroundColor = "white";
