@@ -29,6 +29,13 @@ class OpenNote {
   ) as HTMLElement;
   protected note = document.querySelectorAll(".note");
 
+  protected noteImgInput: HTMLInputElement = document.querySelector(
+    ".file-input"
+  ) as HTMLInputElement;
+  protected noteImg: HTMLImageElement = document.querySelector(
+    ".add-new--image"
+  ) as HTMLImageElement;
+
   protected changeBackgroundColorIcon: HTMLElement = document.getElementById(
     "add--background"
   ) as HTMLElement;
@@ -47,20 +54,23 @@ class OpenNote {
 
   constructor() {
     this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
-    this.closeButton.addEventListener("click", this.handleClose.bind(this));
+    this.closeButton.addEventListener("click", this.handleNoteClose.bind(this));
     document.addEventListener("click", this.handleDocumentClick.bind(this));
 
     this.changeBackgroundColorIcon.addEventListener(
       "click",
       this.handleAddBackgroundColor.bind(this)
     );
+    this.noteImgInput.addEventListener("change", this.handleAddImg.bind(this));
   }
 
   handleInputFocus() {
     this.addNewWrapper.classList.add("active");
-    let addNewWrapperHeight = parseFloat(window.getComputedStyle(this.addNewWrapper).height)  
-    this.notesWrapper.style.marginTop =
-      (106 + addNewWrapperHeight - 48) + "px";
+    let addNewWrapperHeight = parseFloat(
+      window.getComputedStyle(this.addNewWrapper).height
+    );
+    this.notesWrapper.style.marginTop = 106 + addNewWrapperHeight - 48 + "px";
+    this.noteImg.src = "";
   }
 
   closeAddNewNote() {
@@ -94,18 +104,32 @@ class OpenNote {
     this.defaultColor.classList.add("active");
     this.defaultPatter.classList.add("active");
     this.changeBackgroundColorEditWrapper.classList.remove("active");
+    this.noteImg.src = "";
   }
 
-  handleClose() {
+  handleNoteClose() {
     this.closeAddNewNote();
+  }
+  handleAddBackgroundClose() {
+    this.changeBackgroundColorEditWrapper.classList.remove("active");
   }
 
   handleDocumentClick(event: Event) {
     if (!this.addNewWrapper.contains(event.target as Node)) {
       this.closeAddNewNote();
     }
+    if (
+      !this.changeBackgroundColorEditWrapper.contains(event.target as Node) &&
+      !this.changeBackgroundColorIcon.contains(event.target as Node)
+    ) {
+      this.handleAddBackgroundClose();
+    }
   }
 
+  handleAddImg(event: Event) {
+    this.noteImg.src = URL.createObjectURL(event.target.files[0]);
+    console.log("add");
+  }
   handleAddBackgroundColor() {
     this.changeBackgroundColorEditWrapper.classList.toggle("active");
 
@@ -150,6 +174,10 @@ class OpenNote {
     noteItem.style.backgroundImage = window.getComputedStyle(
       this.addNewPatternWrapper
     ).backgroundImage;
+    if (this.noteImg.src.includes("blob")) {
+      noteItem.style.backgroundImage = `url('${this.noteImg.src}')`;
+      console.log(this.noteImg.src)
+    }
     this.notesList.appendChild(noteItem);
 
     const noteTitle = document.createElement("h3");
