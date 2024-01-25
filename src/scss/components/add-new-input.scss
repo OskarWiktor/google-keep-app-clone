@@ -25,6 +25,15 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      .add-new--image__wrapper {
+        width: 100%;
+        height: fit-content;
+        .add-new--image {
+          width: 100%;
+          height: auto;
+          border-radius: $border-radius--big $border-radius--big 0px 0px;
+        }
+      }
       .add-new--title__wrapper {
         align-items: center;
         height: 48px;
@@ -135,9 +144,16 @@
         }
         .edit--icons__wrapper {
           @include small-icons-wrapper;
+          .file-input {
+            width: 48px;
+            height: 24px;
+            z-index: 4;
+            position: absolute;
+            top: 8px;
+            opacity: 0;
+          }
           .material-symbols-outlined {
             @include small-icons;
-            font-size: 18px;
           }
           .tooltip--text {
             @include small-tooltip;
@@ -422,6 +438,9 @@
     height: fit-content;
     box-shadow: 1px 1px 8px 0px rgba(24, 24, 24, 0.563);
 
+    .add-new--image__wrapper {
+      display: flex;
+    }
     .add-new--title__wrapper {
       display: flex;
     }

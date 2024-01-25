@@ -1,6 +1,9 @@
 {
   "dependencies": {
+    "@types/firebase": "^3.2.1",
+    "firebase": "^10.7.1",
     "sass": "^1.68.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.3",
+    "undici-types": "^6.3.0"
   }
 }

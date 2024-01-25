@@ -620,6 +620,15 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--image__wrapper {
+  width: 100%;
+  height: fit-content;
+}
+.add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--image__wrapper .add-new--image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0px 0px;
+}
 .add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--title__wrapper {
   align-items: center;
   height: 48px;
@@ -818,6 +827,14 @@
   width: 34px;
   height: 34px;
 }
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .edit--icons__wrapper .file-input {
+  width: 48px;
+  height: 24px;
+  z-index: 4;
+  position: absolute;
+  top: 8px;
+  opacity: 0;
+}
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .edit--icons__wrapper .material-symbols-outlined {
   display: flex;
   justify-content: center;
@@ -827,7 +844,6 @@
   width: 34px;
   height: 34px;
   padding: 7px;
-  font-size: 18px;
   font-size: 18px;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .edit--icons__wrapper .tooltip--text {
@@ -1153,6 +1169,9 @@
   height: fit-content;
   box-shadow: 1px 1px 8px 0px rgba(24, 24, 24, 0.563);
 }
+.add-new--container .add-new__wrapper.active .add-new--image__wrapper {
+  display: flex;
+}
 .add-new--container .add-new__wrapper.active .add-new--title__wrapper {
   display: flex;
 }
@@ -1226,7 +1245,6 @@
   flex-direction: column;
   width: 240px;
   height: fit-content;
-  padding-top: 16px;
   border: 1px solid rgba(65, 65, 65, 0.086);
   border-radius: 8px;
   margin: 4px;
@@ -1236,8 +1254,16 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.notes__wrapper .notes--list .note .note--img__wrapper {
+  width: 100%;
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8px 8px 0px 0px;
+}
 .notes__wrapper .notes--list .note .note--title {
-  padding: 0px 16px;
+  padding: 16px;
   font-size: 18px;
   color: black;
 }
@@ -1333,7 +1359,7 @@
   justify-content: space-between;
   width: 100%;
   height: fit-content;
-  padding: 16px 4px 8px 4px;
+  padding: 4px;
 }
 .notes__wrapper .notes--list .note .note--icons-list__wrapper .note--icons__wrapper {
   position: relative;

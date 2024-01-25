@@ -1,12 +1,18 @@
 "use strict";
+//import firebase from "firebase/compat/app";
 class Login {
+    //protected auth = firebase.auth();
+    //protected provider = new firebase.auth.GoogleAuthProvider();
     constructor() {
+        this.loginWrapper = document.getElementById("login-wrapper");
         this.loginOpen = document.getElementById("login-open");
         this.loginCloseIcon = document.getElementById("login-close");
-        this.loginWrapper = document.getElementById("login-wrapper");
+        this.signInButton = document.getElementById("sign-in");
+        this.signOutButton = document.getElementById("sign-out");
         this.loginOpen.addEventListener("click", this.handleLoginOpen.bind(this));
         this.loginCloseIcon.addEventListener("click", this.handleLoginClose.bind(this));
         document.addEventListener("click", this.handleDocumentLoginClose.bind(this));
+        this.signInButton.addEventListener("click", this.handleSignIn.bind(this));
     }
     handleLoginOpen() {
         this.loginWrapper.classList.toggle("active");
@@ -15,9 +21,13 @@ class Login {
         this.loginWrapper.classList.remove("active");
     }
     handleDocumentLoginClose(event) {
-        if (!this.loginWrapper.contains(event.target) && !this.loginOpen.contains(event.target)) {
+        if (!this.loginWrapper.contains(event.target) &&
+            !this.loginOpen.contains(event.target)) {
             this.handleLoginClose();
         }
+    }
+    handleSignIn() {
+        //    this.auth.signInWithPopup(this.provider)
     }
 }
 const login = new Login();
@@ -33,6 +43,8 @@ class OpenNote {
         this.notesList = document.getElementById("notes--list");
         this.notesWrapper = document.getElementById("notes__wrapper");
         this.note = document.querySelectorAll(".note");
+        this.noteImgInput = document.querySelector(".file-input");
+        this.noteImg = document.querySelector(".add-new--image");
         this.changeBackgroundColorIcon = document.getElementById("add--background");
         this.changeBackgroundColorEditWrapper = document.querySelector(".add--background__wrapper");
         this.defaultColor = document.getElementById("color--none");
@@ -42,15 +54,16 @@ class OpenNote {
         this.patternEditDivs = document.querySelectorAll(".background--pattern");
         this.addNewBackgroundPattern = "";
         this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
-        this.closeButton.addEventListener("click", this.handleClose.bind(this));
+        this.closeButton.addEventListener("click", this.handleNoteClose.bind(this));
         document.addEventListener("click", this.handleDocumentClick.bind(this));
         this.changeBackgroundColorIcon.addEventListener("click", this.handleAddBackgroundColor.bind(this));
+        this.noteImgInput.addEventListener("change", this.handleAddImg.bind(this));
     }
     handleInputFocus() {
         this.addNewWrapper.classList.add("active");
         let addNewWrapperHeight = parseFloat(window.getComputedStyle(this.addNewWrapper).height);
-        this.notesWrapper.style.marginTop =
-            (106 + addNewWrapperHeight - 48) + "px";
+        this.notesWrapper.style.marginTop = 106 + addNewWrapperHeight - 48 + "px";
+        this.noteImg.src = "";
     }
     closeAddNewNote() {
         this.noteText = this.textInput.textContent
@@ -76,14 +89,26 @@ class OpenNote {
         this.defaultColor.classList.add("active");
         this.defaultPatter.classList.add("active");
         this.changeBackgroundColorEditWrapper.classList.remove("active");
+        this.noteImg.src = "";
     }
-    handleClose() {
+    handleNoteClose() {
         this.closeAddNewNote();
+    }
+    handleAddBackgroundClose() {
+        this.changeBackgroundColorEditWrapper.classList.remove("active");
     }
     handleDocumentClick(event) {
         if (!this.addNewWrapper.contains(event.target)) {
             this.closeAddNewNote();
         }
+        if (!this.changeBackgroundColorEditWrapper.contains(event.target) &&
+            !this.changeBackgroundColorIcon.contains(event.target)) {
+            this.handleAddBackgroundClose();
+        }
+    }
+    handleAddImg(event) {
+        this.noteImg.src = URL.createObjectURL(event.target.files[0]);
+        console.log("add");
     }
     handleAddBackgroundColor() {
         this.changeBackgroundColorEditWrapper.classList.toggle("active");
@@ -113,14 +138,24 @@ class OpenNote {
         noteItem.style.backgroundColor = window.getComputedStyle(this.addNewWrapper).backgroundColor;
         noteItem.style.backgroundImage = window.getComputedStyle(this.addNewPatternWrapper).backgroundImage;
         this.notesList.appendChild(noteItem);
-        const noteTitle = document.createElement("h3");
-        noteTitle.classList.add("note--title");
-        noteTitle.textContent = note.title;
-        noteItem.appendChild(noteTitle);
-        const noteText = document.createElement("p");
-        noteText.classList.add("note--text");
-        noteText.textContent = note.text;
-        noteItem.appendChild(noteText);
+        if (this.noteImg.src.includes("blob")) {
+            const noteImageWrapper = document.createElement("div");
+            noteImageWrapper.classList.add("note--img__wrapper");
+            noteImageWrapper.style.backgroundImage = `url('${this.noteImg.src}')`;
+            noteItem.appendChild(noteImageWrapper);
+        }
+        if (note.title) {
+            const noteTitle = document.createElement("h3");
+            noteTitle.classList.add("note--title");
+            noteTitle.textContent = note.title;
+            noteItem.appendChild(noteTitle);
+        }
+        if (note.text) {
+            const noteText = document.createElement("p");
+            noteText.classList.add("note--text");
+            noteText.textContent = note.text;
+            noteItem.appendChild(noteText);
+        }
         const noteCheckIconWrapper = document.createElement("div");
         noteCheckIconWrapper.classList.add("note--check-icon__wrapper");
         noteItem.appendChild(noteCheckIconWrapper);
