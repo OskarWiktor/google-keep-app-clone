@@ -1245,7 +1245,6 @@
   flex-direction: column;
   width: 240px;
   height: fit-content;
-  padding-top: 16px;
   border: 1px solid rgba(65, 65, 65, 0.086);
   border-radius: 8px;
   margin: 4px;
@@ -1255,8 +1254,16 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.notes__wrapper .notes--list .note .note--img__wrapper {
+  width: 100%;
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8px 8px 0px 0px;
+}
 .notes__wrapper .notes--list .note .note--title {
-  padding: 0px 16px;
+  padding: 16px;
   font-size: 18px;
   color: black;
 }
@@ -1352,7 +1359,7 @@
   justify-content: space-between;
   width: 100%;
   height: fit-content;
-  padding: 16px 4px 8px 4px;
+  padding: 4px;
 }
 .notes__wrapper .notes--list .note .note--icons-list__wrapper .note--icons__wrapper {
   position: relative;

@@ -174,21 +174,28 @@ class OpenNote {
     noteItem.style.backgroundImage = window.getComputedStyle(
       this.addNewPatternWrapper
     ).backgroundImage;
-    if (this.noteImg.src.includes("blob")) {
-      noteItem.style.backgroundImage = `url('${this.noteImg.src}')`;
-      console.log(this.noteImg.src)
-    }
     this.notesList.appendChild(noteItem);
 
-    const noteTitle = document.createElement("h3");
-    noteTitle.classList.add("note--title");
-    noteTitle.textContent = note.title;
-    noteItem.appendChild(noteTitle);
+    if (this.noteImg.src.includes("blob")) {
+      const noteImageWrapper = document.createElement("div");
+      noteImageWrapper.classList.add("note--img__wrapper");
+      noteImageWrapper.style.backgroundImage = `url('${this.noteImg.src}')`;
+      noteItem.appendChild(noteImageWrapper);
+    }
 
-    const noteText = document.createElement("p");
-    noteText.classList.add("note--text");
-    noteText.textContent = note.text;
-    noteItem.appendChild(noteText);
+    if (note.title) {
+      const noteTitle = document.createElement("h3");
+      noteTitle.classList.add("note--title");
+      noteTitle.textContent = note.title;
+      noteItem.appendChild(noteTitle);
+    }
+
+    if (note.text) {
+      const noteText = document.createElement("p");
+      noteText.classList.add("note--text");
+      noteText.textContent = note.text;
+      noteItem.appendChild(noteText);
+    }
 
     const noteCheckIconWrapper = document.createElement("div");
     noteCheckIconWrapper.classList.add("note--check-icon__wrapper");

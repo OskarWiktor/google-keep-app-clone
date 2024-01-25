@@ -1,4 +1,4 @@
-//import firebase from "firebase/compat/app";
+// import firebase from "firebase/app";
 
 class Login {
   protected loginWrapper: HTMLElement = document.getElementById(
@@ -17,8 +17,8 @@ class Login {
   protected signOutButton: HTMLElement = document.getElementById(
     "sign-out"
   ) as HTMLElement;
-  //protected auth = firebase.auth();
-  //protected provider = new firebase.auth.GoogleAuthProvider();
+  // protected auth = firebase.auth();
+  // protected provider = new firebase.auth.GoogleAuthProvider();
 
   constructor() {
     this.loginOpen.addEventListener("click", this.handleLoginOpen.bind(this));
@@ -47,7 +47,7 @@ class Login {
     }
   }
   handleSignIn() {
-//    this.auth.signInWithPopup(this.provider)
+    //    this.auth.signInWithPopup(this.provider)
   }
 }
 
