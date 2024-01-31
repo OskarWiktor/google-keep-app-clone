@@ -213,7 +213,7 @@
         <div class="add-new__wrapper">
           <div class="add-new__pattern-wrapper">
             <div class="add-new--image__wrapper">
-              <img class="add-new--image" src="">
+              <img class="add-new--image" src="" />
             </div>
             <div class="add-new--title__wrapper">
               <div contenteditable id="title--input" class="title--input"></div>
@@ -423,7 +423,7 @@
               </div>
 
               <div class="edit--icons__wrapper">
-                <input class="file-input" type="file"/>
+                <input class="file-input" type="file" />
                 <span class="material-symbols-outlined"> image </span>
                 <span class="tooltip--text">Dodaj obraz</span>
               </div>
@@ -434,8 +434,38 @@
               </div>
 
               <div class="edit--icons__wrapper">
-                <span class="material-symbols-outlined"> more_vert </span>
+                <span id="add-more-icon" class="material-symbols-outlined">
+                  more_vert
+                </span>
                 <span class="tooltip--text">Więcej</span>
+              </div>
+
+              <div class="add--more__wrapper">
+                <div class="add--buttons__wrapper">
+                  <button id="add-tags-button" class="add--button">
+                    Dodaj etykietę
+                  </button>
+                  <button id="add-checkboxes-button" class="add--button">
+                    Pokaż pola wyboru
+                  </button>
+                </div>
+                <div class="add--tags__wrapper">
+                  <h3 class="add--tags__title">Etykieta notatki</h3>
+                  <input
+                    class="add--tags__input"
+                    placeholder="Wpisz nazwę etykiety"
+                    type="text"
+                    name=""
+                    id="add-tags-input"
+                  />
+                  <div class="add--tag__list"></div>
+                  <div class="tag--value__wrapper">
+                    <span class="material-symbols-outlined"> add </span>
+                    <h4 class="tag--value__title">
+                      Utwórz etykietę "<span class="tag--value">aaa</span>"
+                    </h4>
+                  </div>
+                </div>
               </div>
 
               <div class="edit--icons__wrapper">

@@ -52,6 +52,34 @@ class addNote {
   protected patternEditDivs = document.querySelectorAll(".background--pattern");
   protected addNewBackgroundPattern = "";
 
+  protected addMoreIcon: HTMLElement = document.getElementById(
+    "add-more-icon"
+  ) as HTMLElement;
+  protected addMoreWrapper: HTMLElement = document.querySelector(
+    ".add--more__wrapper"
+  ) as HTMLElement;
+  protected addTagsButton: HTMLButtonElement = document.getElementById(
+    "add-tags-button"
+  ) as HTMLButtonElement;
+  protected addMoreButtonsWrapper: HTMLElement = document.querySelector(
+    ".add--buttons__wrapper"
+  ) as HTMLElement;
+  protected addTagsWrapper: HTMLElement = document.querySelector(
+    ".add--tags__wrapper"
+  ) as HTMLElement;
+  protected addTagsInput: HTMLInputElement = document.getElementById(
+    "add-tags-input"
+  ) as HTMLInputElement;
+  protected addTagsValueWrapper: HTMLElement = document.querySelector(
+    ".tag--value__wrapper"
+  ) as HTMLElement;
+  protected addTagsValueSpan: HTMLElement = document.querySelector(
+    ".tag--value"
+  ) as HTMLElement;
+  protected addTagsList: HTMLElement = document.querySelector(
+    ".add--tag__list"
+  ) as HTMLElement;
+
   constructor() {
     this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
     this.closeButton.addEventListener("click", this.handleNoteClose.bind(this));
@@ -62,6 +90,7 @@ class addNote {
       this.handleAddBackgroundColor.bind(this)
     );
     this.noteImgInput.addEventListener("change", this.handleAddImg.bind(this));
+    this.addMoreIcon.addEventListener("click", this.handleAddMore.bind(this));
   }
 
   handleInputFocus() {
@@ -110,6 +139,7 @@ class addNote {
   handleNoteClose() {
     this.closeAddNewNote();
   }
+
   handleAddBackgroundClose() {
     this.changeBackgroundColorEditWrapper.classList.remove("active");
   }
@@ -124,6 +154,12 @@ class addNote {
     ) {
       this.handleAddBackgroundClose();
     }
+    if (
+      !this.addMoreIcon.contains(event.target as Node) &&
+      !this.addMoreWrapper.contains(event.target as Node)
+    ) {
+      this.handleAddMoreClose();
+    }
   }
 
   handleAddImg(event: Event) {
@@ -132,6 +168,7 @@ class addNote {
       console.log("add");
     }
   }
+
   handleAddBackgroundColor() {
     this.changeBackgroundColorEditWrapper.classList.toggle("active");
 
@@ -165,6 +202,30 @@ class addNote {
         patternEditDiv.classList.add("active");
       });
     });
+  }
+
+  handleAddMore() {
+    this.addMoreWrapper.classList.toggle("active");
+    this.addTagsWrapper.style.display = "none";
+    this.addMoreButtonsWrapper.style.display = "flex";
+    this.addTagsButton.addEventListener("click", (e) => {
+      this.addMoreButtonsWrapper.style.display = "none";
+      this.addTagsWrapper.style.display = "flex";
+      this.addTagsInput.addEventListener("input", (e) => {
+        console.log("focus");
+        this.addTagsValueSpan.textContent = this.addTagsInput.value;
+      });
+      this.addTagsValueWrapper.addEventListener("click", (e) => {
+        const tag = document.createElement("p");
+        tag.textContent = this.addTagsValueSpan.textContent,
+        this.addTagsList.appendChild(tag);
+      });
+    });
+  }
+  handleAddMoreClose() {
+    this.addMoreWrapper.classList.remove("active");
+    this.addTagsWrapper.style.display = "none";
+    this.addMoreButtonsWrapper.style.display = "flex";
   }
 
   addNoteToList(note: Note) {

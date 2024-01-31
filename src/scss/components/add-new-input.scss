@@ -344,7 +344,8 @@
               border: 2px solid rgb(159, 30, 220);
               .material-symbols-outlined {
                 display: flex;
-              }            }
+              }
+            }
             .pattern--none {
               border: 2px solid $light-blue-grey;
               .material-symbols-outlined {
@@ -402,6 +403,84 @@
           }
         }
         .add--background__wrapper.active {
+          display: flex;
+        }
+        .add--more__wrapper {
+          display: none;
+          position: absolute;
+          left: 260px;
+          top: 34px;
+          height: fit-content;
+          background-color: white;
+          box-shadow: 1px 1px 6px 0px rgba(8, 8, 8, 0.386);
+          border-radius: $border-radius--small;
+          z-index: 5;
+          .add--buttons__wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 160px;
+            padding: 8px 18px;
+            .add--button {
+              font-size: $font-size--small;
+              color: $dark-grey;
+              text-align: left;
+              width: 100%;
+              padding: 8px 0px;
+              border: none;
+              background-color: transparent;
+              cursor: pointer;
+            }
+            .add--more__button:hover {
+              background-color: $light-blue-grey;
+            }
+          }
+          .add--tags__wrapper {
+            display: none;
+            flex-direction: column;
+            width: 220px;
+            .add--tags__title {
+              color: black;
+              font-size: $font-size--small;
+              margin: 8px 12px;
+            }
+            .add--tags__input {
+              width: 200px;
+              border: none;
+              color: $dark-grey;
+              margin: 8px 12px;
+            }
+            .add--tags__input:focus {
+              outline: none;
+            }
+            .tag--value__wrapper {
+              display: flex;
+              width: 100%;
+              border-top: 1px solid rgb(221, 221, 221);
+              cursor: pointer;
+              .material-symbols-outlined {
+                font-size: 16px;
+                width: 16px;
+                height: 16px;
+                color: $dark-grey;
+                margin: 8px 6px 0px 12px;
+              }
+              .tag--value__title {
+                margin: 8px 0px;
+                color: black;
+                font-size: $font-size--small;
+                .tag--value {
+                  color: black;
+                  font-size: $font-size--small;
+                  font-weight: bolder;
+                }
+              }
+            }
+            .tag--value__wrapper:hover {
+              background-color: $light-blue-grey;
+            }
+          }
+        }
+        .add--more__wrapper.active {
           display: flex;
         }
         .edit--icons__wrapper:hover {
