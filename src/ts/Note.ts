@@ -1,6 +1,6 @@
 type NoteType = string;
 
-class OpenNote {
+class addNote {
   protected textInput: HTMLElement = document.getElementById(
     "text--input"
   ) as HTMLElement;
@@ -127,8 +127,10 @@ class OpenNote {
   }
 
   handleAddImg(event: Event) {
-    this.noteImg.src = URL.createObjectURL(event.target.files[0]);
-    console.log("add");
+    if (event.target) {
+      this.noteImg.src = URL.createObjectURL(event.target.files[0]);
+      console.log("add");
+    }
   }
   handleAddBackgroundColor() {
     this.changeBackgroundColorEditWrapper.classList.toggle("active");
@@ -319,4 +321,5 @@ class Note {
   constructor(public text: string, public title: string) {}
 }
 
-const openNote = new OpenNote();
+const note = new addNote();
+export default note;
