@@ -151,6 +151,7 @@
             position: absolute;
             top: 8px;
             opacity: 0;
+            cursor: pointer;
           }
           .material-symbols-outlined {
             @include small-icons;
@@ -453,11 +454,21 @@
               outline: none;
             }
             .add--tag__list {
-              .tag {
-                padding: 4px 4px 4px 10px;
-                font-size: $font-size--small;
+              .tag__wrapper {
+                display: flex;
+                padding: 4px 10px;
+                cursor: pointer;
+                .material-symbols-outlined {
+                  width: 22px;
+                  height: 22px;
+                  font-size: 18px;
+                  color: $dark-grey;
+                }
+                .tag {
+                  font-size: $font-size--small;
+                }
               }
-              .tag:hover {
+              .tag__wrapper:hover {
                 background-color: $light-blue-grey;
               }
             }
@@ -466,6 +477,7 @@
               width: 100%;
               border-top: 1px solid rgb(221, 221, 221);
               cursor: pointer;
+              display: none;
               .material-symbols-outlined {
                 font-size: 16px;
                 width: 16px;

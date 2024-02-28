@@ -27,12 +27,12 @@ class Login {
   protected userWelcome: HTMLElement = document.querySelector(
     ".account-edit--welcome"
   ) as HTMLElement;
-  protected userPhoto: HTMLElement = document.querySelector(
+  protected userPhoto: HTMLImageElement = document.querySelector(
     ".account--bg"
-  ) as HTMLElement;
-  protected userPhotoLoginOpen: HTMLElement = document.querySelector(
-    ".account-edit--photo"
-  ) as HTMLElement;
+  ) as HTMLImageElement;
+  protected userPhotoLoginOpen: HTMLImageElement = document.querySelector(
+    ".account-edit--photo__wrapper"
+  ) as HTMLImageElement;
   constructor() {
     this.loginOpen.addEventListener("click", this.handleLoginOpen.bind(this));
     this.loginCloseIcon.addEventListener(

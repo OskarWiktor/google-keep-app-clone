@@ -209,17 +209,43 @@ class addNote {
     this.addTagsWrapper.style.display = "none";
     this.addMoreButtonsWrapper.style.display = "flex";
     this.addTagsButton.addEventListener("click", (e) => {
+
       this.addMoreButtonsWrapper.style.display = "none";
       this.addTagsWrapper.style.display = "flex";
       this.addTagsInput.addEventListener("input", (e) => {
-        console.log("focus");
-        this.addTagsValueSpan.textContent = this.addTagsInput.value;
+
+        if (this.addTagsInput.value) {
+          this.addTagsValueWrapper.style.display = "flex";
+          this.addTagsValueSpan.textContent = this.addTagsInput.value;
+        }
       });
       this.addTagsValueWrapper.addEventListener("click", (e) => {
+        const tagWrapper = document.createElement("div");
+        tagWrapper.className = "tag__wrapper";
+        this.addTagsList.appendChild(tagWrapper);
+
+        const tagCheckbox = document.createElement("span");
+        tagCheckbox.textContent = " check_box_outline_blank ";
+        tagCheckbox.className = "material-symbols-outlined";
+        tagWrapper.appendChild(tagCheckbox);
+
         const tag = document.createElement("p");
-        tag.textContent = this.addTagsValueSpan.textContent,
+        tag.textContent = this.addTagsValueSpan.textContent;
         tag.className = "tag";
-        this.addTagsList.appendChild(tag);
+        tagWrapper.appendChild(tag);
+        this.addTagsInput.value = "";
+        this.addTagsValueWrapper.style.display = "none";
+        this.addTagsValueSpan.textContent = this.addTagsInput.value;
+
+        tagWrapper.addEventListener("click", () => {
+          tagCheckbox.classList.toggle("active");
+          if (tagCheckbox.classList.contains("active")) {
+            tagCheckbox.textContent = " check_box ";
+          }
+          if (!tagCheckbox.classList.contains("active")) {
+            tagCheckbox.textContent = " check_box_outline_blank ";
+          }
+        });
       });
     });
   }
@@ -384,4 +410,3 @@ class Note {
 }
 
 const note = new addNote();
-export default Note;

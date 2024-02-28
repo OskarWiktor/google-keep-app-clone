@@ -421,10 +421,10 @@
   font-size: 18px;
   background-color: rgb(101, 0, 253);
   border-radius: 24px;
-}
-.navbar .navbar--account .account--icon__wrapper .account--bg .account--letter {
-  color: white;
-  font: 400 16px "Product Sans", Arial, sans-serif;
+  background-position: center;
+  background-size: cover;
+  opacity: 1;
+  border: 1px rgba(65, 65, 65, 0.086) solid;
 }
 .navbar .navbar--account .account--icon__wrapper:hover {
   background-color: rgba(65, 65, 65, 0.086);
@@ -834,6 +834,7 @@
   position: absolute;
   top: 8px;
   opacity: 0;
+  cursor: pointer;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .edit--icons__wrapper .material-symbols-outlined {
   display: flex;
@@ -1184,11 +1185,21 @@
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .add--tags__input:focus {
   outline: none;
 }
-.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .add--tag__list .tag {
-  padding: 4px 4px 4px 10px;
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .add--tag__list .tag__wrapper {
+  display: flex;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .add--tag__list .tag__wrapper .material-symbols-outlined {
+  width: 22px;
+  height: 22px;
+  font-size: 18px;
+  color: rgb(66, 66, 66);
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .add--tag__list .tag__wrapper .tag {
   font-size: 14px;
 }
-.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .add--tag__list .tag:hover {
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .add--tag__list .tag__wrapper:hover {
   background-color: rgba(65, 65, 65, 0.086);
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .tag--value__wrapper {
@@ -1196,6 +1207,7 @@
   width: 100%;
   border-top: 1px solid rgb(221, 221, 221);
   cursor: pointer;
+  display: none;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .tag--value__wrapper .material-symbols-outlined {
   font-size: 16px;
@@ -1596,6 +1608,8 @@
   border: 1px rgba(65, 65, 65, 0.086) solid;
   border-radius: 42px;
   position: relative;
+  background-position: center;
+  background-size: cover;
 }
 .account--login__wrapper .login--account-edit__wrapper .account-edit--photo__wrapper .account-edit--photo {
   object-fit: cover;

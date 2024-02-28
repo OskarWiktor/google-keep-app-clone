@@ -209,10 +209,11 @@
         @include small-icons;
         background-color: rgb(101, 0, 253);
         border-radius: $border-radius--circle;
-        .account--letter {
-          color: white;
-          font: 400 16px "Product Sans", Arial, sans-serif;
-        }
+        background-position: center;
+        background-size: cover;
+        opacity: 1;
+        border: 1px $light-blue-grey solid;
+        
       }
     }
     .account--icon__wrapper:hover {
