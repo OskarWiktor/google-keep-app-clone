@@ -218,6 +218,7 @@ class addNote {
       this.addTagsValueWrapper.addEventListener("click", (e) => {
         const tag = document.createElement("p");
         tag.textContent = this.addTagsValueSpan.textContent,
+        tag.className = "tag";
         this.addTagsList.appendChild(tag);
       });
     });
@@ -383,4 +384,4 @@ class Note {
 }
 
 const note = new addNote();
-export default note;
+export default Note;

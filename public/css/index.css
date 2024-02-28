@@ -1184,6 +1184,13 @@
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .add--tags__input:focus {
   outline: none;
 }
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .add--tag__list .tag {
+  padding: 4px 4px 4px 10px;
+  font-size: 14px;
+}
+.add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .add--tag__list .tag:hover {
+  background-color: rgba(65, 65, 65, 0.086);
+}
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--tags__wrapper .tag--value__wrapper {
   display: flex;
   width: 100%;

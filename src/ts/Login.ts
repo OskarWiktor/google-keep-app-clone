@@ -1,4 +1,4 @@
-import firebase from "firebase/compat/app";
+import {getAuth, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
 
 class Login {
   protected loginWrapper: HTMLElement = document.getElementById(
@@ -17,9 +17,22 @@ class Login {
   protected signOutButton: HTMLElement = document.getElementById(
     "sign-out"
   ) as HTMLElement;
-  protected auth = firebase.auth();
-  protected provider = new firebase.auth.GoogleAuthProvider();
 
+  protected auth = getAuth();
+  protected provider = new GoogleAuthProvider();
+
+  protected userEmail: HTMLElement = document.querySelector(
+    ".email--email"
+  ) as HTMLElement;
+  protected userWelcome: HTMLElement = document.querySelector(
+    ".account-edit--welcome"
+  ) as HTMLElement;
+  protected userPhoto: HTMLElement = document.querySelector(
+    ".account--bg"
+  ) as HTMLElement;
+  protected userPhotoLoginOpen: HTMLElement = document.querySelector(
+    ".account-edit--photo"
+  ) as HTMLElement;
   constructor() {
     this.loginOpen.addEventListener("click", this.handleLoginOpen.bind(this));
     this.loginCloseIcon.addEventListener(
@@ -47,9 +60,19 @@ class Login {
     }
   }
   handleSignIn() {
-    //    this.auth.signInWithPopup(this.provider)
+    signInWithPopup(this.auth, this.provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+
+        this.userEmail.textContent = `${user.email}`;
+        this.userWelcome.textContent = `Witaj ${user.displayName},`;
+        this.userPhoto.style.backgroundImage = `url(${user.photoURL})`;
+        this.userPhotoLoginOpen.style.backgroundImage = `url(${user.photoURL})`;
+      })
+      .catch((error) => {
+        console.log("Error signing in", error);
+      });
   }
 }
-
 const login = new Login();
-export default login
