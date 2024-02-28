@@ -32,24 +32,20 @@
     }
 
     .note {
+      @include background-images;
       display: flex;
       flex-direction: column;
       width: 240px;
       height: fit-content;
-      border: 1px solid $light-blue-grey;
+      border: $border--big__light;
       border-radius: $border-radius--big;
       margin: 4px;
       transition: 0.2s ease;
       position: relative;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
       .note--img__wrapper {
+        @include background-images;
         width: 100%;
         height: 200px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
         border-radius: $border-radius--big $border-radius--big 0px 0px;
       }
       .note--title {
@@ -59,8 +55,8 @@
       }
       .note--text {
         padding: 12px 16px 16px 16px;
-        font-size: 19px;
-        color: rgb(59, 59, 59);
+        font-size: $font-size--medium;
+        color: $dark-grey;
       }
       .note--check-icon__wrapper {
         .material-symbols-outlined {
@@ -91,7 +87,7 @@
         opacity: 0;
         cursor: pointer;
         .material-symbols-outlined {
-          @include medium-icons
+          @include medium-icons;
         }
         .tooltip--text {
           @include small-tooltip;
@@ -138,7 +134,7 @@
       }
     }
     .note:hover {
-      box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.398);
+      box-shadow: $box-shadow--small;
 
       .note--check-icon__wrapper {
         .material-symbols-outlined {

@@ -13,7 +13,7 @@
     height: fit-content;
     margin: 32px 0px 32px 24px;
     border-radius: $border-radius--big;
-    box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.563);
+    box-shadow: $box-shadow--small__dark;
     background-color: white;
 
     @media (max-width: 620px) {
@@ -21,10 +21,8 @@
       margin-left: 32px;
     }
     .add-new__pattern-wrapper {
+      @include background-images;
       border-radius: $border-radius--big $border-radius--big 0px 0px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
       .add-new--image__wrapper {
         width: 100%;
         height: fit-content;
@@ -165,39 +163,24 @@
           display: none;
           flex-direction: column;
           position: absolute;
-          top: 30px;
+          top: 34px;
           left: 68px;
           width: 460px;
-          height: 100px;
+          height: fit-content;
           background-color: white;
           border-radius: $border-radius--big;
-          border: 1px solid $light-blue-grey;
-          box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.171);
+          border: $border--big__light;
+          box-shadow: $box-shadow--small;
           z-index: 1;
-          @media (max-width: 640px) {
-            top: 30px;
+          @media (max-width: 620px) {
+            position: fixed;
+            top: 230px;
             left: 0px;
-            right: 0px;
           }
-          @media (max-width: 640px) {
-            top: 58px;
+          @media (max-width: 460px) {
+            width: 100%;
           }
-          @media (max-width: 580px) {
-            top: 66px;
-            left: -20px;
-          }
-          @media (max-width: 540px) {
-            top: 66px;
-            left: -40px;
-          }
-          @media (max-width: 520px) {
-            top: 66px;
-            left: -70px;
-          }
-          @media (max-width: 490px) {
-            top: 66px;
-            left: -100px;
-          }
+
           .background--color__wrapper {
             display: flex;
             flex-direction: row;
@@ -215,6 +198,14 @@
               border-radius: $border-radius--circle;
               cursor: pointer;
               position: relative;
+              @media (max-width: 460px) {
+                width: 28px;
+                height: 28px;
+              }
+              @media (max-width: 380px) {
+                width: 24px;
+                height: 24px;
+              }
               .tooltip--text {
                 @include medium-tooltip;
                 top: 30px;
@@ -224,7 +215,7 @@
                 position: absolute;
                 top: -6px;
                 right: -6px;
-                font-size: 20px;
+                font-size: $font-size--big;
                 background-color: rgb(159, 30, 220);
                 color: white;
                 border-radius: $border-radius--circle;
@@ -232,12 +223,12 @@
             }
             .color--none {
               background-color: white;
-              border: 2px solid $light-blue-grey;
+              border: $border--big__light;
               .material-symbols-outlined {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 17px;
+                font-size: $font-size--medium;
                 position: static;
                 color: rgba(0, 0, 0, 0.651);
                 background-color: white;
@@ -252,7 +243,7 @@
                 position: absolute;
                 top: -6px;
                 right: -6px;
-                font-size: 20px;
+                font-size: $font-size--big;
                 background-color: rgb(159, 30, 220);
                 color: white;
                 border-radius: $border-radius--circle;
@@ -292,13 +283,13 @@
               background-color: rgb(235, 235, 235);
             }
             .background--color:hover {
-              border: 2px solid black;
+              border: $border--big__dark;
               .tooltip--text {
                 visibility: visible;
               }
             }
             .background--color.active {
-              border: 2px solid rgb(159, 30, 220);
+              border: $border--big__violet;
               .material-symbols-outlined {
                 display: flex;
               }
@@ -320,6 +311,14 @@
               border-radius: $border-radius--circle;
               position: relative;
               cursor: pointer;
+              @media (max-width: 460px) {
+                width: 34px;
+                height: 34px;
+              }
+              @media (max-width: 380px) {
+                width: 30px;
+                height: 30px;
+              }
               .tooltip--text {
                 @include medium-tooltip;
                 top: 38px;
@@ -329,31 +328,31 @@
                 position: absolute;
                 top: -6px;
                 right: -6px;
-                font-size: 20px;
-                background-color: rgb(159, 30, 220);
+                font-size: $font-size--big;
+                background-color: $violet-color;
                 color: white;
                 border-radius: $border-radius--circle;
               }
             }
             .background--pattern:hover {
-              border: 2px solid black;
+              border: $border--big__dark;
               .tooltip--text {
                 visibility: visible;
               }
             }
             .background--pattern.active {
-              border: 2px solid rgb(159, 30, 220);
+              border: $border--big__violet;
               .material-symbols-outlined {
                 display: flex;
               }
             }
             .pattern--none {
-              border: 2px solid $light-blue-grey;
+              border: $border--big__light;
               .material-symbols-outlined {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 24px;
+                font-size: $font-size--Xbig;
                 position: static;
                 color: rgba(0, 0, 0, 0.651);
                 background-color: white;
@@ -368,8 +367,8 @@
                 position: absolute;
                 top: -6px;
                 right: -6px;
-                font-size: 20px;
-                background-color: rgb(159, 30, 220);
+                font-size: $font-size--big;
+                background-color: $violet-color;
                 color: white;
                 border-radius: $border-radius--circle;
               }
@@ -413,9 +412,19 @@
           top: 34px;
           height: fit-content;
           background-color: white;
-          box-shadow: 1px 1px 6px 0px rgba(8, 8, 8, 0.386);
+          box-shadow: $box-shadow--small;
           border-radius: $border-radius--small;
           z-index: 5;
+          @media (max-width: 620px) {
+            left: 200px;
+            top: 64px;
+          }
+          @media (max-width: 520px) {
+            left: 160px;
+          }
+          @media (max-width: 480px) {
+            left: 0px;
+          }
           .add--buttons__wrapper {
             display: flex;
             flex-direction: column;
@@ -461,7 +470,7 @@
                 .material-symbols-outlined {
                   width: 22px;
                   height: 22px;
-                  font-size: 18px;
+                  font-size: $font-size--medium;
                   color: $dark-grey;
                 }
                 .tag {
@@ -536,7 +545,7 @@
   }
   .add-new__wrapper.active {
     height: fit-content;
-    box-shadow: 1px 1px 8px 0px rgba(24, 24, 24, 0.563);
+    box-shadow: $box-shadow--small;
 
     .add-new--image__wrapper {
       display: flex;

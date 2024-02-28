@@ -6,7 +6,7 @@
   z-index: 1;
   transition: ease-in 0.1s;
   position: relative;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   .aside--item__wrapper {
     display: flex;
     align-items: center;
@@ -21,11 +21,11 @@
       }
     }
     .aside--icon__wrapper:hover {
-        @include icons-wrapper--hover;
+      @include icons-wrapper--hover;
     }
     .aside--icon__wrapper.active {
       background-color: $active-color;
-      border-radius: 24px;
+      border-radius: $border-radius--circle;
     }
   }
   .aside--item__wrapper:first-of-type {
@@ -34,7 +34,7 @@
   .aside--item__text {
     font: bold $font-size--small "Product Sans", Arial, sans-serif;
     padding-left: 24px;
-    color: rgb(69, 69, 69);
+    color: $dark-grey;
     display: none;
     transition: ease-in 0.2s;
     transition-delay: 0.3s;
@@ -42,7 +42,7 @@
 }
 .aside:hover {
   width: 280px;
-  box-shadow: 5px 5px 10px #a5a5a577;
+  box-shadow: $box-shadow--big;
   transition: ease-in 0.1s;
   transition-delay: 0.3s;
   .aside--item__wrapper {
@@ -58,12 +58,12 @@
   .aside--item__wrapper:hover {
     transition-delay: 0.3s;
     background-color: $light-blue-grey;
-    border-radius: 0px 24px 24px 0px;
+    border-radius: 0px $border-radius--circle $border-radius--circle 0px;
   }
   .aside--item__wrapper.active {
     transition-delay: 0.3s;
     background-color: $active-color;
-    border-radius: 0px 24px 24px 0px;
+    border-radius: 0px $border-radius--circle $border-radius--circle 0px;
   }
   .aside--item__text {
     overflow: hidden;

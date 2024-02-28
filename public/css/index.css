@@ -30,7 +30,6 @@
   width: 100%;
   height: 64px;
   border-bottom: 1px solid rgba(65, 65, 65, 0.086);
-  padding: 6px;
   position: relative;
   z-index: 2;
 }
@@ -191,7 +190,7 @@
   padding: 6px;
   border: none;
   background-color: rgb(242, 243, 245);
-  font-size: 16px;
+  font-size: 18px;
   color: rgb(119, 119, 119);
 }
 @media (max-width: 790px) {
@@ -207,17 +206,17 @@
   margin-right: 8px;
 }
 .navbar .navbar--search .navbar--search__wrapper.active {
-  background-color: rgb(255, 255, 255);
-  box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.398);
+  background-color: white;
+  box-shadow: 1px 1px 6px 0px rgba(38, 38, 38, 0.495);
 }
 @media (max-width: 790px) {
   .navbar .navbar--search .navbar--search__wrapper.active {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.398);
+    background-color: white;
+    box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.171);
   }
 }
 .navbar .navbar--search .navbar--search__wrapper.active .navbar--search__input {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
 }
 @media (max-width: 790px) {
   .navbar .navbar--search .navbar--search__wrapper.active .navbar--search__input {
@@ -419,10 +418,11 @@
   height: 34px;
   padding: 7px;
   font-size: 18px;
-  background-color: rgb(101, 0, 253);
-  border-radius: 24px;
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
+  background-color: rgb(155, 89, 255);
+  border-radius: 24px;
   opacity: 1;
   border: 1px rgba(65, 65, 65, 0.086) solid;
 }
@@ -451,7 +451,7 @@
   z-index: 1;
   transition: ease-in 0.1s;
   position: relative;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
 }
 .aside .aside--item__wrapper {
   display: flex;
@@ -516,7 +516,7 @@
 .aside .aside--item__text {
   font: bold 14px "Product Sans", Arial, sans-serif;
   padding-left: 24px;
-  color: rgb(69, 69, 69);
+  color: rgb(66, 66, 66);
   display: none;
   transition: ease-in 0.2s;
   transition-delay: 0.3s;
@@ -605,7 +605,7 @@
   height: fit-content;
   margin: 32px 0px 32px 24px;
   border-radius: 8px;
-  box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.563);
+  box-shadow: 1px 1px 6px 0px rgba(38, 38, 38, 0.495);
   background-color: white;
 }
 @media (max-width: 620px) {
@@ -615,10 +615,10 @@
   }
 }
 .add-new--container .add-new__wrapper .add-new__pattern-wrapper {
-  border-radius: 8px 8px 0px 0px;
-  background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8px 8px 0px 0px;
 }
 .add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--image__wrapper {
   width: 100%;
@@ -865,50 +865,26 @@
   display: none;
   flex-direction: column;
   position: absolute;
-  top: 30px;
+  top: 34px;
   left: 68px;
   width: 460px;
-  height: 100px;
+  height: fit-content;
   background-color: white;
   border-radius: 8px;
-  border: 1px solid rgba(65, 65, 65, 0.086);
+  border: 2px solid rgba(65, 65, 65, 0.086);
   box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.171);
   z-index: 1;
 }
-@media (max-width: 640px) {
+@media (max-width: 620px) {
   .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper {
-    top: 30px;
+    position: fixed;
+    top: 230px;
     left: 0px;
-    right: 0px;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 460px) {
   .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper {
-    top: 58px;
-  }
-}
-@media (max-width: 580px) {
-  .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper {
-    top: 66px;
-    left: -20px;
-  }
-}
-@media (max-width: 540px) {
-  .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper {
-    top: 66px;
-    left: -40px;
-  }
-}
-@media (max-width: 520px) {
-  .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper {
-    top: 66px;
-    left: -70px;
-  }
-}
-@media (max-width: 490px) {
-  .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper {
-    top: 66px;
-    left: -100px;
+    width: 100%;
   }
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper {
@@ -930,6 +906,18 @@
   cursor: pointer;
   position: relative;
 }
+@media (max-width: 460px) {
+  .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color {
+    width: 28px;
+    height: 28px;
+  }
+}
+@media (max-width: 380px) {
+  .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color {
+    width: 24px;
+    height: 24px;
+  }
+}
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .background--color .tooltip--text {
   position: absolute;
   z-index: 1;
@@ -950,7 +938,7 @@
   position: absolute;
   top: -6px;
   right: -6px;
-  font-size: 20px;
+  font-size: 21px;
   background-color: rgb(159, 30, 220);
   color: white;
   border-radius: 24px;
@@ -963,7 +951,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 17px;
+  font-size: 18px;
   position: static;
   color: rgba(0, 0, 0, 0.651);
   background-color: white;
@@ -976,7 +964,7 @@
   position: absolute;
   top: -6px;
   right: -6px;
-  font-size: 20px;
+  font-size: 21px;
   background-color: rgb(159, 30, 220);
   color: white;
   border-radius: 24px;
@@ -1044,6 +1032,18 @@
   position: relative;
   cursor: pointer;
 }
+@media (max-width: 460px) {
+  .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .background--pattern {
+    width: 34px;
+    height: 34px;
+  }
+}
+@media (max-width: 380px) {
+  .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .background--pattern {
+    width: 30px;
+    height: 30px;
+  }
+}
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .background--pattern .tooltip--text {
   position: absolute;
   z-index: 1;
@@ -1064,7 +1064,7 @@
   position: absolute;
   top: -6px;
   right: -6px;
-  font-size: 20px;
+  font-size: 21px;
   background-color: rgb(159, 30, 220);
   color: white;
   border-radius: 24px;
@@ -1101,7 +1101,7 @@
   position: absolute;
   top: -6px;
   right: -6px;
-  font-size: 20px;
+  font-size: 21px;
   background-color: rgb(159, 30, 220);
   color: white;
   border-radius: 24px;
@@ -1143,9 +1143,25 @@
   top: 34px;
   height: fit-content;
   background-color: white;
-  box-shadow: 1px 1px 6px 0px rgba(8, 8, 8, 0.386);
+  box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.171);
   border-radius: 4px;
   z-index: 5;
+}
+@media (max-width: 620px) {
+  .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper {
+    left: 200px;
+    top: 64px;
+  }
+}
+@media (max-width: 520px) {
+  .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper {
+    left: 160px;
+  }
+}
+@media (max-width: 480px) {
+  .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper {
+    left: 0px;
+  }
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--more__wrapper .add--buttons__wrapper {
   display: flex;
@@ -1264,7 +1280,7 @@
 }
 .add-new--container .add-new__wrapper.active {
   height: fit-content;
-  box-shadow: 1px 1px 8px 0px rgba(24, 24, 24, 0.563);
+  box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.171);
 }
 .add-new--container .add-new__wrapper.active .add-new--image__wrapper {
   display: flex;
@@ -1338,25 +1354,25 @@
   }
 }
 .notes__wrapper .notes--list .note {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   width: 240px;
   height: fit-content;
-  border: 1px solid rgba(65, 65, 65, 0.086);
+  border: 2px solid rgba(65, 65, 65, 0.086);
   border-radius: 8px;
   margin: 4px;
   transition: 0.2s ease;
   position: relative;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 .notes__wrapper .notes--list .note .note--img__wrapper {
-  width: 100%;
-  height: 200px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  width: 100%;
+  height: 200px;
   border-radius: 8px 8px 0px 0px;
 }
 .notes__wrapper .notes--list .note .note--title {
@@ -1366,8 +1382,8 @@
 }
 .notes__wrapper .notes--list .note .note--text {
   padding: 12px 16px 16px 16px;
-  font-size: 19px;
-  color: rgb(59, 59, 59);
+  font-size: 18px;
+  color: rgb(66, 66, 66);
 }
 .notes__wrapper .notes--list .note .note--check-icon__wrapper .material-symbols-outlined {
   position: absolute;
@@ -1504,7 +1520,7 @@
   visibility: visible;
 }
 .notes__wrapper .notes--list .note:hover {
-  box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.398);
+  box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.171);
 }
 .notes__wrapper .notes--list .note:hover .note--check-icon__wrapper .material-symbols-outlined {
   opacity: 1;
@@ -1525,12 +1541,12 @@
   top: 60px;
   right: 12px;
   background-color: rgb(238, 242, 245);
-  border-radius: 25px;
-  box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.563);
+  border-radius: 24px;
+  box-shadow: 1px 1px 6px 0px rgba(38, 38, 38, 0.495);
   padding: 18px 12px;
   display: none;
 }
-@media (max-width: 430px) {
+@media (max-width: 530px) {
   .account--login__wrapper {
     width: 100vw;
     height: 100vh;
@@ -1603,13 +1619,14 @@
   padding-top: 24px;
 }
 .account--login__wrapper .login--account-edit__wrapper .account-edit--photo__wrapper {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 84px;
   height: 84px;
-  border: 1px rgba(65, 65, 65, 0.086) solid;
+  border: 2px solid rgba(65, 65, 65, 0.086);
   border-radius: 42px;
   position: relative;
-  background-position: center;
-  background-size: cover;
 }
 .account--login__wrapper .login--account-edit__wrapper .account-edit--photo__wrapper .account-edit--photo {
   object-fit: cover;
@@ -1625,7 +1642,7 @@
   height: 34px;
   width: 24px;
   height: 24px;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   border-radius: 12px;
   position: absolute;
   bottom: -2px;
@@ -1646,16 +1663,16 @@
   width: 100%;
   height: fit-content;
   margin-top: 12px;
-  font-size: 20px;
+  font-size: 21px;
   text-align: center;
 }
 .account--login__wrapper .login--account-edit__wrapper .account-edit--button {
   width: 55%;
   padding: 10px 0px;
-  border: 1px rgb(56, 56, 56) solid;
+  border: 2px solid rgba(65, 65, 65, 0.086);
   background-color: transparent;
   border-radius: 24px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bolder;
   color: #5664ff;
   margin: 12px 0px;
@@ -1707,8 +1724,8 @@
 .account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--photo__wrapper {
   width: 38px;
   height: 38px;
-  border: 1px rgba(65, 65, 65, 0.086) solid;
-  border-radius: 21px;
+  border: 2px solid rgba(65, 65, 65, 0.086);
+  border-radius: 24px;
 }
 .account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--text__wrapper {
   display: flex;
@@ -1726,7 +1743,7 @@
 .account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--text__wrapper .button--text--email {
   font-size: 12px;
   padding: 4px 0px;
-  color: rgb(75, 75, 75);
+  color: rgb(66, 66, 66);
 }
 .account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--add__icon {
   display: flex;
@@ -1776,7 +1793,7 @@
   color: rgb(95, 95, 95);
 }
 .account--login__wrapper .login--policies__wrapper .policies--link__wrapper:hover {
-  background-color: rgba(0, 0, 0, 0.0666666667);
+  background-color: rgba(65, 65, 65, 0.086);
 }
 .account--login__wrapper .login--policies__wrapper .policies--dot {
   margin: 0px 10px;
