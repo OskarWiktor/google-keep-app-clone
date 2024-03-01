@@ -1,114 +1,56 @@
 type NoteType = string;
 
 class addNote {
-  protected textInput: HTMLElement = document.getElementById(
-    "text--input"
-  ) as HTMLElement;
-  protected titleInput: HTMLElement = document.getElementById(
-    "title--input"
-  ) as HTMLElement;
+  private textInput = document.getElementById( "text--input" ) as HTMLElement;
+  private titleInput = document.getElementById( "title--input" ) as HTMLElement;
+  private addNewWrapper = document.querySelector( ".add-new__wrapper" ) as HTMLElement;
+  private addNewPatternWrapper = document.querySelector( ".add-new__pattern-wrapper" ) as HTMLElement;
+  private closeButton = document.querySelector( ".edit--button" ) as HTMLButtonElement;
+  private noteText: NoteType = "";
+  private noteTitle: NoteType = "";
 
-  protected addNewWrapper: HTMLElement = document.querySelector(
-    ".add-new__wrapper"
-  ) as HTMLElement;
-  protected addNewPatternWrapper: HTMLElement = document.querySelector(
-    ".add-new__pattern-wrapper"
-  ) as HTMLElement;
-  protected closeButton: HTMLButtonElement = document.querySelector(
-    ".edit--button"
-  ) as HTMLButtonElement;
+  private notesWrapper = document.getElementById( "notes__wrapper" ) as HTMLElement;
 
-  protected noteText: NoteType = "";
-  protected noteTitle: NoteType = "";
+  private noteImgInput = document.querySelector( ".file-input" ) as HTMLInputElement;
+  private noteImg = document.querySelector( ".add-new--image" ) as HTMLImageElement;
 
-  protected notesList: HTMLElement = document.getElementById(
-    "notes--list"
-  ) as HTMLElement;
-  protected notesWrapper: HTMLElement = document.getElementById(
-    "notes__wrapper"
-  ) as HTMLElement;
-  protected note = document.querySelectorAll(".note");
+  private changeBackgroundColorIcon = document.getElementById( "add--background" ) as HTMLElement;
+  private changeBackgroundColorEditWrapper = document.querySelector( ".add--background__wrapper" ) as HTMLElement;
+  private colorEditDivs = document.querySelectorAll( ".background--color" );
+  private patternEditDivs = document.querySelectorAll( ".background--pattern" );
 
-  protected noteImgInput: HTMLInputElement = document.querySelector(
-    ".file-input"
-  ) as HTMLInputElement;
-  protected noteImg: HTMLImageElement = document.querySelector(
-    ".add-new--image"
-  ) as HTMLImageElement;
+  private addMoreIcon = document.getElementById( "add-more-icon") as HTMLElement;
+  private addMoreWrapper = document.querySelector( ".add--more__wrapper" ) as HTMLElement;
 
-  protected changeBackgroundColorIcon: HTMLElement = document.getElementById(
-    "add--background"
-  ) as HTMLElement;
-  protected changeBackgroundColorEditWrapper: HTMLElement =
-    document.querySelector(".add--background__wrapper") as HTMLElement;
-  protected defaultColor: HTMLElement = document.getElementById(
-    "color--none"
-  ) as HTMLElement;
-  protected colorEditDivs = document.querySelectorAll(".background--color");
-  protected addNewBackgroundColor = "white";
-  protected defaultPatter: HTMLElement = document.getElementById(
-    "pattern--none"
-  ) as HTMLElement;
-  protected patternEditDivs = document.querySelectorAll(".background--pattern");
-  protected addNewBackgroundPattern = "";
-
-  protected addMoreIcon: HTMLElement = document.getElementById(
-    "add-more-icon"
-  ) as HTMLElement;
-  protected addMoreWrapper: HTMLElement = document.querySelector(
-    ".add--more__wrapper"
-  ) as HTMLElement;
-  protected addTagsButton: HTMLButtonElement = document.getElementById(
-    "add-tags-button"
-  ) as HTMLButtonElement;
-  protected addMoreButtonsWrapper: HTMLElement = document.querySelector(
-    ".add--buttons__wrapper"
-  ) as HTMLElement;
-  protected addTagsWrapper: HTMLElement = document.querySelector(
-    ".add--tags__wrapper"
-  ) as HTMLElement;
-  protected addTagsInput: HTMLInputElement = document.getElementById(
-    "add-tags-input"
-  ) as HTMLInputElement;
-  protected addTagsValueWrapper: HTMLElement = document.querySelector(
-    ".tag--value__wrapper"
-  ) as HTMLElement;
-  protected addTagsValueSpan: HTMLElement = document.querySelector(
-    ".tag--value"
-  ) as HTMLElement;
-  protected addTagsList: HTMLElement = document.querySelector(
-    ".add--tag__list"
-  ) as HTMLElement;
+  private addMoreButtonsWrapper = document.querySelector( ".add--buttons__wrapper" ) as HTMLElement;
+  private addTagsWrapper = document.querySelector( ".add--tags__wrapper" ) as HTMLElement;
 
   constructor() {
-    this.textInput.addEventListener("focus", this.handleInputFocus.bind(this));
-    this.closeButton.addEventListener("click", this.handleNoteClose.bind(this));
-    document.addEventListener("click", this.handleDocumentClick.bind(this));
-
-    this.changeBackgroundColorIcon.addEventListener(
-      "click",
-      this.handleAddBackgroundColor.bind(this)
-    );
-    this.noteImgInput.addEventListener("change", this.handleAddImg.bind(this));
-    this.addMoreIcon.addEventListener("click", this.handleAddMore.bind(this));
+    this.initEvents();
   }
 
-  handleInputFocus() {
-    this.addNewWrapper.classList.add("active");
-    let addNewWrapperHeight = parseFloat(
-      window.getComputedStyle(this.addNewWrapper).height
-    );
+  private initEvents() {
+    this.textInput.addEventListener( "focus", this.handleInputFocus );
+    this.closeButton.addEventListener( "click", this.handleNoteClose );
+    document.addEventListener( "click", this.handleDocumentClick );
+    this.changeBackgroundColorIcon.addEventListener( "click", this.handleAddBackgroundColor );
+    this.noteImgInput.addEventListener( "change", this.handleAddImg );
+    this.addMoreIcon.addEventListener( "click", this.handleAddMore );
+  }
+
+  private handleInputFocus = (): void => {
+    this.addNewWrapper.classList.add( "active" );
+    let addNewWrapperHeight = parseFloat( window.getComputedStyle(this.addNewWrapper).height );
     this.notesWrapper.style.marginTop = 106 + addNewWrapperHeight - 48 + "px";
     this.noteImg.src = "";
-  }
+  };
 
-  closeAddNewNote() {
-    this.noteText = this.textInput.textContent
-      ? this.textInput.textContent
-      : "";
-    this.noteTitle = this.titleInput.textContent
-      ? this.titleInput.textContent
-      : "";
+  private closeAddNewNote = (): void => {
+    const defaultPatter = document.getElementById( "pattern--none" ) as HTMLElement;
+    const defaultColor = document.getElementById( "color--none" ) as HTMLElement;
+
+    this.noteText = this.textInput.textContent ? this.textInput.textContent : "";
+    this.noteTitle = this.titleInput.textContent ? this.titleInput.textContent : "";
 
     this.addNewWrapper.classList.remove("active");
     this.notesWrapper.style.marginTop = "106px";
@@ -130,21 +72,21 @@ class addNote {
     this.patternEditDivs.forEach((patternEditDiv) =>
       patternEditDiv.classList.remove("active")
     );
-    this.defaultColor.classList.add("active");
-    this.defaultPatter.classList.add("active");
+    defaultColor.classList.add("active");
+    defaultPatter.classList.add("active");
     this.changeBackgroundColorEditWrapper.classList.remove("active");
     this.noteImg.src = "";
-  }
+  };
 
-  handleNoteClose() {
+  private handleNoteClose = (): void => {
     this.closeAddNewNote();
-  }
+  };
 
-  handleAddBackgroundClose() {
+  private handleAddBackgroundClose = (): void => {
     this.changeBackgroundColorEditWrapper.classList.remove("active");
-  }
+  };
 
-  handleDocumentClick(event: Event) {
+  private handleDocumentClick = (event: Event): void => {
     if (!this.addNewWrapper.contains(event.target as Node)) {
       this.closeAddNewNote();
     }
@@ -160,16 +102,19 @@ class addNote {
     ) {
       this.handleAddMoreClose();
     }
-  }
+  };
 
-  handleAddImg(event: Event) {
-    if (event.target) {
-      this.noteImg.src = URL.createObjectURL(event.target.files[0]);
-      console.log("add");
+  private handleAddImg = (event: Event): void => {
+    const imgInput = event.target as HTMLInputElement;
+    if (imgInput && imgInput.files && imgInput.files.length > 0) {
+      this.noteImg.src = URL.createObjectURL(imgInput.files[0]);
     }
-  }
+  };
 
-  handleAddBackgroundColor() {
+  private handleAddBackgroundColor = (): void => {
+    let addNewBackgroundPattern = "";
+    let addNewBackgroundColor = "white";
+
     this.changeBackgroundColorEditWrapper.classList.toggle("active");
 
     this.colorEditDivs.forEach((colorEditDiv) => {
@@ -178,11 +123,9 @@ class addNote {
           colorEditDiv.classList.remove("active")
         );
 
-        this.addNewBackgroundColor =
+        addNewBackgroundColor =
           window.getComputedStyle(colorEditDiv).backgroundColor;
-
-        this.addNewWrapper.style.backgroundColor = this.addNewBackgroundColor;
-
+        this.addNewWrapper.style.backgroundColor = addNewBackgroundColor;
         colorEditDiv.classList.add("active");
       });
     });
@@ -193,36 +136,40 @@ class addNote {
           patternEditDiv.classList.remove("active")
         );
 
-        this.addNewBackgroundPattern =
+        addNewBackgroundPattern =
           window.getComputedStyle(patternEditDiv).backgroundImage;
 
         this.addNewPatternWrapper.style.backgroundImage =
-          this.addNewBackgroundPattern;
+          addNewBackgroundPattern;
 
         patternEditDiv.classList.add("active");
       });
     });
-  }
+  };
 
-  handleAddMore() {
+  private handleAddMore = (): void => {
+    const addTagsList = document.querySelector( ".add--tag__list" ) as HTMLElement;
+    const addTagsButton = document.getElementById( "add-tags-button" ) as HTMLButtonElement;
+    const addTagsInput = document.getElementById( "add-tags-input" ) as HTMLInputElement;
+    const addTagsValueWrapper = document.querySelector( ".tag--value__wrapper" ) as HTMLElement;
+    const addTagsValueSpan = document.querySelector( ".tag--value" ) as HTMLElement;
+
     this.addMoreWrapper.classList.toggle("active");
     this.addTagsWrapper.style.display = "none";
     this.addMoreButtonsWrapper.style.display = "flex";
-    this.addTagsButton.addEventListener("click", (e) => {
-
+    addTagsButton.addEventListener("click", (e) => {
       this.addMoreButtonsWrapper.style.display = "none";
       this.addTagsWrapper.style.display = "flex";
-      this.addTagsInput.addEventListener("input", (e) => {
-
-        if (this.addTagsInput.value) {
-          this.addTagsValueWrapper.style.display = "flex";
-          this.addTagsValueSpan.textContent = this.addTagsInput.value;
+      addTagsInput.addEventListener("input", (e) => {
+        if (addTagsInput.value) {
+          addTagsValueWrapper.style.display = "flex";
+          addTagsValueSpan.textContent = addTagsInput.value;
         }
       });
-      this.addTagsValueWrapper.addEventListener("click", (e) => {
+      addTagsValueWrapper.addEventListener("click", (e) => {
         const tagWrapper = document.createElement("div");
         tagWrapper.className = "tag__wrapper";
-        this.addTagsList.appendChild(tagWrapper);
+        addTagsList.appendChild(tagWrapper);
 
         const tagCheckbox = document.createElement("span");
         tagCheckbox.textContent = " check_box_outline_blank ";
@@ -230,12 +177,12 @@ class addNote {
         tagWrapper.appendChild(tagCheckbox);
 
         const tag = document.createElement("p");
-        tag.textContent = this.addTagsValueSpan.textContent;
+        tag.textContent = addTagsValueSpan.textContent;
         tag.className = "tag";
         tagWrapper.appendChild(tag);
-        this.addTagsInput.value = "";
-        this.addTagsValueWrapper.style.display = "none";
-        this.addTagsValueSpan.textContent = this.addTagsInput.value;
+        addTagsInput.value = "";
+        addTagsValueWrapper.style.display = "none";
+        addTagsValueSpan.textContent = addTagsInput.value;
 
         tagWrapper.addEventListener("click", () => {
           tagCheckbox.classList.toggle("active");
@@ -248,15 +195,37 @@ class addNote {
         });
       });
     });
-  }
-  handleAddMoreClose() {
+  };
+
+  private handleAddMoreClose = (): void => {
     this.addMoreWrapper.classList.remove("active");
     this.addTagsWrapper.style.display = "none";
     this.addMoreButtonsWrapper.style.display = "flex";
-  }
+  };
 
-  addNoteToList(note: Note) {
+  private createIconWithTooltip = ( iconName: string, iconTooltipText: string): HTMLElement => {
+    const iconWrapper = document.createElement("div");
+    iconWrapper.classList.add("note--icons__wrapper");
+
+    const icon = document.createElement("span");
+    icon.classList.add("material-symbols-outlined");
+    icon.textContent = iconName;
+    iconWrapper.appendChild(icon);
+
+    const iconTooltip = document.createElement("span");
+    iconTooltip.classList.add("tooltip--text");
+    iconTooltip.textContent = iconTooltipText;
+    iconWrapper.appendChild(iconTooltip);
+
+    return iconWrapper;
+  };
+
+  private addNoteToList = (note: Note): void => {
+    const notesList: HTMLElement = document.getElementById(
+      "notes--list"
+    ) as HTMLElement;
     const noteItem = document.createElement("div");
+
     noteItem.classList.add("note");
     noteItem.style.backgroundColor = window.getComputedStyle(
       this.addNewWrapper
@@ -264,7 +233,7 @@ class addNote {
     noteItem.style.backgroundImage = window.getComputedStyle(
       this.addNewPatternWrapper
     ).backgroundImage;
-    this.notesList.appendChild(noteItem);
+    notesList.appendChild(noteItem);
 
     if (this.noteImg.src.includes("blob")) {
       const noteImageWrapper = document.createElement("div");
@@ -315,94 +284,27 @@ class addNote {
     notePushPinTooltip.textContent = "Przypnij notatkę";
     notePushPinWrapper.appendChild(notePushPinTooltip);
 
+    const icons = [
+      {iconName: " add_alert ", iconTooltipText: "Przypomnij mi"},
+      {iconName: " person_add ", iconTooltipText: "Współpracownik"},
+      {iconName: " palette ", iconTooltipText: "Opcje tła"},
+      {iconName: " image ", iconTooltipText: "Dodaj obraz"},
+      {iconName: " archive ", iconTooltipText: "Archiwizuj"},
+      {iconName: " more_vert ", iconTooltipText: "Więcej"},
+    ];
+
     const noteIconList = document.createElement("div");
     noteIconList.classList.add("note--icons-list__wrapper");
     noteItem.appendChild(noteIconList);
 
-    const noteIconReminderWrapper = document.createElement("div");
-    noteIconReminderWrapper.classList.add("note--icons__wrapper");
-    noteIconList.appendChild(noteIconReminderWrapper);
-
-    const noteIconReminder = document.createElement("span");
-    noteIconReminder.classList.add("material-symbols-outlined");
-    noteIconReminder.textContent = " add_alert ";
-    noteIconReminderWrapper.appendChild(noteIconReminder);
-
-    const noteIconReminderTooltip = document.createElement("span");
-    noteIconReminderTooltip.classList.add("tooltip--text");
-    noteIconReminderTooltip.textContent = "Przypomnij mi";
-    noteIconReminderWrapper.appendChild(noteIconReminderTooltip);
-
-    const noteIconAddPersonWrapper = document.createElement("div");
-    noteIconAddPersonWrapper.classList.add("note--icons__wrapper");
-    noteIconList.appendChild(noteIconAddPersonWrapper);
-
-    const noteIconAddPerson = document.createElement("span");
-    noteIconAddPerson.classList.add("material-symbols-outlined");
-    noteIconAddPerson.textContent = " person_add ";
-    noteIconAddPersonWrapper.appendChild(noteIconAddPerson);
-
-    const noteIconAddPersonTooltip = document.createElement("span");
-    noteIconAddPersonTooltip.classList.add("tooltip--text");
-    noteIconAddPersonTooltip.textContent = "Współpracownik";
-    noteIconAddPersonWrapper.appendChild(noteIconAddPersonTooltip);
-
-    const noteIconAddPaletteWrapper = document.createElement("div");
-    noteIconAddPaletteWrapper.classList.add("note--icons__wrapper");
-    noteIconList.appendChild(noteIconAddPaletteWrapper);
-
-    const noteIconAddPalette = document.createElement("span");
-    noteIconAddPalette.classList.add("material-symbols-outlined");
-    noteIconAddPalette.textContent = " palette ";
-    noteIconAddPaletteWrapper.appendChild(noteIconAddPalette);
-
-    const noteIconAddPaletteTooltip = document.createElement("span");
-    noteIconAddPaletteTooltip.classList.add("tooltip--text");
-    noteIconAddPaletteTooltip.textContent = "Opcje tła";
-    noteIconAddPaletteWrapper.appendChild(noteIconAddPaletteTooltip);
-
-    const noteIconImageWrapper = document.createElement("div");
-    noteIconImageWrapper.classList.add("note--icons__wrapper");
-    noteIconList.appendChild(noteIconImageWrapper);
-
-    const noteIconImage = document.createElement("span");
-    noteIconImage.classList.add("material-symbols-outlined");
-    noteIconImage.textContent = " image ";
-    noteIconImageWrapper.appendChild(noteIconImage);
-
-    const noteIconImageTooltip = document.createElement("span");
-    noteIconImageTooltip.classList.add("tooltip--text");
-    noteIconImageTooltip.textContent = "Dodaj obraz";
-    noteIconImageWrapper.appendChild(noteIconImageTooltip);
-
-    const noteIconArchiveWrapper = document.createElement("div");
-    noteIconArchiveWrapper.classList.add("note--icons__wrapper");
-    noteIconList.appendChild(noteIconArchiveWrapper);
-
-    const noteIconArchive = document.createElement("span");
-    noteIconArchive.classList.add("material-symbols-outlined");
-    noteIconArchive.textContent = " archive ";
-    noteIconArchiveWrapper.appendChild(noteIconArchive);
-
-    const noteIconArchiveTooltip = document.createElement("span");
-    noteIconArchiveTooltip.classList.add("tooltip--text");
-    noteIconArchiveTooltip.textContent = "Archiwizuj";
-    noteIconArchiveWrapper.appendChild(noteIconArchiveTooltip);
-
-    const noteIconMoreWrapper = document.createElement("div");
-    noteIconMoreWrapper.classList.add("note--icons__wrapper");
-    noteIconList.appendChild(noteIconMoreWrapper);
-
-    const noteIconMore = document.createElement("span");
-    noteIconMore.classList.add("material-symbols-outlined");
-    noteIconMore.textContent = " more_vert ";
-    noteIconMoreWrapper.appendChild(noteIconMore);
-
-    const noteIconMoreTooltip = document.createElement("span");
-    noteIconMoreTooltip.classList.add("tooltip--text");
-    noteIconMoreTooltip.textContent = "Więcej";
-    noteIconMoreWrapper.appendChild(noteIconMoreTooltip);
-  }
+    icons.forEach((iconInfo) => {
+      const icon = this.createIconWithTooltip(
+        iconInfo.iconName,
+        iconInfo.iconTooltipText
+      );
+      noteIconList.appendChild(icon);
+    });
+  };
 }
 
 class Note {
