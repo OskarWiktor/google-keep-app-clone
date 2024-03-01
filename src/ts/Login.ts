@@ -12,7 +12,7 @@ class Login {
     this.initEvents();
   }
 
-  private initEvents(): void {
+  private initEvents = (): void => {
     this.loginOpen.addEventListener( "click", this.handleLoginOpen );
     this.loginCloseIcon.addEventListener( "click", this.handleLoginClose );
     document.addEventListener( "click", this.handleDocumentLoginClose );
@@ -35,7 +35,7 @@ class Login {
       alert(`Nie można się zalogować: ${error}`)
     }
   };
-  private updateUserInterface(user: User): void {
+  private updateUserInterface = (user: User): void => {
     const userEmail: HTMLElement = document.querySelector( ".email--email" ) as HTMLElement;
     const userWelcome: HTMLElement = document.querySelector( ".account-edit--welcome" ) as HTMLElement;
     const userPhoto: HTMLImageElement = document.querySelector( ".account--bg" ) as HTMLImageElement;

@@ -29,7 +29,7 @@ class addNote {
     this.initEvents();
   }
 
-  private initEvents() {
+  private initEvents = (): void => {
     this.textInput.addEventListener( "focus", this.handleInputFocus );
     this.closeButton.addEventListener( "click", this.handleNoteClose );
     document.addEventListener( "click", this.handleDocumentClick );
