@@ -122,12 +122,40 @@
       display: flex;
       margin: 0px 16px;
       gap: 6px;
-      .active__tag--wrapper {
+      .active-tag__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background-color: $light-blue-grey;
         border-radius: $border-radius--circle;
-        .active__tag {
+        padding: 4px 8px;
+        position: relative;
+
+        .active-tag {
           font-size: 11px;
-          padding: 4px 8px;
+        }
+        .active-tag__icon--wrapper {
+          @include small-icons-wrapper;
+          position: absolute;
+          top: 2px;
+          right: 2px;
+          width: 18px;
+          height: 18px;
+          display: none;
+          .material-symbols-outlined {
+            @include small-icons;
+            width: 12px;
+            height: 12px;
+            font-size: 14px;
+          }
+        }
+      }
+      .active-tag__wrapper:hover {
+        .active-tag__icon--wrapper {
+          z-index: 4;
+          display: flex;
+          border-radius: $border-radius--circle;
+          background-color: rgb(189, 189, 189);
         }
       }
     }

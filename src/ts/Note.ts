@@ -168,6 +168,7 @@ class addNote {
         }
       });
       addTagsValueWrapper.addEventListener("click", (e) => {
+        if (addTagsValueSpan.textContent) { 
         const tagWrapper = document.createElement("div");
         tagWrapper.className = "tag__wrapper";
         addTagsList.appendChild(tagWrapper);
@@ -193,14 +194,25 @@ class addNote {
 
             const activeTagsWrapper = document.querySelector(".add-new__tags--wrapper") as HTMLDivElement;
             const activeTagWrapper = document.createElement("div");
-            activeTagWrapper.className = "active__tag--wrapper"
+            activeTagWrapper.className = "active-tag__wrapper";
             activeTagsWrapper.appendChild(activeTagWrapper);
             const activeTag = document.createElement("p");
-            activeTag.className ="active__tag"
+            activeTag.className ="active-tag";
             activeTag.textContent = tag.textContent;
             activeTagWrapper.appendChild(activeTag);
+            const activeTagIconWrapper = document.createElement("div");
+            activeTagIconWrapper.className = 'active-tag__icon--wrapper';
+            activeTagWrapper.appendChild(activeTagIconWrapper);
+            const activeTagIcon = document.createElement('span');
+            activeTagIcon.className = 'material-symbols-outlined';
+            activeTagIcon.textContent = ' close ';
+            activeTagIconWrapper.append(activeTagIcon);
 
             tagWrapper.dataset.activeTagId = activeTagWrapper.id = 'active-tag-'+ Date.now();
+            activeTagIcon.addEventListener("click", () => {
+              activeTagWrapper.remove();
+              tagCheckbox.textContent = " check_box_outline_blank ";
+            })
           }
           if (!tagCheckbox.classList.contains("active")) {
             tagCheckbox.textContent = " check_box_outline_blank ";
@@ -213,6 +225,7 @@ class addNote {
             }
           }
         });
+        }
       });
     });
   };

@@ -7,6 +7,7 @@
   transition: ease-in 0.1s;
   position: relative;
   background-color: white;
+  overflow: hidden;
   .aside--item__wrapper {
     display: flex;
     align-items: center;
@@ -45,6 +46,7 @@
   box-shadow: $box-shadow--big;
   transition: ease-in 0.1s;
   transition-delay: 0.3s;
+  overflow-y: auto;
   .aside--item__wrapper {
     width: 100%;
     cursor: pointer;
