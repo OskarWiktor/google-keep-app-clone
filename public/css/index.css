@@ -789,6 +789,20 @@
 .add-new--container .add-new__wrapper .add-new__pattern-wrapper .add-new--text__wrapper .text--icon__wrapper:hover .tooltip--text {
   visibility: visible;
 }
+.add-new--container .add-new__wrapper .add-new__tags--wrapper {
+  display: flex;
+  padding: 2px 10px;
+  margin: 0px 8px;
+  gap: 6px;
+}
+.add-new--container .add-new__wrapper .add-new__tags--wrapper .active__tag--wrapper {
+  background-color: rgba(65, 65, 65, 0.086);
+  border-radius: 24px;
+}
+.add-new--container .add-new__wrapper .add-new__tags--wrapper .active__tag--wrapper .active__tag {
+  font-size: 11px;
+  padding: 4px 8px;
+}
 .add-new--container .add-new__wrapper .add-new--edit__wrapper {
   align-items: center;
   height: 48px;

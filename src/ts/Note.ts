@@ -188,9 +188,27 @@ class addNote {
           tagCheckbox.classList.toggle("active");
           if (tagCheckbox.classList.contains("active")) {
             tagCheckbox.textContent = " check_box ";
+
+            const activeTagsWrapper = document.querySelector(".add-new__tags--wrapper") as HTMLDivElement;
+            const activeTagWrapper = document.createElement("div");
+            activeTagWrapper.className = "active__tag--wrapper"
+            activeTagsWrapper.appendChild(activeTagWrapper);
+            const activeTag = document.createElement("p");
+            activeTag.className ="active__tag"
+            activeTag.textContent = tag.textContent;
+            activeTagWrapper.appendChild(activeTag);
+
+            tagWrapper.dataset.activeTagId = activeTagWrapper.id = 'active-tag-'+ Date.now();
           }
           if (!tagCheckbox.classList.contains("active")) {
             tagCheckbox.textContent = " check_box_outline_blank ";
+            const activeTagId = tagWrapper.dataset.activeTagId;
+            if(activeTagId) {
+              const activeTagWrapper = document.getElementById(activeTagId);
+              if(activeTagWrapper) {
+                activeTagWrapper.remove();
+              }
+            }
           }
         });
       });
