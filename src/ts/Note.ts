@@ -1,4 +1,5 @@
 type NoteType = string;
+import Aside from  "./Aside";
 
 class addNote {
   private textInput = document.getElementById( "text--input" ) as HTMLElement;
@@ -30,22 +31,22 @@ class addNote {
   }
 
   private initEvents = (): void => {
-    this.textInput.addEventListener( "focus", this.handleInputFocus );
-    this.closeButton.addEventListener( "click", this.handleNoteClose );
+    this.textInput.addEventListener( "focus", this.handleAddNewInputFocus );
+    this.closeButton.addEventListener( "click", this.handleAddNewNoteClose );
     document.addEventListener( "click", this.handleDocumentClick );
     this.changeBackgroundColorIcon.addEventListener( "click", this.handleAddBackgroundColor );
     this.noteImgInput.addEventListener( "change", this.handleAddImg );
     this.addMoreIcon.addEventListener( "click", this.handleAddMore );
   }
 
-  private handleInputFocus = (): void => {
+  private handleAddNewInputFocus = (): void => {
     this.addNewWrapper.classList.add( "active" );
     let addNewWrapperHeight = parseFloat( window.getComputedStyle(this.addNewWrapper).height );
     this.notesWrapper.style.marginTop = 106 + addNewWrapperHeight - 48 + "px";
     this.noteImg.src = "";
   };
 
-  private closeAddNewNote = (): void => {
+  private createNoteOnAddNewClose = (): void => {
     const defaultPatter = document.getElementById( "pattern--none" ) as HTMLElement;
     const defaultColor = document.getElementById( "color--none" ) as HTMLElement;
 
@@ -57,7 +58,7 @@ class addNote {
 
     if (this.noteText || this.noteTitle) {
       const newNote = new Note(this.noteText, this.noteTitle);
-      this.addNoteToList(newNote);
+      this.createNewNote(newNote);
     }
     this.textInput.textContent = "";
     this.titleInput.textContent = "";
@@ -78,8 +79,8 @@ class addNote {
     this.noteImg.src = "";
   };
 
-  private handleNoteClose = (): void => {
-    this.closeAddNewNote();
+  private handleAddNewNoteClose = (): void => {
+    this.createNoteOnAddNewClose();
   };
 
   private handleAddBackgroundClose = (): void => {
@@ -88,7 +89,7 @@ class addNote {
 
   private handleDocumentClick = (event: Event): void => {
     if (!this.addNewWrapper.contains(event.target as Node)) {
-      this.closeAddNewNote();
+      this.createNoteOnAddNewClose();
     }
     if (
       !this.changeBackgroundColorEditWrapper.contains(event.target as Node) &&
@@ -183,6 +184,7 @@ class addNote {
         addTagsInput.value = "";
         addTagsValueWrapper.style.display = "none";
         addTagsValueSpan.textContent = addTagsInput.value;
+        Aside.createAsideTag(tag);
 
         tagWrapper.addEventListener("click", () => {
           tagCheckbox.classList.toggle("active");
@@ -238,20 +240,14 @@ class addNote {
     return iconWrapper;
   };
 
-  private addNoteToList = (note: Note): void => {
-    const notesList: HTMLElement = document.getElementById(
-      "notes--list"
-    ) as HTMLElement;
+  private createNewNote = (note: Note): void => {
+    const notesList: HTMLElement = document.getElementById( "notes--list" ) as HTMLElement;
     const noteItem = document.createElement("div");
 
     noteItem.classList.add("note");
-    noteItem.style.backgroundColor = window.getComputedStyle(
-      this.addNewWrapper
-    ).backgroundColor;
-    noteItem.style.backgroundImage = window.getComputedStyle(
-      this.addNewPatternWrapper
-    ).backgroundImage;
-    notesList.appendChild(noteItem);
+    noteItem.style.backgroundColor = window.getComputedStyle( this.addNewWrapper ).backgroundColor;
+    noteItem.style.backgroundImage = window.getComputedStyle( this.addNewPatternWrapper ).backgroundImage;
+    notesList.prepend(noteItem);
 
     if (this.noteImg.src.includes("blob")) {
       const noteImageWrapper = document.createElement("div");

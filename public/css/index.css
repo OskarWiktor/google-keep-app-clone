@@ -791,8 +791,7 @@
 }
 .add-new--container .add-new__wrapper .add-new__tags--wrapper {
   display: flex;
-  padding: 2px 10px;
-  margin: 0px 8px;
+  margin: 0px 16px;
   gap: 6px;
 }
 .add-new--container .add-new__wrapper .add-new__tags--wrapper .active__tag--wrapper {
@@ -885,7 +884,7 @@
   height: fit-content;
   background-color: white;
   border-radius: 8px;
-  border: 2px solid rgba(65, 65, 65, 0.086);
+  border: 1px solid rgb(209, 209, 209);
   box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.171);
   z-index: 1;
 }
@@ -959,7 +958,7 @@
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--none {
   background-color: white;
-  border: 2px solid rgba(65, 65, 65, 0.086);
+  border: 2px solid rgb(209, 209, 209);
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--color__wrapper .color--none .material-symbols-outlined {
   display: flex;
@@ -1096,7 +1095,7 @@
   display: flex;
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--none {
-  border: 2px solid rgba(65, 65, 65, 0.086);
+  border: 2px solid rgb(209, 209, 209);
 }
 .add-new--container .add-new__wrapper .add-new--edit__wrapper .edit--icons__container .add--background__wrapper .background--pattern__wrapper .pattern--none .material-symbols-outlined {
   display: flex;
@@ -1294,7 +1293,6 @@
 }
 .add-new--container .add-new__wrapper.active {
   height: fit-content;
-  box-shadow: 1px 1px 6px 0px rgba(72, 72, 72, 0.171);
 }
 .add-new--container .add-new__wrapper.active .add-new--image__wrapper {
   display: flex;
@@ -1375,7 +1373,7 @@
   flex-direction: column;
   width: 240px;
   height: fit-content;
-  border: 2px solid rgba(65, 65, 65, 0.086);
+  border: 1px solid rgb(209, 209, 209);
   border-radius: 8px;
   margin: 4px;
   transition: 0.2s ease;
@@ -1638,7 +1636,7 @@
   background-size: cover;
   width: 84px;
   height: 84px;
-  border: 2px solid rgba(65, 65, 65, 0.086);
+  border: 2px solid rgb(209, 209, 209);
   border-radius: 42px;
   position: relative;
 }
@@ -1683,7 +1681,7 @@
 .account--login__wrapper .login--account-edit__wrapper .account-edit--button {
   width: 55%;
   padding: 10px 0px;
-  border: 2px solid rgba(65, 65, 65, 0.086);
+  border: 2px solid rgb(209, 209, 209);
   background-color: transparent;
   border-radius: 24px;
   font-size: 14px;
@@ -1738,7 +1736,7 @@
 .account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--photo__wrapper {
   width: 38px;
   height: 38px;
-  border: 2px solid rgba(65, 65, 65, 0.086);
+  border: 2px solid rgb(209, 209, 209);
   border-radius: 24px;
 }
 .account--login__wrapper .login--other-accounts__wrapper .other-accounts--button .button--text__wrapper {

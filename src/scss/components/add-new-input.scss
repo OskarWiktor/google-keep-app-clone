@@ -120,8 +120,7 @@
     }
     .add-new__tags--wrapper {
       display: flex;
-      padding: 2px 10px;
-      margin: 0px 8px;
+      margin: 0px 16px;
       gap: 6px;
       .active__tag--wrapper {
         background-color: $light-blue-grey;
@@ -183,7 +182,7 @@
           height: fit-content;
           background-color: white;
           border-radius: $border-radius--big;
-          border: $border--big__light;
+          border: $border--small__light;
           box-shadow: $box-shadow--small;
           z-index: 1;
           @media (max-width: 620px) {
@@ -559,7 +558,6 @@
   }
   .add-new__wrapper.active {
     height: fit-content;
-    box-shadow: $box-shadow--small;
 
     .add-new--image__wrapper {
       display: flex;
