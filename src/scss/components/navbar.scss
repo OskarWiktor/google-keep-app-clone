@@ -6,9 +6,9 @@
   border-bottom: 1px solid $light-blue-grey;
   position: relative;
   z-index: 2;
+  justify-content: center;
   .navbar--menu {
     @include big-icons-wrapper;
-    margin-left: 6px;
     .material-symbols-outlined {
       @include big-icons;
     }
@@ -55,8 +55,7 @@
   .navbar--search {
     display: flex;
     justify-content: space-between;
-    max-width: 100%;
-    flex: 1 1 auto;
+    width: 79%;
 
     .navbar--search__wrapper {
       display: flex;
