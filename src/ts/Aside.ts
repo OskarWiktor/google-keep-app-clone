@@ -26,6 +26,12 @@ class Aside {
         const asideTagText = document.createElement('p')
         asideTagText.className = 'aside--item__text'
         asideTagText.textContent = tag.textContent;
+        const maxTagTextLength = 18;
+        if (asideTagText.textContent) {
+            if (asideTagText.textContent.length > maxTagTextLength) {
+                asideTagText.textContent = asideTagText.textContent.substring(0, maxTagTextLength) + "..";
+            }
+        }
         asideTagWrapper.append(asideTagText);
 
         asideWrapper.insertBefore(asideTagWrapper, asideEditTagsWrapper);

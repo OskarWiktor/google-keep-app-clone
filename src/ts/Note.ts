@@ -26,6 +26,8 @@ class addNote {
   private addMoreButtonsWrapper = document.querySelector( ".add--buttons__wrapper" ) as HTMLElement;
   private addTagsWrapper = document.querySelector( ".add--tags__wrapper" ) as HTMLElement;
 
+  private tagList: ({tagText: string, tagId: string})[] = []
+
   constructor() {
     this.initEvents();
   }
@@ -185,6 +187,12 @@ class addNote {
         addTagsInput.value = "";
         addTagsValueWrapper.style.display = "none";
         addTagsValueSpan.textContent = addTagsInput.value;
+
+        const maxTagTextLength = 18;
+        if (tag.textContent.length > maxTagTextLength) {
+          tag.textContent =
+            tag.textContent.substring(0, maxTagTextLength) + "..";
+        }
         Aside.createAsideTag(tag);
 
         tagWrapper.addEventListener("click", () => {
@@ -209,6 +217,14 @@ class addNote {
             activeTagIconWrapper.append(activeTagIcon);
 
             tagWrapper.dataset.activeTagId = activeTagWrapper.id = 'active-tag-'+ Date.now();
+            if (tag.textContent) {
+              const tagObject = {
+                tagText: tag.textContent,
+                tagId: activeTagWrapper.id
+              };
+              this.tagList.push(tagObject);
+              console.log(this.tagList);
+            }
             activeTagIcon.addEventListener("click", () => {
               activeTagWrapper.remove();
               tagCheckbox.textContent = " check_box_outline_blank ";
@@ -221,6 +237,8 @@ class addNote {
               const activeTagWrapper = document.getElementById(activeTagId);
               if(activeTagWrapper) {
                 activeTagWrapper.remove();
+                this.tagList = this.tagList.filter(tagObjects => tagObjects.tagId !== activeTagId);
+                console.log(this.tagList);
               }
             }
           }
