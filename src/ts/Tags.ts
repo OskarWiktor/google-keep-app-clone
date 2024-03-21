@@ -1,26 +1,28 @@
+import Aside from "./Aside";
 
-import Aside from  "./Aside";
-
+interface Tag {
+  tagID: string;
+}
 class Tags {
+  public tagList: Tag[] = [];
+  public activeTagList: Tag[] = [];
 
-    public tagList: ({tagText: string, tagId: string})[] = []
+  constructor() {
+    this.initEvents();
+  }
+  private initEvents = (): void => {};
 
-    constructor() {
-        this.initEvents
-    }
-    private initEvents = (): void => {
+  public addTags = (): void => {
+    const addTagsList = document.querySelector(".add--tag__list") as HTMLElement;
+    const addTagsInput = document.getElementById("add-tags-input") as HTMLInputElement;
+    const addTagsValueWrapper = document.querySelector(".tag--value__wrapper") as HTMLElement;
+    const addTagsValueSpan = document.querySelector(".tag--value") as HTMLElement;
 
-    }
-    public addTags = (): void => {
-    const addTagsList = document.querySelector( ".add--tag__list" ) as HTMLElement;
-    const addTagsButton = document.getElementById( "add-tags-button" ) as HTMLButtonElement;
-    const addTagsInput = document.getElementById( "add-tags-input" ) as HTMLInputElement;
-    const addTagsValueWrapper = document.querySelector( ".tag--value__wrapper" ) as HTMLElement;
-    const addTagsValueSpan = document.querySelector( ".tag--value" ) as HTMLElement;
+    console.log(this.tagList);
 
-
-      addTagsValueWrapper.addEventListener("click", (e) => {
-        if (addTagsValueSpan.textContent) { 
+    addTagsValueWrapper.addEventListener("click", () => {
+      if (addTagsValueSpan.textContent) {
+        //create tag if it has text
         const tagWrapper = document.createElement("div");
         tagWrapper.className = "tag__wrapper";
         addTagsList.appendChild(tagWrapper);
@@ -32,71 +34,87 @@ class Tags {
 
         const tag = document.createElement("p");
         tag.textContent = addTagsValueSpan.textContent;
+        tag.id = tag.textContent;
         tag.className = "tag";
         tagWrapper.appendChild(tag);
         addTagsInput.value = "";
         addTagsValueWrapper.style.display = "none";
         addTagsValueSpan.textContent = addTagsInput.value;
 
+        // tag max 18 characters
         const maxTagTextLength = 18;
         if (tag.textContent.length > maxTagTextLength) {
           tag.textContent =
             tag.textContent.substring(0, maxTagTextLength) + "..";
         }
+        // create same tag in Aside
         Aside.createAsideTag(tag);
+        //ToDo: later for db
+        let tagObject: Tag = {
+          tagID: tag.textContent,
+        };
+
+        this.tagList.push(tagObject);
+        console.log(this.tagList);
 
         tagWrapper.addEventListener("click", () => {
+          //change icon on active class
           tagCheckbox.classList.toggle("active");
+
           if (tagCheckbox.classList.contains("active")) {
             tagCheckbox.textContent = " check_box ";
 
+            // wrapper for all tags in addNewNote
             const activeTagsWrapper = document.querySelector(".add-new__tags--wrapper") as HTMLDivElement;
+
+            // single active tag wrapper
             const activeTagWrapper = document.createElement("div");
             activeTagWrapper.className = "active-tag__wrapper";
             activeTagsWrapper.appendChild(activeTagWrapper);
+
+            // create active tag in addNewNote
             const activeTag = document.createElement("p");
-            activeTag.className ="active-tag";
+            activeTag.className = "active-tag";
             activeTag.textContent = tag.textContent;
             activeTagWrapper.appendChild(activeTag);
+
             const activeTagIconWrapper = document.createElement("div");
-            activeTagIconWrapper.className = 'active-tag__icon--wrapper';
+            activeTagIconWrapper.className = "active-tag__icon--wrapper";
             activeTagWrapper.appendChild(activeTagIconWrapper);
-            const activeTagIcon = document.createElement('span');
-            activeTagIcon.className = 'material-symbols-outlined';
-            activeTagIcon.textContent = ' close ';
+
+            const activeTagIcon = document.createElement("span");
+            activeTagIcon.className = "material-symbols-outlined";
+            activeTagIcon.textContent = " close ";
             activeTagIconWrapper.append(activeTagIcon);
 
-            tagWrapper.dataset.activeTagId = activeTagWrapper.id = 'active-tag-'+ Date.now();
-            if (tag.textContent) {
-              const tagObject = {
-                tagText: tag.textContent,
-                tagId: activeTagWrapper.id
-              };
-              this.tagList.push(tagObject);
-              console.log(this.tagList);
-            }
-            activeTagIcon.addEventListener("click", () => {
-              activeTagWrapper.remove();
-              tagCheckbox.textContent = " check_box_outline_blank ";
-            })
-          }
-          if (!tagCheckbox.classList.contains("active")) {
+            //ToDo: later for db
+            let activeTagObject: Tag = {
+              tagID: activeTag.textContent as string,
+            };
+
+            this.activeTagList.push(activeTagObject);
+            console.log(this.activeTagList);
+
+          } else {
             tagCheckbox.textContent = " check_box_outline_blank ";
-            const activeTagId = tagWrapper.dataset.activeTagId;
-            if(activeTagId) {
-              const activeTagWrapper = document.getElementById(activeTagId);
-              if(activeTagWrapper) {
-                activeTagWrapper.remove();
-                this.tagList = this.tagList.filter(tagObjects => tagObjects.tagId !== activeTagId);
-                console.log(this.tagList);
-              }
-            }
+            const activeTagText = tag.textContent;
+            console.log(activeTagText);
+            const activeTagWrappers = document.querySelectorAll(".active-tag__wrapper") as NodeListOf<HTMLDivElement>;
+            
+            // find activeTagWrapper with activeTag that has same text as activeTagText and remove
+            //ToDo: change to remove with activeTagID from activeTagList (after db will be finished)
+            activeTagWrappers.forEach(activeTagWrapper => {
+                const activeTag = activeTagWrapper.querySelector(".active-tag") as HTMLParagraphElement;
+                if (activeTag.textContent === activeTagText) {
+                    activeTagWrapper.remove();
+                }
+            });
           }
         });
-        }
-      });
-    };
+      }
+    });
+  };
 }
 
-const tags = new Tags;
-export default tags
+const tags = new Tags();
+export default tags;

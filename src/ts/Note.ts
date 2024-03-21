@@ -1,6 +1,19 @@
-type NoteType = string;
 // import { useCollectionData  } from "firebase/database";
 import Tags from "./Tags";
+
+interface Note {
+  title: string,
+  text: string,
+  bgcolor: string,
+  bgpattern?: URL,
+  tags?: string[],
+  alert?: Date,
+  pined: boolean,
+  image?: URL,
+  archived: boolean,
+  collaborator?: string[],
+  
+}
 
 class addNote {
   private textInput = document.getElementById( "text--input" ) as HTMLElement;
@@ -8,8 +21,8 @@ class addNote {
   private addNewWrapper = document.querySelector( ".add-new__wrapper" ) as HTMLElement;
   private addNewPatternWrapper = document.querySelector( ".add-new__pattern-wrapper" ) as HTMLElement;
   private closeButton = document.querySelector( ".edit--button" ) as HTMLButtonElement;
-  private noteText: NoteType = "";
-  private noteTitle: NoteType = "";
+  private noteText: string = "";
+  private noteTitle: string = "";
 
   private notesWrapper = document.getElementById( "notes__wrapper" ) as HTMLElement;
 
@@ -148,7 +161,6 @@ class addNote {
   };
 
   private handleAddMore = (): void => {
-    const addTagsList = document.querySelector( ".add--tag__list" ) as HTMLElement;
     const addTagsButton = document.getElementById( "add-tags-button" ) as HTMLButtonElement;
     const addTagsInput = document.getElementById( "add-tags-input" ) as HTMLInputElement;
     const addTagsValueWrapper = document.querySelector( ".tag--value__wrapper" ) as HTMLElement;
