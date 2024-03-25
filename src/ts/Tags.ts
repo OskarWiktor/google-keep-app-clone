@@ -12,7 +12,7 @@ class Tags {
   }
   private initEvents = (): void => {};
 
-  public addTags = (): void => {
+  public createTags = (): void => {
     const addTagsList = document.querySelector(".add--tag__list") as HTMLElement;
     const addTagsInput = document.getElementById("add-tags-input") as HTMLInputElement;
     const addTagsValueWrapper = document.querySelector(".tag--value__wrapper") as HTMLElement;

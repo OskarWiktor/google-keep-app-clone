@@ -1,5 +1,6 @@
 // import { useCollectionData  } from "firebase/database";
 import Tags from "./Tags";
+import Login from "./Login";
 
 interface Note {
   title: string,
@@ -12,7 +13,7 @@ interface Note {
   image?: URL,
   archived: boolean,
   collaborator?: string[],
-  
+
 }
 
 class addNote {
@@ -91,7 +92,6 @@ class addNote {
     defaultPatter.classList.add("active");
     this.changeBackgroundColorEditWrapper.classList.remove("active");
     this.noteImg.src = "";
-    Tags.tagList = []
   };
 
   private handleAddNewNoteClose = (): void => {
@@ -178,7 +178,7 @@ class addNote {
           addTagsValueSpan.textContent = addTagsInput.value;
         }
       });
-      Tags.addTags()
+      Tags.createTags()
     });
   };
 
