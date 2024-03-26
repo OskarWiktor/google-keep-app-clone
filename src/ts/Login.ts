@@ -1,5 +1,5 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, push, set, update } from "firebase/database";
 import Modal from "./Modal";
 
 class Login {
@@ -52,10 +52,12 @@ class Login {
   }
   private writeUserDate = (user: User): void => {
     const db = getDatabase();
-    set(ref(db, 'users/' + user.uid), {
-      username: user.displayName,
-      email: user.email,
-      profile_picture : user.photoURL,
+    const userRef = ref(db, 'users/' + user.uid);
+
+    update(userRef, {
+        username: user.displayName,
+        email: user.email,
+        profile_picture: user.photoURL,
     });
   }
 }

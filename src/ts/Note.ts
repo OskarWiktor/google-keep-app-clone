@@ -1,6 +1,6 @@
-// import { useCollectionData  } from "firebase/database";
+import { getDatabase, ref, set, push, update} from "firebase/database";
+import { getAuth, GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
 import Tags from "./Tags";
-import Login from "./Login";
 
 interface Note {
   title: string,
@@ -34,6 +34,8 @@ class addNote {
   private changeBackgroundColorEditWrapper = document.querySelector( ".add--background__wrapper" ) as HTMLElement;
   private colorEditDivs = document.querySelectorAll( ".background--color" );
   private patternEditDivs = document.querySelectorAll( ".background--pattern" );
+  private addNewBackgroundPattern = "";
+  private addNewBackgroundColor = "white";
 
   private addMoreIcon = document.getElementById( "add-more-icon") as HTMLElement;
   private addMoreWrapper = document.querySelector( ".add--more__wrapper" ) as HTMLElement;
@@ -41,6 +43,8 @@ class addNote {
   private addMoreButtonsWrapper = document.querySelector( ".add--buttons__wrapper" ) as HTMLElement;
   private addTagsWrapper = document.querySelector( ".add--tags__wrapper" ) as HTMLElement;
   
+  private auth = getAuth();
+
   constructor() {
     this.initEvents();
   }
@@ -128,9 +132,6 @@ class addNote {
   };
 
   private handleAddBackgroundColor = (): void => {
-    let addNewBackgroundPattern = "";
-    let addNewBackgroundColor = "white";
-
     this.changeBackgroundColorEditWrapper.classList.toggle("active");
 
     this.colorEditDivs.forEach((colorEditDiv) => {
@@ -139,9 +140,8 @@ class addNote {
           colorEditDiv.classList.remove("active")
         );
 
-        addNewBackgroundColor =
-          window.getComputedStyle(colorEditDiv).backgroundColor;
-        this.addNewWrapper.style.backgroundColor = addNewBackgroundColor;
+        this.addNewBackgroundColor = window.getComputedStyle(colorEditDiv).backgroundColor;
+        this.addNewWrapper.style.backgroundColor = this.addNewBackgroundColor; 
         colorEditDiv.classList.add("active");
       });
     });
@@ -152,9 +152,8 @@ class addNote {
           patternEditDiv.classList.remove("active")
         );
 
-        addNewBackgroundPattern = window.getComputedStyle(patternEditDiv).backgroundImage;
-        this.addNewPatternWrapper.style.backgroundImage = addNewBackgroundPattern;
-
+        this.addNewBackgroundPattern = window.getComputedStyle(patternEditDiv).backgroundImage;
+        this.addNewPatternWrapper.style.backgroundImage = this.addNewBackgroundPattern;
         patternEditDiv.classList.add("active");
       });
     });
@@ -210,8 +209,8 @@ class addNote {
     const noteItem = document.createElement("div");
 
     noteItem.classList.add("note");
-    noteItem.style.backgroundColor = window.getComputedStyle( this.addNewWrapper ).backgroundColor;
-    noteItem.style.backgroundImage = window.getComputedStyle( this.addNewPatternWrapper ).backgroundImage;
+    noteItem.style.backgroundColor = this.addNewBackgroundColor;
+    noteItem.style.backgroundImage = this.addNewBackgroundPattern;
     notesList.prepend(noteItem);
 
     if (this.noteImg.src.includes("blob")) {
@@ -283,7 +282,18 @@ class addNote {
       );
       noteIconList.appendChild(icon);
     });
+    this.createNewNoteInDatabase(note);
   };
+
+  private createNewNoteInDatabase = (note: Note): void => {
+    const db = getDatabase();
+    const userId = this.auth.currentUser?.uid;
+    const notesRef = ref(db, `users/${userId}/notes/`);
+    push(notesRef, {
+      note_title: note.title,
+      note_text: note.text,
+    });
+  }
 }
 
 class Note {
