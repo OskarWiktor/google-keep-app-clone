@@ -1,5 +1,6 @@
-import {getAuth, GoogleAuthProvider, signInWithPopup, User} from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
+import Modal from "./Modal";
 
 class Login {
   private loginWrapper: HTMLElement = document.getElementById( "login-wrapper" ) as HTMLElement;
@@ -8,7 +9,6 @@ class Login {
   private signInButton: HTMLElement = document.getElementById( "sign-in" ) as HTMLElement;
   private auth = getAuth();
   private provider = new GoogleAuthProvider();
-  public userIsLogedIn = false  
 
   constructor() {
     this.initEvents();
@@ -28,12 +28,13 @@ class Login {
       this.handleLoginClose();
     }
   };
-  private handleSignIn = async (): Promise<void> => {
+  public handleSignIn = async (): Promise<void> => {
     try {
       const result = await signInWithPopup(this.auth, this.provider);
       const user = result.user;
       this.updateUserInterface(user);
       this.writeUserDate(user);
+      Modal.modal.close()
     } catch (error) {
       alert(`Nie można się zalogować: ${error}`)
     }
@@ -48,7 +49,6 @@ class Login {
     userWelcome.textContent = `Witaj ${user.displayName},`;
     userPhoto.style.backgroundImage = `url(${user.photoURL})`;
     userPhotoLoginOpen.style.backgroundImage = `url(${user.photoURL})`;
-    console.log(user);
   }
   private writeUserDate = (user: User): void => {
     const db = getDatabase();
@@ -57,7 +57,6 @@ class Login {
       email: user.email,
       profile_picture : user.photoURL,
     });
-    this.userIsLogedIn = true;
   }
 }
 const login = new Login();
