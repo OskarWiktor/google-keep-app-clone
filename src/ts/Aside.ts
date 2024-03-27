@@ -1,4 +1,4 @@
-import { getDatabase, push, ref } from "firebase/database";
+import { getDatabase, onValue, push, ref } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
 class Aside {
@@ -8,7 +8,8 @@ class Aside {
     constructor() {
         this.initEvents()
     }
-    private initEvents() {}
+    private initEvents() {
+    }
 
     public createAsideTag = (tag: HTMLElement): void => {
         const asideWrapper = document.querySelector(".aside") as HTMLElement;
@@ -47,6 +48,24 @@ class Aside {
         const tagsRef = ref(db, `users/${userId}/tags/`);
         push(tagsRef, {
           title: tagText,
+        });
+    }
+    public fetchTagsFromDatabase = (): void => {
+        const db = getDatabase();
+        const userId = this.auth.currentUser?.uid;
+        const tagsRef = ref(db, `users/${userId}/tags/`);
+
+        onValue(tagsRef, (snapshot) => {
+            const tagsData = snapshot.val();
+            if (tagsData) {
+                Object.keys(tagsData).forEach((key) => {
+                    const tag = tagsData[key];
+                    console.log(tag.title);
+                    //this.createAsideTag(tagsData[key]);
+                });
+            } else {
+                console.log("Brak tagów w bazie danych.");
+            }
         });
     }
 }

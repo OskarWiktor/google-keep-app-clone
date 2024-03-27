@@ -1,6 +1,8 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
 import { getDatabase, ref, update } from "firebase/database";
 import Modal from "./Modal";
+import Aside from "./Aside";
+import Note from "./Note";
 
 class Login {
   private loginWrapper: HTMLElement = document.getElementById( "login-wrapper" ) as HTMLElement;
@@ -59,6 +61,9 @@ class Login {
         email: user.email,
         profilePicture: user.photoURL,
     });
+    Aside.fetchTagsFromDatabase()
+    Note.fetchNotesFromDatabese()
+
   }
 }
 const login = new Login();

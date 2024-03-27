@@ -1,4 +1,4 @@
-import { getDatabase, ref, push } from "firebase/database";
+import { getDatabase, ref, push, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import Tags from "./Tags";
 
@@ -311,6 +311,24 @@ class addNote {
 
     push(notesRef, noteDate);
   }
+
+  public fetchNotesFromDatabese = (): void => {
+    const db = getDatabase();
+    const userId = this.auth.currentUser?.uid;
+    const notesRef = ref(db, `users/${userId}/notes/`);
+
+    onValue(notesRef, (snapshot) => {
+      const noteData = snapshot.val();
+      if(noteData) {
+        Object.keys(noteData).forEach((key) => {
+          const note = noteData[key];
+          console.log(note);
+        })
+      } else {
+        console.log("Nie ma żadnych notatek")
+      }
+    })
+  }
 }
 
 class NoteClass implements Note {
@@ -330,3 +348,4 @@ class NoteClass implements Note {
 }
 
 const note = new addNote();
+export default note;
