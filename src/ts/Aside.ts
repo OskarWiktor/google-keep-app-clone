@@ -11,7 +11,6 @@ class Aside {
     private initEvents() {}
 
     public createAsideTag = (tag: HTMLElement): void => {
-        console.log(tag.textContent)
         const asideWrapper = document.querySelector(".aside") as HTMLElement;
         const asideEditTagsWrapper = document.getElementById('aside__edit-tags--wrapper') as HTMLElement;
 
@@ -47,7 +46,7 @@ class Aside {
         const userId = this.auth.currentUser?.uid;
         const tagsRef = ref(db, `users/${userId}/tags/`);
         push(tagsRef, {
-          tags_title: tagText,
+          title: tagText,
         });
     }
 }

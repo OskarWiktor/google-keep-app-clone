@@ -18,8 +18,6 @@ class Tags {
     const addTagsValueWrapper = document.querySelector(".tag--value__wrapper") as HTMLElement;
     const addTagsValueSpan = document.querySelector(".tag--value") as HTMLElement;
 
-    console.log(this.tagList);
-
     addTagsValueWrapper.addEventListener("click", () => {
       if (addTagsValueSpan.textContent) {
         //create tag if it has text
@@ -55,7 +53,6 @@ class Tags {
         };
 
         this.tagList.push(tagObject);
-        console.log(this.tagList);
 
         tagWrapper.addEventListener("click", () => {
           //change icon on active class
@@ -93,12 +90,10 @@ class Tags {
             };
 
             this.activeTagList.push(activeTagObject);
-            console.log(this.activeTagList);
 
           } else {
             tagCheckbox.textContent = " check_box_outline_blank ";
             const activeTagText = tag.textContent;
-            console.log(activeTagText);
             const activeTagWrappers = document.querySelectorAll(".active-tag__wrapper") as NodeListOf<HTMLDivElement>;
             
             // find activeTagWrapper with activeTag that has same text as activeTagText and remove

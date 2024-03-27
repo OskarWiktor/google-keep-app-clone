@@ -57,7 +57,7 @@ class Login {
     update(userRef, {
         username: user.displayName,
         email: user.email,
-        profile_picture: user.photoURL,
+        profilePicture: user.photoURL,
     });
   }
 }

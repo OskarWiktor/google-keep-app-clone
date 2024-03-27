@@ -6,14 +6,8 @@ interface Note {
   title: string,
   text: string,
   bgcolor: string,
-  bgpattern?: URL,
-  tags?: string[],
-  alert?: Date,
-  pined: boolean,
-  image?: URL,
-  archived: boolean,
-  collaborator?: string[],
-
+  bgpattern: string,
+  pinned: boolean;
 }
 
 class addNote {
@@ -76,7 +70,12 @@ class addNote {
     this.notesWrapper.style.marginTop = "106px";
 
     if (this.noteText || this.noteTitle) {
-      const newNote = new Note(this.noteText, this.noteTitle);
+      const newNote = new NoteClass(
+        this.noteText, 
+        this.noteTitle, 
+        this.addNewBackgroundColor, 
+        this.addNewBackgroundPattern
+        );
       this.createNewNote(newNote);
     }
     this.textInput.textContent = "";
@@ -96,6 +95,8 @@ class addNote {
     defaultPatter.classList.add("active");
     this.changeBackgroundColorEditWrapper.classList.remove("active");
     this.noteImg.src = "";
+    this.addNewBackgroundColor = "white";
+    this.addNewBackgroundPattern = "";
   };
 
   private handleAddNewNoteClose = (): void => {
@@ -283,21 +284,49 @@ class addNote {
       noteIconList.appendChild(icon);
     });
     this.createNewNoteInDatabase(note);
+    this.addNewBackgroundColor = "white";
+    this.addNewBackgroundPattern = "";
   };
 
   private createNewNoteInDatabase = (note: Note): void => {
     const db = getDatabase();
     const userId = this.auth.currentUser?.uid;
     const notesRef = ref(db, `users/${userId}/notes/`);
-    push(notesRef, {
-      note_title: note.title,
-      note_text: note.text,
-    });
+
+    const { 
+      title, 
+      text, 
+      bgcolor, 
+      bgpattern,
+      pinned
+    } = note;
+    
+    const noteDate: Note = { 
+      title, 
+      text, 
+      bgcolor, 
+      bgpattern,
+      pinned,
+    }
+
+    push(notesRef, noteDate);
   }
 }
 
-class Note {
-  constructor(public text: string, public title: string) {}
+class NoteClass implements Note {
+  title: string;
+  text: string;
+  bgcolor: string;
+  bgpattern: string;
+  pinned: boolean;
+  constructor( text: string, title: string, bgcolor: string, bgpattern: string
+    ) {
+    this.title = title;
+    this.text = text;
+    this.bgcolor = bgcolor;
+    this.bgpattern = bgpattern;
+    this.pinned = false;
+  }
 }
 
 const note = new addNote();
