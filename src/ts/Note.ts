@@ -1,5 +1,5 @@
-import { getDatabase, ref, set, push, update} from "firebase/database";
-import { getAuth, GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
+import { getDatabase, ref, push } from "firebase/database";
+import { getAuth } from "firebase/auth";
 import Tags from "./Tags";
 
 interface Note {

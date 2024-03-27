@@ -1,11 +1,15 @@
+import { getDatabase, push, ref } from "firebase/database";
+import { getAuth } from "firebase/auth";
+
 class Aside {
+
+    private auth = getAuth();
 
     constructor() {
         this.initEvents()
     }
-    private initEvents() {
+    private initEvents() {}
 
-    }
     public createAsideTag = (tag: HTMLElement): void => {
         console.log(tag.textContent)
         const asideWrapper = document.querySelector(".aside") as HTMLElement;
@@ -35,6 +39,16 @@ class Aside {
         asideTagWrapper.append(asideTagText);
 
         asideWrapper.insertBefore(asideTagWrapper, asideEditTagsWrapper);
+        this.createTagsInDatabase(asideTagText.textContent as string)
+    }
+
+    private createTagsInDatabase = (tagText: string): void => {
+        const db = getDatabase();
+        const userId = this.auth.currentUser?.uid;
+        const tagsRef = ref(db, `users/${userId}/tags/`);
+        push(tagsRef, {
+          tags_title: tagText,
+        });
     }
 }
 

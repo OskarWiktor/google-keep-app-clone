@@ -1,5 +1,5 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
-import { getDatabase, ref, push, set, update } from "firebase/database";
+import { getDatabase, ref, update } from "firebase/database";
 import Modal from "./Modal";
 
 class Login {
