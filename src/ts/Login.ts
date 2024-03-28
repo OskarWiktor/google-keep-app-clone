@@ -37,6 +37,8 @@ class Login {
       this.updateUserInterface(user);
       this.writeUserDate(user);
       Modal.modal.close()
+      Aside.fetchTagsFromDatabase()
+      Note.fetchNotesFromDatabese()
     } catch (error) {
       alert(`Nie można się zalogować: ${error}`)
     }
@@ -61,9 +63,6 @@ class Login {
         email: user.email,
         profilePicture: user.photoURL,
     });
-    Aside.fetchTagsFromDatabase()
-    Note.fetchNotesFromDatabese()
-
   }
 }
 const login = new Login();

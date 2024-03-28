@@ -1,73 +1,102 @@
-import { getDatabase, onValue, push, ref } from "firebase/database";
-import { getAuth } from "firebase/auth";
+import {get, getDatabase, push, ref} from "firebase/database";
+import {getAuth} from "firebase/auth";
 
 class Aside {
+  private auth = getAuth();
 
-    private auth = getAuth();
+  constructor() {
+    this.initEvents();
+  }
+  private initEvents() {}
 
-    constructor() {
-        this.initEvents()
+  public createAsideTag = (tag: HTMLElement): void => {
+    const asideWrapper = document.querySelector(".aside") as HTMLElement;
+    const asideEditTagsWrapper = document.getElementById("aside__edit-tags--wrapper") as HTMLElement;
+
+    const asideTagWrapper = document.createElement("div");
+    asideTagWrapper.className = "aside--item__wrapper";
+
+    const asideTagIconWrapper = document.createElement("div");
+    asideTagIconWrapper.className = "aside--icon__wrapper";
+    asideTagWrapper.append(asideTagIconWrapper);
+
+    const asideTagIcon = document.createElement("span");
+    asideTagIcon.className = "material-symbols-outlined";
+    asideTagIcon.textContent = " label ";
+    asideTagIconWrapper.append(asideTagIcon);
+
+    const asideTagText = document.createElement("p");
+    asideTagText.className = "aside--item__text";
+    asideTagText.textContent = tag.textContent;
+    const maxTagTextLength = 18;
+    if (asideTagText.textContent) {
+      if (asideTagText.textContent.length > maxTagTextLength) {
+        asideTagText.textContent =
+          asideTagText.textContent.substring(0, maxTagTextLength) + "..";
+      }
     }
-    private initEvents() {
-    }
+    asideTagWrapper.append(asideTagText);
 
-    public createAsideTag = (tag: HTMLElement): void => {
-        const asideWrapper = document.querySelector(".aside") as HTMLElement;
-        const asideEditTagsWrapper = document.getElementById('aside__edit-tags--wrapper') as HTMLElement;
+    asideWrapper.insertBefore(asideTagWrapper, asideEditTagsWrapper);
+    this.createTagsInDatabase(asideTagText.textContent as string);
+  };
 
-        const asideTagWrapper = document.createElement('div');
-        asideTagWrapper.className = 'aside--item__wrapper';
+  private createTagsInDatabase = (tagText: string): void => {
+    const db = getDatabase();
+    const userId = this.auth.currentUser?.uid;
+    const tagsRef = ref(db, `users/${userId}/tags/`);
+    push(tagsRef, {
+      title: tagText,
+    });
+  };
 
-        const asideTagIconWrapper = document.createElement('div');
-        asideTagIconWrapper.className = 'aside--icon__wrapper';
-        asideTagWrapper.append(asideTagIconWrapper);
-
-        const asideTagIcon = document.createElement('span');
-        asideTagIcon.className = 'material-symbols-outlined'
-        asideTagIcon.textContent = ' label ';
-        asideTagIconWrapper.append(asideTagIcon);
-
-        const asideTagText = document.createElement('p')
-        asideTagText.className = 'aside--item__text'
-        asideTagText.textContent = tag.textContent;
-        const maxTagTextLength = 18;
-        if (asideTagText.textContent) {
-            if (asideTagText.textContent.length > maxTagTextLength) {
-                asideTagText.textContent = asideTagText.textContent.substring(0, maxTagTextLength) + "..";
-            }
+  public fetchTagsFromDatabase = async (): Promise<void> => {
+    try {
+        const db = getDatabase();
+        const userId = this.auth.currentUser?.uid;
+        const tagsRef = ref(db, `users/${userId}/tags/`);
+    
+        const snapshot = await get(tagsRef);
+        const tagsData = snapshot.val();
+        if (tagsData) { 
+            const tagsList = Object.keys(tagsData);
+            tagsList.forEach((key) => {
+                const tag = tagsData[key];
+                console.log(tag.title);
+                this.createTagsFromDatabase(tag);
+            });
+        } else {
+            console.log("Ten użytkownik nie ma żadnych zapisanych tagów");
         }
-        asideTagWrapper.append(asideTagText);
-
-        asideWrapper.insertBefore(asideTagWrapper, asideEditTagsWrapper);
-        this.createTagsInDatabase(asideTagText.textContent as string)
+    } catch (error) {
+        console.log(`Błąd pobierania tagów: ${error}`);
     }
+  };
 
-    private createTagsInDatabase = (tagText: string): void => {
-        const db = getDatabase();
-        const userId = this.auth.currentUser?.uid;
-        const tagsRef = ref(db, `users/${userId}/tags/`);
-        push(tagsRef, {
-          title: tagText,
-        });
-    }
-    public fetchTagsFromDatabase = (): void => {
-        const db = getDatabase();
-        const userId = this.auth.currentUser?.uid;
-        const tagsRef = ref(db, `users/${userId}/tags/`);
+  private createTagsFromDatabase = (tag: HTMLElement): void => {
+    const asideWrapper = document.querySelector(".aside") as HTMLElement;
+    const asideEditTagsWrapper = document.getElementById("aside__edit-tags--wrapper") as HTMLElement;
 
-        onValue(tagsRef, (snapshot) => {
-            const tagsData = snapshot.val();
-            if (tagsData) {
-                Object.keys(tagsData).forEach((key) => {
-                    const tag = tagsData[key];
-                    console.log(tag.title);
-                    //this.createAsideTag(tagsData[key]);
-                });
-            } else {
-                console.log("Brak tagów w bazie danych.");
-            }
-        });
-    }
+    const asideTagWrapper = document.createElement("div");
+    asideTagWrapper.className = "aside--item__wrapper";
+
+    const asideTagIconWrapper = document.createElement("div");
+    asideTagIconWrapper.className = "aside--icon__wrapper";
+    asideTagWrapper.append(asideTagIconWrapper);
+
+    const asideTagIcon = document.createElement("span");
+    asideTagIcon.className = "material-symbols-outlined";
+    asideTagIcon.textContent = " label ";
+    asideTagIconWrapper.append(asideTagIcon);
+
+    const asideTagText = document.createElement("p");
+    asideTagText.className = "aside--item__text";
+    asideTagText.textContent = tag.title;
+
+    asideTagWrapper.append(asideTagText);
+
+    asideWrapper.insertBefore(asideTagWrapper, asideEditTagsWrapper);
+  };
 }
 
 const aside = new Aside();
