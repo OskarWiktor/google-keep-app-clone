@@ -1,4 +1,4 @@
-import { getDatabase, ref, push, onValue } from "firebase/database";
+import { getDatabase, ref, push, onValue, get } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import Tags from "./Tags";
 
@@ -211,7 +211,13 @@ class addNote {
 
     noteItem.classList.add("note");
     noteItem.style.backgroundColor = this.addNewBackgroundColor;
+    if (note.bgcolor) {
+      noteItem.style.backgroundColor = note.bgcolor;
+    }
     noteItem.style.backgroundImage = this.addNewBackgroundPattern;
+    if (note.bgpattern) {
+      noteItem.style.backgroundImage = note.bgpattern;
+    }
     notesList.prepend(noteItem);
 
     if (this.noteImg.src.includes("blob")) {
@@ -312,22 +318,28 @@ class addNote {
     push(notesRef, noteDate);
   }
 
-  public fetchNotesFromDatabese = (): void => {
-    const db = getDatabase();
-    const userId = this.auth.currentUser?.uid;
-    const notesRef = ref(db, `users/${userId}/notes/`);
+  public fetchNotesFromDatabese = async (): Promise<void> => {
+    try {
+      const db = getDatabase();
+      const userId = this.auth.currentUser?.uid;
+      const notesRef = ref(db, `users/${userId}/notes/`);
+  
+      const snapshot = await get(notesRef);
+      const notesData = snapshot.val();
 
-    onValue(notesRef, (snapshot) => {
-      const noteData = snapshot.val();
-      if(noteData) {
-        Object.keys(noteData).forEach((key) => {
-          const note = noteData[key];
-          console.log(note);
+      if(notesData) {
+        const notes: Note[] = Object.values(notesData);
+        notes.forEach((note: Note) => { 
+          console.log(note)
+          this.createNewNote(note)
         })
       } else {
-        console.log("Nie ma żadnych notatek")
+        console.log("Ten użytkownik nie posiada żadnych notatek")
       }
-    })
+    }
+    catch (error) {
+      console.log(`Błąd pobierania notatek z bazy danych: ${error}`)
+    }
   }
 }
 
