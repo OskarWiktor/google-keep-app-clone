@@ -331,7 +331,7 @@ class addNote {
         const notes: Note[] = Object.values(notesData);
         notes.forEach((note: Note) => { 
           console.log(note)
-          this.createNewNote(note)
+          this.createNoteFromDatabase(note)
         })
       } else {
         console.log("Ten użytkownik nie posiada żadnych notatek")
@@ -341,6 +341,93 @@ class addNote {
       console.log(`Błąd pobierania notatek z bazy danych: ${error}`)
     }
   }
+  private createNoteFromDatabase = (note: Note): void => {
+    const notesList: HTMLElement = document.getElementById( "notes--list" ) as HTMLElement;
+    const noteItem = document.createElement("div");
+
+    noteItem.classList.add("note");
+    noteItem.style.backgroundColor = this.addNewBackgroundColor;
+    if (note.bgcolor) {
+      noteItem.style.backgroundColor = note.bgcolor;
+    }
+    noteItem.style.backgroundImage = this.addNewBackgroundPattern;
+    if (note.bgpattern) {
+      noteItem.style.backgroundImage = note.bgpattern;
+    }
+    notesList.prepend(noteItem);
+
+    if (this.noteImg.src.includes("blob")) {
+      const noteImageWrapper = document.createElement("div");
+      noteImageWrapper.classList.add("note--img__wrapper");
+      noteImageWrapper.style.backgroundImage = `url('${this.noteImg.src}')`;
+      noteItem.appendChild(noteImageWrapper);
+    }
+
+    if (note.title) {
+      const noteTitle = document.createElement("h3");
+      noteTitle.classList.add("note--title");
+      noteTitle.textContent = note.title;
+      noteItem.appendChild(noteTitle);
+    }
+
+    if (note.text) {
+      const noteText = document.createElement("p");
+      noteText.classList.add("note--text");
+      noteText.textContent = note.text;
+      noteItem.appendChild(noteText);
+    }
+
+    const noteCheckIconWrapper = document.createElement("div");
+    noteCheckIconWrapper.classList.add("note--check-icon__wrapper");
+    noteItem.appendChild(noteCheckIconWrapper);
+
+    const noteCheckIcon = document.createElement("span");
+    noteCheckIcon.classList.add("material-symbols-outlined");
+    noteCheckIcon.textContent = " check_circle ";
+    noteCheckIconWrapper.appendChild(noteCheckIcon);
+
+    const noteCheckIconTooltip = document.createElement("span");
+    noteCheckIconTooltip.classList.add("tooltip--text");
+    noteCheckIconTooltip.textContent = "Zaznacz notatkę";
+    noteCheckIconWrapper.appendChild(noteCheckIconTooltip);
+
+    const notePushPinWrapper = document.createElement("div");
+    notePushPinWrapper.classList.add("note--pin-icon__wrapper");
+    noteItem.appendChild(notePushPinWrapper);
+
+    const notePushPin = document.createElement("span");
+    notePushPin.classList.add("material-symbols-outlined");
+    notePushPin.textContent = " push_pin ";
+    notePushPinWrapper.appendChild(notePushPin);
+
+    const notePushPinTooltip = document.createElement("span");
+    notePushPinTooltip.classList.add("tooltip--text");
+    notePushPinTooltip.textContent = "Przypnij notatkę";
+    notePushPinWrapper.appendChild(notePushPinTooltip);
+
+    const icons = [
+      {iconName: " add_alert ", iconTooltipText: "Przypomnij mi"},
+      {iconName: " person_add ", iconTooltipText: "Współpracownik"},
+      {iconName: " palette ", iconTooltipText: "Opcje tła"},
+      {iconName: " image ", iconTooltipText: "Dodaj obraz"},
+      {iconName: " archive ", iconTooltipText: "Archiwizuj"},
+      {iconName: " more_vert ", iconTooltipText: "Więcej"},
+    ];
+
+    const noteIconList = document.createElement("div");
+    noteIconList.classList.add("note--icons-list__wrapper");
+    noteItem.appendChild(noteIconList);
+
+    icons.forEach((iconInfo) => {
+      const icon = this.createIconWithTooltip(
+        iconInfo.iconName,
+        iconInfo.iconTooltipText
+      );
+      noteIconList.appendChild(icon);
+    });
+    this.addNewBackgroundColor = "white";
+    this.addNewBackgroundPattern = "";
+  };
 }
 
 class NoteClass implements Note {
