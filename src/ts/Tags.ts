@@ -4,8 +4,6 @@ interface Tag {
   tagID: string;
 }
 class Tags {
-  public tagList: Tag[] = [];
-  public activeTagList: Tag[] = [];
 
   constructor() {
     this.initEvents();
@@ -47,12 +45,6 @@ class Tags {
         }
         // create same tag in Aside
         Aside.createAsideTag(tag);
-        //ToDo: later for db
-        let tagObject: Tag = {
-          tagID: tag.textContent,
-        };
-
-        this.tagList.push(tagObject);
 
         tagWrapper.addEventListener("click", () => {
           //change icon on active class
@@ -86,13 +78,6 @@ class Tags {
 
             activeTagIconWrapper.addEventListener("click", this.deleteTagOnIconClick)
 
-            //ToDo: later for db
-            let activeTagObject: Tag = {
-              tagID: activeTag.textContent as string,
-            };
-
-            this.activeTagList.push(activeTagObject);
-
           } else {
             tagCheckbox.textContent = " check_box_outline_blank ";
             const activeTagText = tag.textContent;
@@ -122,8 +107,11 @@ class Tags {
         
         tags.forEach(tag => {
           if (tag.textContent === activeTagText) {
-            if(tag.parentElement?.firstChild)
-              tag.parentElement.firstChild.textContent = " check_box_outline_blank ";
+            const tagIcon = tag.parentElement?.firstChild as HTMLElement;
+            if(tagIcon) {
+              tagIcon.textContent = " check_box_outline_blank ";
+              tagIcon.classList.remove("active");
+            }
           }
         })
       }

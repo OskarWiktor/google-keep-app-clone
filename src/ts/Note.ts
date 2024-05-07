@@ -8,6 +8,7 @@ interface Note {
   bgcolor: string,
   bgpattern: string,
   pinned: boolean;
+  tags?: string[]
 }
 
 class addNote {
@@ -55,7 +56,7 @@ class addNote {
   private handleAddNewInputFocus = (): void => {
     this.addNewWrapper.classList.add( "active" );
     let addNewWrapperHeight = parseFloat( window.getComputedStyle(this.addNewWrapper).height );
-    this.notesWrapper.style.marginTop = 106 + addNewWrapperHeight - 48 + "px";
+    this.notesWrapper.style.marginTop = "187px";
     this.noteImg.src = "";
   };
 
@@ -436,6 +437,7 @@ class NoteClass implements Note {
   bgcolor: string;
   bgpattern: string;
   pinned: boolean;
+  //tags?: string[];
   constructor( text: string, title: string, bgcolor: string, bgpattern: string
     ) {
     this.title = title;
@@ -443,6 +445,7 @@ class NoteClass implements Note {
     this.bgcolor = bgcolor;
     this.bgpattern = bgpattern;
     this.pinned = false;
+    //this.tags = [...this.tags];
   }
 }
 
