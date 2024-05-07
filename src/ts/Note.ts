@@ -76,7 +76,7 @@ class addNote {
         this.noteTitle, 
         this.addNewBackgroundColor, 
         this.addNewBackgroundPattern,
-        Tags.getActiveTags()
+        Tags.activeTags,
         );
       this.createNewNote(newNote);
     }
@@ -99,6 +99,11 @@ class addNote {
     this.noteImg.src = "";
     this.addNewBackgroundColor = "white";
     this.addNewBackgroundPattern = "";
+    const activeTagWrappers = document.querySelectorAll(".active-tag__wrapper") as NodeListOf<HTMLDivElement>;
+    activeTagWrappers.forEach((activeTagWrapper) => {
+      activeTagWrapper.remove();
+    });
+    Tags.activeTags = [];
   };
 
   private handleAddNewNoteClose = (): void => {
@@ -292,8 +297,6 @@ class addNote {
       noteIconList.appendChild(icon);
     });
     this.createNewNoteInDatabase(note);
-    this.addNewBackgroundColor = "white";
-    this.addNewBackgroundPattern = "";
   };
 
   private createNewNoteInDatabase = (note: Note): void => {

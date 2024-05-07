@@ -1,7 +1,7 @@
 import Aside from "./Aside";
 
 class Tags {
-  private activeTags: string[] = [];
+  public activeTags: string[] = [];
 
   constructor() {
     this.initEvents();
@@ -75,11 +75,14 @@ class Tags {
             activeTagIconWrapper.append(activeTagIcon);
 
             activeTagIconWrapper.addEventListener("click", this.deleteTagOnIconClick)
+
+            // Add tags to list for db
             const isTagActive = tagCheckbox.classList.contains("active");
-          if (isTagActive) {
-            tagCheckbox.textContent = " check_box ";
-            this.addTagToList(tag.textContent as string);
-          } 
+            if (isTagActive) {
+              tagCheckbox.textContent = " check_box ";
+              this.addTagToList(tag.textContent as string);
+            } 
+
           } else {
             tagCheckbox.textContent = " check_box_outline_blank ";
             const activeTagText = tag.textContent;
@@ -92,8 +95,9 @@ class Tags {
                     activeTagWrapper.remove();
                 }
             });
-            const isTagActive = tagCheckbox.classList.contains("active");
 
+            // Remove tags from list for db
+            const isTagActive = tagCheckbox.classList.contains("active");
             if(!isTagActive) {
               tagCheckbox.textContent = " check_box_outline_blank ";
               this.removeTagFromList(tag.textContent as string);
@@ -128,12 +132,10 @@ class Tags {
 
   private addTagToList = (tag: string): void => {
     this.activeTags.push(tag);
-    console.log(this.activeTags);
   }
 
   private removeTagFromList = (tag: string): void => {
     this.activeTags = this.activeTags.filter(activeTag => activeTag!== tag);
-    console.log(this.activeTags);
   }
 
   public getActiveTags = (): string[] => {
