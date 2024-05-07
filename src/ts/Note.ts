@@ -75,7 +75,8 @@ class addNote {
         this.noteText, 
         this.noteTitle, 
         this.addNewBackgroundColor, 
-        this.addNewBackgroundPattern
+        this.addNewBackgroundPattern,
+        Tags.getActiveTags()
         );
       this.createNewNote(newNote);
     }
@@ -305,7 +306,8 @@ class addNote {
       text, 
       bgcolor, 
       bgpattern,
-      pinned
+      pinned,
+      tags,
     } = note;
     
     const noteDate: Note = { 
@@ -314,6 +316,7 @@ class addNote {
       bgcolor, 
       bgpattern,
       pinned,
+      tags,
     }
 
     push(notesRef, noteDate);
@@ -342,6 +345,7 @@ class addNote {
       console.log(`Błąd pobierania notatek z bazy danych: ${error}`)
     }
   }
+
   private createNoteFromDatabase = (note: Note): void => {
     const notesList: HTMLElement = document.getElementById( "notes--list" ) as HTMLElement;
     const noteItem = document.createElement("div");
@@ -437,15 +441,16 @@ class NoteClass implements Note {
   bgcolor: string;
   bgpattern: string;
   pinned: boolean;
-  //tags?: string[];
-  constructor( text: string, title: string, bgcolor: string, bgpattern: string
+  tags: string[];
+
+  constructor( text: string, title: string, bgcolor: string, bgpattern: string, tags: string[]
     ) {
     this.title = title;
     this.text = text;
     this.bgcolor = bgcolor;
     this.bgpattern = bgpattern;
     this.pinned = false;
-    //this.tags = [...this.tags];
+    this.tags = [...tags];
   }
 }
 
