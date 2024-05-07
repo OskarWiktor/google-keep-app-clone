@@ -84,6 +84,8 @@ class Tags {
             activeTagIcon.textContent = " close ";
             activeTagIconWrapper.append(activeTagIcon);
 
+            activeTagIconWrapper.addEventListener("click", this.deleteTagOnIconClick)
+
             //ToDo: later for db
             let activeTagObject: Tag = {
               tagID: activeTag.textContent as string,
@@ -97,7 +99,6 @@ class Tags {
             const activeTagWrappers = document.querySelectorAll(".active-tag__wrapper") as NodeListOf<HTMLDivElement>;
             
             // find activeTagWrapper with activeTag that has same text as activeTagText and remove
-            //ToDo: change to remove with activeTagID from activeTagList (after db will be finished)
             activeTagWrappers.forEach(activeTagWrapper => {
                 const activeTag = activeTagWrapper.querySelector(".active-tag") as HTMLParagraphElement;
                 if (activeTag.textContent === activeTagText) {
@@ -109,6 +110,24 @@ class Tags {
       }
     });
   };
+
+  private deleteTagOnIconClick = (event: Event): void => {
+    const target = event.target as HTMLElement;
+    const activeTag = target.parentElement?.parentElement;
+
+      if (activeTag) {
+        activeTag.remove();
+        const activeTagText = activeTag.firstChild?.textContent;
+        const tags = document.querySelectorAll(".tag")
+        
+        tags.forEach(tag => {
+          if (tag.textContent === activeTagText) {
+            if(tag.parentElement?.firstChild)
+              tag.parentElement.firstChild.textContent = " check_box_outline_blank ";
+          }
+        })
+      }
+  }
 }
 
 const tags = new Tags();
