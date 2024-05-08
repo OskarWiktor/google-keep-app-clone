@@ -348,7 +348,10 @@ class addNote {
       console.log(`Błąd pobierania notatek z bazy danych: ${error}`)
     }
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> db2d4e6bfb0783a1706e740ed139a25680d6d707
   private createNoteFromDatabase = (note: Note): void => {
     const notesList: HTMLElement = document.getElementById( "notes--list" ) as HTMLElement;
     const noteItem = document.createElement("div");
